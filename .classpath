@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="releases/GobangServer1.0.1.jar"/>
+	<classpathentry kind="lib" path="releases/GobangServer1.0.2.jar"/>
+	<classpathentry kind="lib" path="releases/GobangServer1.0.3_rc2.jar"/>
+	<classpathentry kind="lib" path="releases/GobangServer1.0.3_rc3.jar"/>
+	<classpathentry kind="lib" path="releases/GobangServer1.0.3_rc4.jar"/>
+	<classpathentry kind="lib" path="releases/GobangServer1.0.3_rc5.jar"/>
+	<classpathentry kind="lib" path="releases/GobangServer1.0.3.jar"/>
+	<classpathentry kind="lib" path="releases/GobangServer1.0.4_模拟赛版本.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="out/production/ReversiServer"/>
+</classpath>

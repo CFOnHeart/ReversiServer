@@ -9,7 +9,7 @@ package cc.cxsj.nju.reversi.chess;
 public class Square {
 	// piece or no piece in this square
 	public boolean empty = true;
-	// 0 id black, 1 is white, -1 is empty
+	// 0 id black, 1 is white, -1 is empty, 2 is prohibition
 	public int color = -1;
 	
 	public Square() {}
@@ -38,6 +38,9 @@ public class Square {
 			case 1:
 				sb.append("W");
 				break;
+			case 2:
+				sb.append("P");
+				break;
 			default:
 				sb.append(" ");
 				break;
@@ -57,6 +60,9 @@ public class Square {
 					break;
 				case 1:
 					sb.append("W");
+					break;
+				case 2:
+					sb.append("P");
 					break;
 				default:
 					return "| |";

@@ -71,4 +71,11 @@ public class Square {
 			return sb.toString();
 		}
 	}
+	
+	/**
+	 * exist chessman black or white
+	 */
+	public boolean existChessman(){
+		return (color == 0 || color == 1);
+	}
 }

@@ -9,14 +9,13 @@ import cc.cxsj.nju.reversi.config.ServerProperties;
 import java.util.IntSummaryStatistics;
 
 public class ChessBoard {
-	
 	private static final Logger LOG = Logger.getLogger(Main.class);
 	private static final int ROWS = Integer.valueOf(ServerProperties.instance().getProperty("chess.board.rows"));
 	private static final int COLS = Integer.valueOf(ServerProperties.instance().getProperty("chess.board.cols"));
 	private static final int INTERVAL = Integer.valueOf(ServerProperties.instance().getProperty("play.interval"));
 	private static String spliter = "--------------------------------------------";
-    private int[] dx = new int[]{0, 1, 1,  1};
-    private int[] dy = new int[]{1, 1, 0, -1};
+    private int[] dx = new int[]{0, 1, 1,  1, 0, -1, -1, -1};
+    private int[] dy = new int[]{1, 1, 0, -1, -1, -1, 0, 1};
 	
 	// the chess board
 	private Square[][] board = new Square[ROWS][COLS];
@@ -48,6 +47,19 @@ public class ChessBoard {
 	 *         code 3 : color error;
 	 *         code 4 : invalid step.
 	 */
+    public int step(int x, int y, int stepNum, int color){
+    	int returnCode = 0;
+    	
+    	if(board[x][y].color == -1 && canLazi(x,y,color)){
+    		board[x][y].color = color;
+    		return 0;
+    	}
+    	
+    	
+    	
+    	return returnCode;
+    }
+    
 	public String step(String step, int stepNum, int color) {
 		// System.out.println("Handle Step " + step + " " + color);
 		// check step or not
@@ -137,11 +149,117 @@ public class ChessBoard {
 	}
 
 	/**
-	 * -1 has not winnner, 0 winner is black, 1 winner is white
+	 * exist an position that can reversi chessman
+	 *  
+	 */
+	public boolean isGameEnd(){
+		boolean gameEnd = true;
+		
+		for(int x = 0; x < ROWS; x ++){
+			for(int y = 0; y < COLS; y ++){
+				if(! (board[x][y].existChessman() || !canLazi(x,y,0) || !canLazi(x,y,1))){
+					return false;
+					
+				}
+			}
+		}
+		
+		return gameEnd;
+	}
+	
+	/**
+	 * can player put chessman on the position (x,y)
+	 * 
+	 */
+	public boolean canLazi(int x, int y, int chessmanColor){
+		boolean lazi = true;
+		
+		//if the position (x,y) is not empty
+		if(board[x][y].color != -1){
+			lazi = false;
+		}
+		//
+		else{
+			//travel all direction of position (x,y) to find the chessman confirm to reversi rules 
+			for(int dir = 0; dir < dx.length; dir ++){
+				int pos_x = x + dx[dir], pos_y = y + dy[dir];
+				int color = chessmanColor;
+				
+				boolean opposite = false;
+				boolean reversi = false;
+				
+				//travel neighbor in direction dir
+				while(inBoard(pos_x, pos_y) && !reversi){
+
+					if(!board[pos_x][pos_y].existChessman()){
+						break;
+					}
+					//if the color of neighbor position is the opposite color of player 
+					if(board[pos_x][pos_y].color == 1-color){
+						opposite = true;
+					}
+					//if the color of neighbor position is the same color of player 
+					//&& there is no opposite color chessman between this position and target position
+					else if(!opposite){
+						break;
+					}
+					//if the color of neighbor position is the same color of player 
+					//&& there is some opposite color chessman between this position and target position
+					else{
+						reversi = true;
+						break;
+					}
+				}
+				
+				//can reversi in an direction 
+				if(reversi){
+					lazi = true;
+					break;
+				}
+			}
+		}
+		
+
+		return lazi;
+	}
+	
+	
+	/**
+	 * -1 has not winnner, 0 winner is black, 1 winner is white, 2 is draw
 	 * 
 	 * @return
 	 */
-	public int isGeneratedWinnner() {
+	public int isGeneratedWinner(){
+		if(isGameEnd()){
+			int blackCount = 0, whiteCount = 0;
+			
+			//count black chessman and white chessman
+			for(int x = 0; x < ROWS; x ++){
+				for(int y = 0; y < COLS; y ++){
+					if(board[x][y].color == 0){
+						blackCount ++;
+					}
+					else if(board[x][y].color == 1){
+						whiteCount ++;
+					}
+				}
+			}
+			
+			if(blackCount > whiteCount){
+				return 0;
+			}
+			else if(blackCount < whiteCount){
+				return 1;
+			}
+			else{
+				return 2;
+			}
+		}
+		return -1;
+	}
+	
+	
+	/*public int isGeneratedWinnner() {
 		int sR = lastStepRow;
         int sC = lastStepCol;
         int nowColor = -1;
@@ -170,7 +288,7 @@ public class ChessBoard {
             return nowColor;
         }
 		return -1;
-	}
+	}*/
 
 	public String toStringToDisplay() {
 		// TODO Auto-generated method stub

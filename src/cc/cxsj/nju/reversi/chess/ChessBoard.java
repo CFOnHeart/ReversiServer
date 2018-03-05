@@ -26,7 +26,15 @@ public class ChessBoard {
 	public void generateEmptyChessBoard() {
 		for (int i = 0; i < ROWS; i++) {
 			for (int j = 0; j < COLS; j++) {
+				if( (i == 3 && j == 3) || (i == 4 && j == 4)){
+					board[i][j].color = 0;
+				}
+				else if( (i == 3 && j == 4) || (i == 4 && j == 3) ){
+					board[i][j].color = 1;
+				}
+				else{
 					this.board[i][j] = new Square(-1);
+				}
             }
         }
         MainFrame.instance().ClearChessBoardUI();
@@ -40,24 +48,19 @@ public class ChessBoard {
 	 * 
 	 * @param step
 	 * @param color 0 is black, 1 is white
-	 * @return returnCode R code P desRow desCol.
-	 * 		   code 0 : sucess;
-	 * 		   code 1 : msg format error;
-	 *         code 2 : coordinate error;
-	 *         code 3 : color error;
-	 *         code 4 : invalid step.
+	 * @return if
+	 * 		   code true : success;
+	 * 		   code false : cannot lazi at position (x, y);
 	 */
-    public int step(int x, int y, int stepNum, int color){
-    	int returnCode = 0;
-    	
+    private boolean step(int x, int y, int color){
     	if(board[x][y].color == -1 && canLazi(x,y,color)){
-    		board[x][y].color = color;
-    		return 0;
+    		lazi(x , y, color);
+    		
+    		return true;
     	}
     	
     	
-    	
-    	return returnCode;
+    	return false;
     }
     
 	public String step(String step, int stepNum, int color) {
@@ -72,16 +75,44 @@ public class ChessBoard {
             case 'P':
             {
                 // put down the piece
-                for (int i = 2; i < 6; i++) {
+            	for (int i = 2; i < 4; i ++){
+                //for (int i = 2; i < 6; i++) {
                     if (step.charAt(i) > '9' || step.charAt(i) < '0')
                         return "R2";
                 }
-                int desRow = Integer.valueOf(step.substring(2, 4)), desCol = Integer.valueOf(step.substring(4, 6));
+            	int desRow = Integer.valueOf(step.substring(2, 3)), desCol = Integer.valueOf(step.substring(3, 4));
+                //int desRow = Integer.valueOf(step.substring(2, 4)), desCol = Integer.valueOf(step.substring(4, 6));
                 if (desRow >= ROWS || desRow < 0) return "R2";
                 if (desCol >= COLS || desCol < 0) return "R2";
                 Square desSquare = this.board[desRow][desCol];
 
-                if (desSquare.empty) {
+                if (step(desRow, desCol, color)){
+                	MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+step.substring(0, 4), stepNum);
+                    MainFrame.instance().updateChessBoardUI(lastStepRow, lastStepCol, desRow, desCol, color);
+                    lastStepRow = desRow;
+                    lastStepCol = desCol;
+                    try {
+                        Thread.sleep(INTERVAL);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return "R0" + step.substring(1, 4) + desSquare.color;
+                }
+                else{
+                	System.out.println("Put Down ERROR");
+                    for (int i=0; i<ROWS; i++) {
+                        for (int j=0; j<COLS; j++) {
+                            if (this.board[i][j].color != -1)
+                                System.out.print(this.board[i][j].color + " ");
+                            else
+                                System.out.print("-" + " ");
+                        }
+                        System.out.println();
+                    }
+                    return "R4";
+                }
+                
+                /*if (desSquare.empty) {
                     // update step result
                     desSquare.empty = false;
                     desSquare.color = color;
@@ -107,9 +138,9 @@ public class ChessBoard {
                         System.out.println();
                     }
                     return "R4";
-                }
+                }*/
             }
-            case 'D':
+            /*case 'D':
             {
                 // put down the piece
                 for (int i = 2; i < 6; i++) {
@@ -139,7 +170,7 @@ public class ChessBoard {
                     System.out.println("Disappear ERROR");
                     return "R4";
                 }
-            }
+            }*/
             case 'N': {   // Nostep
                 return "R0N";
             }
@@ -182,37 +213,9 @@ public class ChessBoard {
 		else{
 			//travel all direction of position (x,y) to find the chessman confirm to reversi rules 
 			for(int dir = 0; dir < dx.length; dir ++){
-				int pos_x = x + dx[dir], pos_y = y + dy[dir];
-				int color = chessmanColor;
-				
-				boolean opposite = false;
-				boolean reversi = false;
-				
-				//travel neighbor in direction dir
-				while(inBoard(pos_x, pos_y) && !reversi){
-
-					if(!board[pos_x][pos_y].existChessman()){
-						break;
-					}
-					//if the color of neighbor position is the opposite color of player 
-					if(board[pos_x][pos_y].color == 1-color){
-						opposite = true;
-					}
-					//if the color of neighbor position is the same color of player 
-					//&& there is no opposite color chessman between this position and target position
-					else if(!opposite){
-						break;
-					}
-					//if the color of neighbor position is the same color of player 
-					//&& there is some opposite color chessman between this position and target position
-					else{
-						reversi = true;
-						break;
-					}
-				}
 				
 				//can reversi in an direction 
-				if(reversi){
+				if(canReversiInDirection(x,y,chessmanColor, dir)){
 					lazi = true;
 					break;
 				}
@@ -223,6 +226,89 @@ public class ChessBoard {
 		return lazi;
 	}
 	
+	/**
+	 * place a chessman on the position (x, y) 
+	 * reversi chessman
+	 */
+	
+	public void lazi(int x, int y, int chessmanColor){
+		
+		//if(!canLazi(x,y, chessmanColor)){
+		//	return false;
+		//}
+		
+		//cancel prohibition
+		for(int i = 0; i < ROWS; i ++){
+			for(int j = 0; j < COLS; j ++){
+				if(board[i][j].color == 2){
+					board[i][j].color = -1;
+				}
+			}
+		}
+		
+		//travel all direction of position (x,y) to find the chessman confirm to reversi rules 
+		for(int dir = 0; dir < dx.length; dir ++){
+			
+			//can reversi in an direction 
+			if(canReversiInDirection(x,y,chessmanColor, dir)){
+				int pos_x = x + dx[dir];
+				int pos_y = y + dy[dir];
+				while(board[pos_x][pos_y].color != chessmanColor){
+					board[pos_x][pos_y].color = chessmanColor;
+					pos_x += dx[dir];
+					pos_y += dy[dir];
+				}
+			}
+		}
+	
+		board[x][y].color = chessmanColor;
+		
+		//prohibition
+		for(int dir = 1; dir < 8; dir += 2){
+			int pos_x = x + dx[dir], pos_y = y + dy[dir];
+			if(inBoard(pos_x, pos_y) && board[pos_x][pos_y].color == -1){
+				board[pos_x][pos_y].color = 2;
+			}
+		}
+		
+	}
+	
+	/**
+	 * 
+	 */
+	private boolean canReversiInDirection(int x, int y, int chessmanColor, int dir){
+		int pos_x = x + dx[dir], pos_y = y + dy[dir];
+		int color = chessmanColor;
+		
+		boolean opposite = false;
+		boolean reversi = false;
+		
+		//travel neighbor in direction dir
+		while(inBoard(pos_x, pos_y) && !reversi){
+
+			if(!board[pos_x][pos_y].existChessman()){
+				break;
+			}
+			//if the color of neighbor position is the opposite color of player 
+			if(board[pos_x][pos_y].color == 1-color){
+				opposite = true;
+			}
+			//if the color of neighbor position is the same color of player 
+			//&& there is no opposite color chessman between this position and target position
+			else if(!opposite){
+				break;
+			}
+			//if the color of neighbor position is the same color of player 
+			//&& there is some opposite color chessman between this position and target position
+			else{
+				reversi = true;
+				break;
+			}
+			pos_x += dx[dir];
+			pos_y += dy[dir];
+		}	
+		return reversi;
+	}
 	
 	/**
 	 * -1 has not winnner, 0 winner is black, 1 winner is white, 2 is draw

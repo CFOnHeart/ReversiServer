@@ -157,7 +157,7 @@ public class TestServiceRunnable implements Runnable{
                     // begin palying chess
                     winner = -1;
                     for ( ; num <= STEPS; num++) {
-                        winner = board.isGeneratedWinnner();
+                        winner = board.isGeneratedWinner();
                         if (winner >= 0) {   // a player won
                             MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
                             break;
@@ -295,7 +295,7 @@ public class TestServiceRunnable implements Runnable{
                             }
                         }
 
-                        winner = board.isGeneratedWinnner();
+                        winner = board.isGeneratedWinner();
                         if (winner >= 0) { // a player won
                             MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
                             break;
@@ -454,7 +454,7 @@ public class TestServiceRunnable implements Runnable{
                     // record result
                     result.stepsNum[round] = num;
                     if (winner == -1)
-                        winner = board.isGeneratedWinnner();
+                        winner = board.isGeneratedWinner();
                     result.scores[black][round] = winner == 0 ? 1 : 0;
                     result.scores[white][round] = winner == 1 ? 1 : 0;
 

@@ -92,7 +92,7 @@ public class DebugServiceRunnable implements Runnable{
 					players[white].send("BW");
 					
 					// begin palying chess
-					for ( ; num <= STEPS && board.isGeneratedWinnner() < 0; num++) {
+					for ( ; num <= STEPS && board.isGeneratedWinner() < 0; num++) {
 						if (num != 1 && (num-1) % DIS_FREQ == 0) {
 						    String blackdisappear = blackMoves.poll();
 						    String disappearedCode = "R0D" + blackdisappear + "0";
@@ -162,7 +162,7 @@ public class DebugServiceRunnable implements Runnable{
 							}
 						}
 
-						if (board.isGeneratedWinnner() >= 0)
+						if (board.isGeneratedWinner() >= 0)
                             break;
 
                         if (num != 1 && (num-1) % DIS_FREQ == 0) {
@@ -248,7 +248,7 @@ public class DebugServiceRunnable implements Runnable{
 					
 					// record result
 					result.stepsNum[round] = num;
-					int winner = board.isGeneratedWinnner();
+					int winner = board.isGeneratedWinner();
 					result.scores[black][round] = winner == 0 ? 1 : 0;
 					result.scores[white][round] = winner == 1 ? 1 : 0;
 					

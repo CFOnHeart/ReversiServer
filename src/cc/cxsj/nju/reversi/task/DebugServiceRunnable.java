@@ -72,22 +72,31 @@ public class DebugServiceRunnable implements Runnable{
 				
 				record.get(round).add("ROUND_START " + round);
 				LOG.info(this.info + " round " + round + " start");
-				MainFrame.instance().log(this.info + " round " + round + " start");
+				MainFrame.instance().log(this.info + " round " + round + " starta");
+				
 				
 				// assign color piece
 				int black = round & 0x1, white = 1 - black;
 				int num = 1;
+				
+				System.out.println("record");
 				record.get(round).add("COLOR BLACK:P" + black + " WHITE:P" + white);
 				
+				System.out.println("flag begin");
 				// generate empty chess board
 				ChessBoard board = new ChessBoard();
+				
+				System.out.println("flag new board");
+				
 				board.generateEmptyChessBoard();
+				
+				System.out.println("flag end ");
 				blackMoves = new LinkedList<String>();
 				whiteMoves = new LinkedList<String>();
 				// record.get(round).add("INITIAL CHESS BOARD\n" + board.toStringToRecord());
 				
 				try {
-					
+					System.out.println("flag 0 BB");
 					players[black].send("BB");
 					players[white].send("BW");
 					

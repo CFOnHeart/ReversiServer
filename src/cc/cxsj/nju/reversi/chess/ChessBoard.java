@@ -27,10 +27,10 @@ public class ChessBoard {
 		for (int i = 0; i < ROWS; i++) {
 			for (int j = 0; j < COLS; j++) {
 				if( (i == 3 && j == 3) || (i == 4 && j == 4)){
-					board[i][j].color = 0;
+					board[i][j] = new Square(0);
 				}
 				else if( (i == 3 && j == 4) || (i == 4 && j == 3) ){
-					board[i][j].color = 1;
+					board[i][j] = new Square(1);
 				}
 				else{
 					this.board[i][j] = new Square(-1);

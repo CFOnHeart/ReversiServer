@@ -84,8 +84,13 @@ public class TestServiceRunnable implements Runnable{
                 record.get(round).add("COLOR BLACK:P" + black + " WHITE:P" + white);
 
                 // generate empty chess board
+                System.out.println("flag new board begin");
                 ChessBoard board = new ChessBoard();
+                
+                System.out.println("flag new board ");
                 board.generateEmptyChessBoard();
+                
+                System.out.println("flag new board end");
                 // record.get(round).add("INITIAL CHESS BOARD\n" + board.toStringToRecord());
                 blackMoves = new LinkedList<String>();
                 whiteMoves = new LinkedList<String>();
@@ -94,9 +99,9 @@ public class TestServiceRunnable implements Runnable{
                 try {
 
                     try {
-                        // System.out.println("players[black].send(BB)");
+                         System.out.println("players[black].send(BB)");
                         players[black].send("BB");
-                        // System.out.println("players[black].send(BB) end");
+                         System.out.println("players[black].send(BB) end");
                     } catch (Exception e) {
                         LOG.error(e);
                         record.get(round).add("SEND_ERROR BLACK");

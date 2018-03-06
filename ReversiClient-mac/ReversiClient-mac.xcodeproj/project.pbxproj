@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED98587D204ECFF600FD2AEA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED98587C204ECFF600FD2AEA /* main.cpp */; };
+		ED98588E204ED01E00FD2AEA /* Gobang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED985883204ED01D00FD2AEA /* Gobang.cpp */; };
+		ED98588F204ED01E00FD2AEA /* ClientSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED985886204ED01D00FD2AEA /* ClientSocket.cpp */; };
+		ED985890204ED01E00FD2AEA /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED98588A204ED01D00FD2AEA /* Board.cpp */; };
+		ED985891204ED01E00FD2AEA /* Square.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED98588B204ED01D00FD2AEA /* Square.cpp */; };
+		ED985892204ED01E00FD2AEA /* Reversi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED98588D204ED01E00FD2AEA /* Reversi.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ED985877204ECFF600FD2AEA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		ED985879204ECFF600FD2AEA /* ReversiClient-mac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ReversiClient-mac"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED98587C204ECFF600FD2AEA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		ED985883204ED01D00FD2AEA /* Gobang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gobang.cpp; sourceTree = "<group>"; };
+		ED985884204ED01D00FD2AEA /* Gobang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gobang.h; sourceTree = "<group>"; };
+		ED985885204ED01D00FD2AEA /* Reversi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reversi.h; sourceTree = "<group>"; };
+		ED985886204ED01D00FD2AEA /* ClientSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientSocket.cpp; sourceTree = "<group>"; };
+		ED985887204ED01D00FD2AEA /* ClientSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientSocket.h; sourceTree = "<group>"; };
+		ED985888204ED01D00FD2AEA /* Square.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Square.h; sourceTree = "<group>"; };
+		ED985889204ED01D00FD2AEA /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		ED98588A204ED01D00FD2AEA /* Board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Board.cpp; sourceTree = "<group>"; };
+		ED98588B204ED01D00FD2AEA /* Square.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Square.cpp; sourceTree = "<group>"; };
+		ED98588C204ED01D00FD2AEA /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		ED98588D204ED01E00FD2AEA /* Reversi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Reversi.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED985876204ECFF600FD2AEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED985870204ECFF600FD2AEA = {
+			isa = PBXGroup;
+			children = (
+				ED98587B204ECFF600FD2AEA /* ReversiClient-mac */,
+				ED98587A204ECFF600FD2AEA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED98587A204ECFF600FD2AEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED985879204ECFF600FD2AEA /* ReversiClient-mac */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED98587B204ECFF600FD2AEA /* ReversiClient-mac */ = {
+			isa = PBXGroup;
+			children = (
+				ED98588A204ED01D00FD2AEA /* Board.cpp */,
+				ED985889204ED01D00FD2AEA /* Board.h */,
+				ED985886204ED01D00FD2AEA /* ClientSocket.cpp */,
+				ED985887204ED01D00FD2AEA /* ClientSocket.h */,
+				ED98588C204ED01D00FD2AEA /* Define.h */,
+				ED985883204ED01D00FD2AEA /* Gobang.cpp */,
+				ED985884204ED01D00FD2AEA /* Gobang.h */,
+				ED98588D204ED01E00FD2AEA /* Reversi.cpp */,
+				ED985885204ED01D00FD2AEA /* Reversi.h */,
+				ED98588B204ED01D00FD2AEA /* Square.cpp */,
+				ED985888204ED01D00FD2AEA /* Square.h */,
+				ED98587C204ECFF600FD2AEA /* main.cpp */,
+			);
+			path = "ReversiClient-mac";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED985878204ECFF600FD2AEA /* ReversiClient-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED985880204ECFF600FD2AEA /* Build configuration list for PBXNativeTarget "ReversiClient-mac" */;
+			buildPhases = (
+				ED985875204ECFF600FD2AEA /* Sources */,
+				ED985876204ECFF600FD2AEA /* Frameworks */,
+				ED985877204ECFF600FD2AEA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ReversiClient-mac";
+			productName = "ReversiClient-mac";
+			productReference = ED985879204ECFF600FD2AEA /* ReversiClient-mac */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED985871204ECFF600FD2AEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = ganjun;
+				TargetAttributes = {
+					ED985878204ECFF600FD2AEA = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = ED985874204ECFF600FD2AEA /* Build configuration list for PBXProject "ReversiClient-mac" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ED985870204ECFF600FD2AEA;
+			productRefGroup = ED98587A204ECFF600FD2AEA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED985878204ECFF600FD2AEA /* ReversiClient-mac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED985875204ECFF600FD2AEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED985892204ED01E00FD2AEA /* Reversi.cpp in Sources */,
+				ED985891204ED01E00FD2AEA /* Square.cpp in Sources */,
+				ED98587D204ECFF600FD2AEA /* main.cpp in Sources */,
+				ED98588E204ED01E00FD2AEA /* Gobang.cpp in Sources */,
+				ED985890204ED01E00FD2AEA /* Board.cpp in Sources */,
+				ED98588F204ED01E00FD2AEA /* ClientSocket.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ED98587E204ECFF600FD2AEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ED98587F204ECFF600FD2AEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ED985881204ECFF600FD2AEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ED985882204ECFF600FD2AEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED985874204ECFF600FD2AEA /* Build configuration list for PBXProject "ReversiClient-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED98587E204ECFF600FD2AEA /* Debug */,
+				ED98587F204ECFF600FD2AEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED985880204ECFF600FD2AEA /* Build configuration list for PBXNativeTarget "ReversiClient-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED985881204ECFF600FD2AEA /* Debug */,
+				ED985882204ECFF600FD2AEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED985871204ECFF600FD2AEA /* Project object */;
+}

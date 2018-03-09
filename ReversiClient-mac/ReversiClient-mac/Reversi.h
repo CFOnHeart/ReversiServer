@@ -8,8 +8,16 @@
 
 #ifndef Reversi_h
 #define Reversi_h
+#include "ClientSocket.h"
+#include "Board.h"
 
 class Reversi{
+private:
+    ClientSocket client_socket;
+    Board board;
+    int ownColor;
+    int oppositeColor;
+    char lastmsg[16];
 public:
     Reversi();
     ~Reversi();
@@ -24,7 +32,7 @@ public:
     
     void oneRound();
     
-    void rundOver(int round);
+    void roundOver(int round);
     
     int observe();
     
@@ -35,6 +43,8 @@ public:
     void step();
     
     void saveChessBoard();
+    
+    void debug_lastmsg();
 };
 
 #endif /* Reversi_h */

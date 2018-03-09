@@ -6,9 +6,10 @@
 //  Copyright © 2018年 ganjun. All rights reserved.
 //
 
-#include "Gobang.h"
+#include "Reversi.h"
 
 int main() {
-    gameStart();
+    Reversi reversi = Reversi();
+    reversi.gameStart();
     return 0;
 }

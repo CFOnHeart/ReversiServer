@@ -17,7 +17,7 @@ void Square::cancelProhibition(){
 	}
 }
 
-//if this square is empty, set prohibtion
+//if this square is empty, set prohibition
 void Square::setProhibition(){
 	if(color == -1){
 		color = 2;

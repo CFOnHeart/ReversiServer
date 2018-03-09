@@ -29,13 +29,6 @@ class Board
 private:
     Square squares[ROWS][COLS];
     
-    //can player put down a chessman on position (x,y)
-    bool canLazi(int x, int y, int color);
-    
-    /*player put down a chessman on position (x,y)
-     can reversi some chessman in direction dir
-     */
-    bool canReversiInDirection(int x, int y, int color, int dir);
 public:
     Board(void);
     ~Board(void);
@@ -67,5 +60,14 @@ public:
      *    in the position (x, y) a distance in direction up, right, down, left
      */
     void setProhibition(int x, int y);
+    
+    //can player put down a chessman on position (x,y)
+    bool canLazi(int x, int y, int color);
+    
+    /*player put down a chessman on position (x,y)
+     can reversi some chessman in direction dir
+     return reversi chessman's count
+     */
+    int countReversiInDirection(int x, int y, int color, int dir);
 };
 #endif /* Board_h */

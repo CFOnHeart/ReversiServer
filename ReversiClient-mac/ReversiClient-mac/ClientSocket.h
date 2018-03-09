@@ -35,7 +35,7 @@ private:
     char sendBuf[BUFSIZE];
     
 public:
-    ClientSocket()    ;
+    ClientSocket();
     ~ClientSocket(void);
     
     //connect to the server

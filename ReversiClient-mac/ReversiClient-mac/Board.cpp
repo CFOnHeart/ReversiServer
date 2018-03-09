@@ -39,7 +39,7 @@ void Board::step(int& row, int& col, int color){
 bool Board::lazi(int x, int y, int color){
     //travel all direction of position (x,y) to find the chessman confirms to reversi rules
     for(int dir = 0; dir < DIR; dir ++){
-        if(canReversiInDirection(x, y , color, dir)){
+        if(countReversiInDirection(x, y , color, dir) > 0){
             //move a distance in the direction dir
             int pos_x = x + dx[dir];
             int pos_y = y + dy[dir];
@@ -73,7 +73,7 @@ bool Board::canLazi(int x, int y, int color){
     bool lazi = false;
     //travel all directions of the position (x, y)
     for(int dir = 0; dir < DIR; dir ++){
-        if(canReversiInDirection(x, y, color, dir)){
+        if(countReversiInDirection(x, y, color, dir) > 0){
             lazi = true;
             break;
         }
@@ -86,7 +86,8 @@ bool Board::canLazi(int x, int y, int color){
 /*player put down a chessman on position (x,y)
  can reversi some chessman in direction dir
  */
-bool Board::canReversiInDirection(int x, int y, int color, int dir){
+int Board::countReversiInDirection(int x, int y, int color, int dir){
+    int ret = 0;
     //the position move 1 distance unit in the direction dir
     int pos_x = x + dx[dir], pos_y = y + dy[dir];
     
@@ -109,6 +110,7 @@ bool Board::canReversiInDirection(int x, int y, int color, int dir){
                 //colors are opposite
             case 1:
                 opposite = true;
+                ret ++;
                 break;
             default:
                 violation = true;
@@ -119,7 +121,7 @@ bool Board::canReversiInDirection(int x, int y, int color, int dir){
         pos_y += dy[dir];
     }
     
-    return reversi;
+    return ret;
 }
 
 /*set prohibition in the board

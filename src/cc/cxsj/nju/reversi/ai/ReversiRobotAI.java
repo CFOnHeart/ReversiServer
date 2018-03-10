@@ -1,28 +1,25 @@
 package cc.cxsj.nju.reversi.ai;
 
+import cc.cxsj.nju.reversi.chess.ChessBoard;
 import cc.cxsj.nju.reversi.chess.Square;
 import cc.cxsj.nju.reversi.config.ServerProperties;
 
-public abstract class RobotAI {
-	
+public abstract class ReversiRobotAI {
+
 	protected static final int ROWS = Integer.valueOf(ServerProperties.instance().getProperty("chess.board.rows"));
 	protected static final int COLS = Integer.valueOf(ServerProperties.instance().getProperty("chess.board.cols"));
 	
-	// game board
-	protected Square[][] board;
+	protected ChessBoard chessboard;
 	protected int ownColor = -1;
 	protected int oppositeColor = -1;
 	protected int round = 0;
 	
 	protected String thisStep;
 	
-	public RobotAI() {           // ç»´æŠ¤æœ¬åœ°æ£‹ç›˜
-		this.board = new Square[ROWS][COLS];
-		for (int r = 0; r < ROWS; r++) {
-			for (int c = 0; c < COLS; c++) {
-				this.board[r][c] = new Square();
-			}
-		}
+	
+	public ReversiRobotAI() {           // Î¬»¤±¾µØÆåÅÌ
+		chessboard = new ChessBoard();
+		chessboard.generateEmptyChessBoard();
 	}
 	
 	protected void putDown(int row, int col) {
@@ -32,7 +29,6 @@ public abstract class RobotAI {
 		thisStep = step;
 	}
 	
-
 	protected void noStep() {
 		thisStep = "SN";
 	}
@@ -41,20 +37,20 @@ public abstract class RobotAI {
 		switch (step.charAt(0)) {
             case 'P':
             {
+            	System.out.println(step);
                 int desRow = Integer.valueOf(step.substring(1, 3)), desCol = Integer.valueOf(step.substring(3, 5));
                 int color = step.charAt(5) - '0';
-                board[desRow][desCol].empty = false;
-                board[desRow][desCol].color = color;
+                chessboard.lazi(desRow, desCol, color);
                 break;
             }
-			case 'D':
+			/*case 'D':
 			{
 				int desRow = Integer.valueOf(step.substring(1, 3)), desCol = Integer.valueOf(step.substring(3, 5));
 				int color = step.charAt(5) - '0';
 				board[desRow][desCol].empty = true;
 				board[desRow][desCol].color = -1;
 				break;
-			}
+			}*/
             case 'N':
                 break;
             default:
@@ -70,19 +66,7 @@ public abstract class RobotAI {
 	
 	protected void roundOver() {
 		this.round++;
-		for (int r = 0; r < ROWS; r++) {
-			for (int c = 0; c < COLS; c++) {
-				if( (r == 3 && c == 3) || (r == 4 && c == 4) ){
-					board[r][c].color = 0;
-				}
-				else if( (r == 3 && c == 4) || (r == 4 && c == 3) ){
-					board[r][c].color = 1;
-				}
-				else{
-					this.board[r][c].reset();
-				}
-			}
-		}
+		chessboard.generateEmptyChessBoard();
 	}
 	
 	protected void gameOver() {
@@ -95,6 +79,7 @@ public abstract class RobotAI {
 	 * @param msg
 	 */
 	public void receiveMsg(String msg) {
+		System.out.println("Robot message: " + msg);
 		switch (msg.charAt(0)) {
             case 'B':
                 // one round begin and the piece color assigned
@@ -139,7 +124,6 @@ public abstract class RobotAI {
                 break;
 		}
 	}
-	
 	/**
 	 * the next step, you must be sure that the lastStep is returned
 	 * 

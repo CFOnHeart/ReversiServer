@@ -6,13 +6,14 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.Arrays;
 
+import cc.cxsj.nju.reversi.ai.ReversiRobotAI;
 import cc.cxsj.nju.reversi.ai.RobotAI;
 import cc.cxsj.nju.reversi.ai.RobotAIModel;
 import cc.cxsj.nju.reversi.ai.RobotAIFactory;
 
 public class RobotPlayerAdapter extends Player{
 	
-	private RobotAI robot;
+	private ReversiRobotAI robot;
 
 	public RobotPlayerAdapter(String id, String name, RobotAIModel model) {
 		super(id, name, name);

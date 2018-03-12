@@ -13,6 +13,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import cc.cxsj.nju.reversi.chess.Square;
 import cc.cxsj.nju.reversi.config.ServerProperties;
 import cc.cxsj.nju.reversi.info.ContestResult;
 import cc.cxsj.nju.reversi.info.ContestResults;
@@ -609,10 +610,19 @@ public class MainFrame extends JFrame {
         Color color = new Color(207, 141, 47);
 	    for (int r = 0; r < ROWS; r++) {
 	        for (int c = 0; c < COLS; c++) {
+				if( (r == 3 && c == 3) || (r == 4 && c == 4)){
+					chessBoard[r][c].setIcon(ReplayStep.icon_b);
+				}
+				else if( (r == 3 && c == 4) || (r == 4 && c == 3) ){
+					chessBoard[r][c].setIcon(ReplayStep.icon_b);
+				}
+				else{
+					chessBoard[r][c].setIcon(null);
+				}
                 chessBoard[r][c].setText("");
                 chessBoard[r][c].setBorder(BorderFactory.createLineBorder(color.darker()));
                 chessBoard[r][c].setBackground(color);
-                chessBoard[r][c].setIcon(null);
+
 	        }
         }
     }

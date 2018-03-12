@@ -1,9 +1,14 @@
 #pragma once
 
 #include "Define.h"
+#include <windows.h>
+#include <iostream>
 
+#include <string>
 
 #define BUFSIZE	16			
+
+
 
 class ClientSocket
 {

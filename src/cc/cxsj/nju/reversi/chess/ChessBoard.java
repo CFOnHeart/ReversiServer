@@ -28,9 +28,12 @@ public class ChessBoard {
 			for (int j = 0; j < COLS; j++) {
 				if( (i == 3 && j == 3) || (i == 4 && j == 4)){
 					board[i][j] = new Square(0);
+					//MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+step.substring(0, 4), stepNum);
+                    MainFrame.instance().updateChessBoardUI(lastStepRow, lastStepCol, i, j, 0);
 				}
 				else if( (i == 3 && j == 4) || (i == 4 && j == 3) ){
 					board[i][j] = new Square(1);
+					MainFrame.instance().updateChessBoardUI(lastStepRow, lastStepCol, i, j, 1);
 				}
 				else{
 					this.board[i][j] = new Square(-1);
@@ -75,20 +78,33 @@ public class ChessBoard {
             case 'P':
             {
                 // put down the piece
-            	for (int i = 2; i < 4; i ++){
-                //for (int i = 2; i < 6; i++) {
+            	//for (int i = 2; i < 4; i ++){
+                for (int i = 2; i < 6; i++) {
                     if (step.charAt(i) > '9' || step.charAt(i) < '0')
                         return "R2";
                 }
-            	int desRow = Integer.valueOf(step.substring(2, 3)), desCol = Integer.valueOf(step.substring(3, 4));
-                //int desRow = Integer.valueOf(step.substring(2, 4)), desCol = Integer.valueOf(step.substring(4, 6));
+            	//int desRow = Integer.valueOf(step.substring(2, 3)), desCol = Integer.valueOf(step.substring(3, 4));
+                int desRow = Integer.valueOf(step.substring(2, 4)), desCol = Integer.valueOf(step.substring(4, 6));
                 if (desRow >= ROWS || desRow < 0) return "R2";
                 if (desCol >= COLS || desCol < 0) return "R2";
                 Square desSquare = this.board[desRow][desCol];
 
+                System.out.println("desRow = " + desRow + ". desCol = " + desCol + ". color = " + color);
                 if (step(desRow, desCol, color)){
-                	MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+step.substring(0, 4), stepNum);
+                	MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+step.substring(0, 6), stepNum);
                     MainFrame.instance().updateChessBoardUI(lastStepRow, lastStepCol, desRow, desCol, color);
+                    
+                    //used for test
+                    for (int i=0; i<ROWS; i++) {
+                        for (int j=0; j<COLS; j++) {
+                            if (this.board[i][j].color != -1)
+                                System.out.print(this.board[i][j].color + " ");
+                            else
+                                System.out.print("-" + " ");
+                        }
+                        System.out.println();
+                    }
+                    
                     lastStepRow = desRow;
                     lastStepCol = desCol;
                     try {
@@ -96,7 +112,7 @@ public class ChessBoard {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    return "R0" + step.substring(1, 4) + desSquare.color;
+                    return "R0" + step.substring(1, 6) + desSquare.color;
                 }
                 else{
                 	System.out.println("Put Down ERROR");
@@ -188,9 +204,14 @@ public class ChessBoard {
 		
 		for(int x = 0; x < ROWS; x ++){
 			for(int y = 0; y < COLS; y ++){
+<<<<<<< HEAD
 				// ganjun need to debug
 				// 这个位置不存在棋子，且白棋可落子或者黑气可落子(但是这里落子考虑了当前回合的禁手，之后应该需要改为无禁手位置可落子)
 				if(!board[x][y].existChessman()  && (canLazi(x,y,0) || canLazi(x,y,1))){
+=======
+				if( (board[x][y].color == -1 && (canLazi(x,y,0) || canLazi(x,y,1))) ){
+				//if(! (board[x][y].existChessman() || !canLazi(x,y,0) || !canLazi(x,y,1))){
+>>>>>>> cxc
 					return false;
 					
 				}
@@ -205,7 +226,7 @@ public class ChessBoard {
 	 * 
 	 */
 	public boolean canLazi(int x, int y, int chessmanColor){
-		boolean lazi = true;
+		boolean lazi = false;
 		
 		//if the position (x,y) is not empty
 		if(board[x][y].color != -1){
@@ -218,6 +239,7 @@ public class ChessBoard {
 				
 				//can reversi in an direction 
 				if(canReversiInDirection(x,y,chessmanColor, dir)){
+					//System.out.println("dir��" + dir);
 					lazi = true;
 					break;
 				}
@@ -266,7 +288,7 @@ public class ChessBoard {
 		board[x][y].color = chessmanColor;
 		
 		//prohibition
-		for(int dir = 1; dir < 8; dir += 2){
+		for(int dir = 0; dir < 8; dir += 2){
 			int pos_x = x + dx[dir], pos_y = y + dy[dir];
 			if(inBoard(pos_x, pos_y) && board[pos_x][pos_y].color == -1){
 				board[pos_x][pos_y].color = 2;
@@ -391,5 +413,9 @@ public class ChessBoard {
 		}
 		sb.append(spliter);
 		return sb.toString();
+	}
+	
+	public Square[][] getSquares(){
+		return this.board;
 	}
 }

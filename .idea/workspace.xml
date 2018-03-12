@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bba32a84-2494-4518-9a50-3e8d78915d06" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/logs/create-service.log" afterPath="$PROJECT_DIR$/logs/create-service.log" />
+      <change beforePath="$PROJECT_DIR$/logs/main.log" afterPath="$PROJECT_DIR$/logs/main.log" />
+      <change beforePath="$PROJECT_DIR$/logs/test-service.log" afterPath="$PROJECT_DIR$/logs/test-service.log" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/Main.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAI.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIFactory.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIFactory.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIModel.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIModel.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotI.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotII.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotII.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotO.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotO.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/ChessBoard.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/ChessBoard.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/Square.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/Square.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/communication/ClientConnectMonitor.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/communication/ClientConnectMonitor.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/config/ServerProperties.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/config/ServerProperties.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResult.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResult.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults$1.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Player.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Player.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$1.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$2.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RecordResolver.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RecordResolver.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ReplayStep.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ReplayStep.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RobotPlayerAdapter.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RobotPlayerAdapter.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/ContestServiceRunnable.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/ContestServiceRunnable.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/CreateServiceRunnable.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/CreateServiceRunnable.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/DebugServiceRunnable.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/DebugServiceRunnable.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/TestServiceRunnable.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/TestServiceRunnable.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$1.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$10.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$10.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$11.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$11.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$12.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$12.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$13.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$13.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$14.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$14.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$15.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$15.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$16.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$16.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$17.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$17.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$18.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$18.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$19.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$19.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$2.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$3.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$4.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$5.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$5.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$6.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$6.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$7.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$7.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$8.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$8.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$9.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$9.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$PopupListener.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$PopupListener.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole$1.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole.class" />
+      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-0.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-0.record" />
+      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-1.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-1.record" />
+      <change beforePath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-0.result" afterPath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-0.result" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="players-0.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/players/players-0.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateServiceRunnable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/CreateServiceRunnable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="382" column="51" lean-forward="false" selection-start-line="382" selection-start-column="51" selection-end-line="382" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestServiceRunnable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3270">
+              <caret line="215" column="38" lean-forward="false" selection-start-line="215" selection-start-column="28" selection-end-line="215" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReversiRobotAITravel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAITravel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="31" column="74" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReversiRobotAI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/info/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="64" column="16" lean-forward="false" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="308" column="13" lean-forward="true" selection-start-line="308" selection-start-column="13" selection-end-line="308" selection-end-column="13" />
+              <folding>
+                <element signature="method#generateEmptyChessBoard#0;class#ChessBoard#0" expanded="false" />
+                <element signature="e#1780#1781#0" expanded="true" />
+                <element signature="e#1852#1853#0" expanded="true" />
+                <element signature="docComment;method#step#0;class#ChessBoard#0" expanded="false" />
+                <element signature="method#step#1;class#ChessBoard#0" expanded="false" />
+                <element signature="method#isGameEnd#0;class#ChessBoard#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Square.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/Square.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+              <folding>
+                <element signature="e#1329#1330#0" expanded="true" />
+                <element signature="e#1369#1370#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ui/MainFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="616" column="62" lean-forward="false" selection-start-line="616" selection-start-column="62" selection-end-line="616" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JLabel.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/javax/swing/JLabel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="16320">
+              <caret line="890" column="19" lean-forward="false" selection-start-line="890" selection-start-column="19" selection-end-line="890" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>chessBoard</find>
+      <find>setIcon</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/CreateServiceRunnable.java" />
+        <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java" />
+        <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java" />
+        <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAI.java" />
+        <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ui/MainFrame.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="873" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="players" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reversi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="ai" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="chess" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="communication" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="Icons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="task" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="cc.cxsj.nju.reversi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="cc.cxsj.nju.reversi.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ReversiServer" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bba32a84-2494-4518-9a50-3e8d78915d06" name="Default" comment="" />
+      <created>1520597588546</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1520597588546</updated>
+      <workItem from="1520597592840" duration="6634000" />
+      <workItem from="1520851191509" duration="4692000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11326000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23521851" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20028612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/players/players-0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5960">
+          <caret line="298" column="54" lean-forward="false" selection-start-line="298" selection-start-column="54" selection-end-line="298" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/info/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="64" column="16" lean-forward="false" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="65" column="18" lean-forward="false" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+          <folding>
+            <element signature="method#generateEmptyChessBoard#0;class#ChessBoard#0" expanded="false" />
+            <element signature="e#1780#1781#0" expanded="true" />
+            <element signature="e#1852#1853#0" expanded="true" />
+            <element signature="docComment;method#step#0;class#ChessBoard#0" expanded="false" />
+            <element signature="method#step#1;class#ChessBoard#0" expanded="false" />
+            <element signature="method#isGameEnd#0;class#ChessBoard#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding>
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11820">
+          <caret line="619" column="58" lean-forward="false" selection-start-line="619" selection-start-column="58" selection-end-line="619" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/javax/swing/JLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17800">
+          <caret line="890" column="19" lean-forward="false" selection-start-line="890" selection-start-column="19" selection-end-line="890" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="1962" column="0" lean-forward="false" selection-start-line="1962" selection-start-column="0" selection-end-line="1962" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/javax/swing/JLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16320">
+          <caret line="890" column="19" lean-forward="false" selection-start-line="890" selection-start-column="19" selection-end-line="890" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/info/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="64" column="16" lean-forward="false" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="180" column="12" lean-forward="false" selection-start-line="180" selection-start-column="12" selection-end-line="180" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/players/players-0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding>
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3270">
+          <caret line="215" column="38" lean-forward="false" selection-start-line="215" selection-start-column="28" selection-end-line="215" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/CreateServiceRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="382" column="51" lean-forward="false" selection-start-line="382" selection-start-column="51" selection-end-line="382" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="616" column="62" lean-forward="false" selection-start-line="616" selection-start-column="62" selection-end-line="616" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAITravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="31" column="74" lean-forward="false" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="308" column="13" lean-forward="true" selection-start-line="308" selection-start-column="13" selection-end-line="308" selection-end-column="13" />
+          <folding>
+            <element signature="method#generateEmptyChessBoard#0;class#ChessBoard#0" expanded="false" />
+            <element signature="e#1780#1781#0" expanded="true" />
+            <element signature="e#1852#1853#0" expanded="true" />
+            <element signature="docComment;method#step#0;class#ChessBoard#0" expanded="false" />
+            <element signature="method#step#1;class#ChessBoard#0" expanded="false" />
+            <element signature="method#isGameEnd#0;class#ChessBoard#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

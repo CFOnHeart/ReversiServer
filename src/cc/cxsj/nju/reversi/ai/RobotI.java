@@ -26,8 +26,9 @@ public class RobotI extends RobotAI{
         Random rand = new Random(System.currentTimeMillis());
         int r = -1, c = -1;
 		while (!(r >= 0 && r < ROWS && c >= 0 && c < COLS && board[r][c].empty)) {
-			r = rand.nextInt(15);
-			c = rand.nextInt(15);
+			
+			r = rand.nextInt(ROWS);
+			c = rand.nextInt(COLS);
 			// System.out.println("Rand " + r + " " + c);
 		}
 		putDown(r, c);

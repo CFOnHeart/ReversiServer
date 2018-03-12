@@ -72,7 +72,15 @@ public abstract class RobotAI {
 		this.round++;
 		for (int r = 0; r < ROWS; r++) {
 			for (int c = 0; c < COLS; c++) {
-				this.board[r][c].reset();
+				if( (r == 3 && c == 3) || (r == 4 && c == 4) ){
+					board[r][c].color = 0;
+				}
+				else if( (r == 3 && c == 4) || (r == 4 && c == 3) ){
+					board[r][c].color = 1;
+				}
+				else{
+					this.board[r][c].reset();
+				}
 			}
 		}
 	}

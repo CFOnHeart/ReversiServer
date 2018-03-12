@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
 encoding//players/players-0.txt=UTF-8
+encoding//src/cc/cxsj/nju/reversi/Main.java=UTF-8
+encoding//src/cc/cxsj/nju/reversi/ai/RobotAI.java=UTF-8
+encoding//src/cc/cxsj/nju/reversi/ai/RobotO.java=UTF-8

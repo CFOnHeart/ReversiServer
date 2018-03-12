@@ -1,11 +1,10 @@
 #include "Square.h"
 
 
-Square::Square(int color = -1)
+Square::Square(int color)
 {
 	this->color = color;
 }
-
 
 Square::~Square(void)
 {
@@ -18,7 +17,7 @@ void Square::cancelProhibition(){
 	}
 }
 
-//if this square is empty, set prohibtion
+//if this square is empty, set prohibition
 void Square::setProhibition(){
 	if(color == -1){
 		color = 2;
@@ -58,4 +57,26 @@ int Square::compareColor(int color){
 		}
 	}
 	return -1;
+}
+
+
+void Square::print(std::string& str){
+	switch(color){
+	case -1:
+		str += '-';
+		break;
+	case 0:
+		str += 'B';
+		break;
+	case 1:
+		str += 'W';
+		break;
+	case 2:
+		str += 'P';
+		break;
+	default:
+		str += '-';
+		break;
+		
+	}
 }

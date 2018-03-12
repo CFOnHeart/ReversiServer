@@ -155,6 +155,7 @@ public class TestServiceRunnable implements Runnable{
                         return;
                     }
 
+                    System.out.println("step begin");
                     // begin palying chess
                     winner = -1;
                     for ( ; num <= STEPS; num++) {
@@ -163,6 +164,10 @@ public class TestServiceRunnable implements Runnable{
                             MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
                             break;
                         }
+<<<<<<< HEAD
+=======
+                        System.out.println("NUM = " + num);
+>>>>>>> cxc
 
                         long stepstart = System.nanoTime();
                         // receive black player step
@@ -204,6 +209,7 @@ public class TestServiceRunnable implements Runnable{
                         // test and verify the black step
                         System.out.println("debug: recvBuffer: " + recvBuffer);
                         String blackStep = new String(recvBuffer);
+                        System.out.println("248 board.step");
                         String blackReturnCode = board.step(blackStep, num,0);
                         // System.out.println("BLACK STEP: " + blackStep);
                         if (!blackStep.substring(0, 2).equals("SN")) {
@@ -213,7 +219,9 @@ public class TestServiceRunnable implements Runnable{
                         if (blackReturnCode.charAt(1) == '0') {
                             // valid step
                             record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
+                            System.out.println("258 board.toStringToDisplay");
                             record.get(round).add(board.toStringToDisplay());
+                            System.out.println("260 board.toStringToDisplay over");
                             try {
                                 players[black].send(blackReturnCode);
                             } catch (Exception e) {
@@ -260,14 +268,14 @@ public class TestServiceRunnable implements Runnable{
                                 break;
                             }
                         }
-
+                        System.out.println("307 baord.isGeneratedWinner()");
                         winner = board.isGeneratedWinner();
                         if (winner >= 0) { // a player won
                             MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
                             break;
                         }
 
-                        if (num != 1 && (num-1) % DIS_FREQ == 0) {
+                        /*if (num != 1 && (num-1) % DIS_FREQ == 0) {
                             if (whiteMoves.isEmpty()) {
                                 winner = 0;
                                 MainFrame.instance().log("Not Enough White pieces, Black Win");
@@ -301,8 +309,9 @@ public class TestServiceRunnable implements Runnable{
                                 result.winner = white;
                                 return;
                             }
+                            System.out.println("348 board.step");
                             board.step("SD" + whitedisappear, num,1);
-                        }
+                        }*/
 
                         stepstart = System.nanoTime();
                         // receive white step
@@ -345,6 +354,7 @@ public class TestServiceRunnable implements Runnable{
                         result.timecost[white][round] += System.nanoTime() - stepstart;
                         // test and verify the white step
                         String whiteStep = new String(recvBuffer);
+                        System.out.println("393 board.step");
                         String whiteReturnCode = board.step(whiteStep, num,1);
                         // System.out.println("WHITE STEP: " + whiteStep);
                         if (!whiteStep.substring(0, 2).equals("SN"))

@@ -1,12 +1,6 @@
 #ifndef DEFINE_H
 #define DEFINE_H
 
-#include <iostream>
-#include <windows.h>
-#include <stdio.h>
-#include <string>
-
-
 
 #define ID			"111111110"		//your id
 #define PASSWORD	"123456"		//your password

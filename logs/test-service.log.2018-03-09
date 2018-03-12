@@ -1,0 +1,28 @@
+2018-03-09 23:32:26  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
+2018-03-09 23:32:26  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
+2018-03-09 23:32:26 ERROR TestServiceRunnable:268 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
+2018-03-09 23:32:26  INFO TestServiceRunnable:456 - 111111110vsRobotOmega-test-0 round 0 end
+2018-03-09 23:32:26  INFO TestServiceRunnable:483 - 111111110vsRobotOmega-test-0 game over
+2018-03-09 23:32:26  INFO TestServiceRunnable:490 - 111111110vsRobotOmega-test-0 result save done!
+2018-03-09 23:32:26  INFO TestServiceRunnable:495 - 111111110vsRobotOmega-test-0 record save done!
+2018-03-09 23:35:19  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-1 begin!
+2018-03-09 23:35:19  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-1 round 0 start
+2018-03-09 23:35:19 ERROR TestServiceRunnable:268 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
+2018-03-09 23:35:19  INFO TestServiceRunnable:456 - 111111110vsRobotOmega-test-1 round 0 end
+2018-03-09 23:35:19  INFO TestServiceRunnable:483 - 111111110vsRobotOmega-test-1 game over
+2018-03-09 23:35:19  INFO TestServiceRunnable:490 - 111111110vsRobotOmega-test-1 result save done!
+2018-03-09 23:35:19  INFO TestServiceRunnable:495 - 111111110vsRobotOmega-test-1 record save done!
+2018-03-09 23:39:32  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
+2018-03-09 23:39:32  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
+2018-03-09 23:39:32 ERROR TestServiceRunnable:268 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
+2018-03-09 23:39:32  INFO TestServiceRunnable:456 - 111111110vsRobotOmega-test-0 round 0 end
+2018-03-09 23:39:32  INFO TestServiceRunnable:483 - 111111110vsRobotOmega-test-0 game over
+2018-03-09 23:39:32  INFO TestServiceRunnable:490 - 111111110vsRobotOmega-test-0 result save done!
+2018-03-09 23:39:32  INFO TestServiceRunnable:495 - 111111110vsRobotOmega-test-0 record save done!
+2018-03-09 23:54:17  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
+2018-03-09 23:54:17  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
+2018-03-09 23:54:17 ERROR TestServiceRunnable:273 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
+2018-03-09 23:54:17  INFO TestServiceRunnable:463 - 111111110vsRobotOmega-test-0 round 0 end
+2018-03-09 23:54:17  INFO TestServiceRunnable:490 - 111111110vsRobotOmega-test-0 game over
+2018-03-09 23:54:17  INFO TestServiceRunnable:497 - 111111110vsRobotOmega-test-0 result save done!
+2018-03-09 23:54:17  INFO TestServiceRunnable:502 - 111111110vsRobotOmega-test-0 record save done!

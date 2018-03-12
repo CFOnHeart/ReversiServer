@@ -37,6 +37,19 @@ void Board::step(int& row, int& col, int color){
 }
 
 bool Board::lazi(int x, int y, int color){
+    
+    std::string str;
+    //cancel prohibion
+    for(int i = 0; i < ROWS; i ++){
+        for(int j = 0; j < COLS; j ++){
+            squares[i][j].cancelProhibition();
+            squares[i][j].print(str);
+        }
+        str += "\r\n";
+    }
+    
+    printf("%s\r\n", str.c_str());
+    
     //travel all direction of position (x,y) to find the chessman confirms to reversi rules
     for(int dir = 0; dir < DIR; dir ++){
         if(countReversiInDirection(x, y , color, dir) > 0){
@@ -45,13 +58,21 @@ bool Board::lazi(int x, int y, int color){
             int pos_y = y + dy[dir];
             
             //if the color is opposite to the chessman in the position(pos_x, pos_y)
-            while( squares[pos_x][pos_y].compareColor(color)){
-                squares[pos_x][pos_y].lazi(color);
+            while(inBoard(pos_x,pos_y) &&  squares[pos_x][pos_y].compareColor(color)){
+                squares[pos_x][pos_y].reversi();
                 pos_x += dx[dir];
                 pos_y += dy[dir];
             }
             
         }
+    }
+    
+    //set prohibition
+    for(int dir = 0; dir < DIR; dir ++){
+        int pos_x = x + dx[dir];
+        int pos_y = y + dy[dir];
+        squares[pos_x][pos_y].setProhibition();
+        
     }
     
     return squares[x][y].lazi(color);
@@ -66,7 +87,7 @@ void Board::updateColor(int x, int y, int color)
 //can player put down a chessman on position (x,y)
 bool Board::canLazi(int x, int y, int color){
     //this square is not empty
-    if(!squares[x][y].isEmpty()){
+    if(!squares[x][y].isEmpty() ){
         return false;
     }
     
@@ -113,6 +134,7 @@ int Board::countReversiInDirection(int x, int y, int color, int dir){
                 ret ++;
                 break;
             default:
+                ret = 0;
                 violation = true;
                 break;
         }
@@ -120,7 +142,9 @@ int Board::countReversiInDirection(int x, int y, int color, int dir){
         pos_x += dx[dir];
         pos_y += dy[dir];
     }
-    
+    if(violation || !reversi){
+        ret = 0;
+    }
     return ret;
 }
 
@@ -153,15 +177,28 @@ void Board::resetBoard(){
         for(int y = 0; y < COLS; y ++){
             //put black chessman on the position (3,3) (4,4)
             if( (x == 3 && y == 3) || (x == 4 && y == 4) ){
-                squares[x][y].lazi(0);
+                squares[x][y].setColor(0);
             }
             //put white chessman on the position (3,4) (4,3)
             else if( (x == 3 && y == 4) || (x == 4 && y == 3) ){
-                squares[x][y].lazi(1);
+                squares[x][y].setColor(1);
             }
             else{
                 squares[x][y].clear();
             }
         }
     }
+}
+
+
+//exist a position that a chessman can lazi
+bool Board::existLazi(int color){
+    for(int i = 0; i < ROWS; i ++){
+        for(int j = 0; j < COLS; j ++){
+            if(canLazi(i,j,color)){
+                return true;
+            }
+        }
+    }
+    return false;
 }

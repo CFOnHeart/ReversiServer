@@ -1,5 +1,7 @@
+#ifndef Square_h
+#define Square_h
 #pragma once
-
+#include <string>
 /* a square in the board
 *	in the position (x, y)
 *	color = -1: empty
@@ -49,6 +51,10 @@ public:
 	inline bool isEmpty(){
 		return (color == -1);
 	}
+	//is this square prohibited
+	inline bool isProhibition(){
+		return (color == 2);
+	}
 
 	//get the position x;
 	inline int getX(){
@@ -58,5 +64,12 @@ public:
 	inline int getY(){
 		return this->y;
 	}
+    // set the color
+    inline void setColor(int color){
+        this->color = color;
+    }
+
+	void print(std::string& str);
 };
 
+#endif

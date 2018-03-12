@@ -1,5 +1,6 @@
 #include "ClientSocket.h"
 
+#pragma comment(lib, "Ws2_32.lib")
 
 
 ClientSocket::ClientSocket()

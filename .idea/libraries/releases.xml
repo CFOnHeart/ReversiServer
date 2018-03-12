@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="releases">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/releases/GobangServer1.0.3_rc5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/releases/GobangServer1.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/releases/GobangServer1.0.3_rc3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/releases/GobangServer1.0.4_模拟赛版本.jar!/" />
+      <root url="jar://$PROJECT_DIR$/releases/GobangServer1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/releases/GobangServer1.0.3_rc2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/releases/GobangServer1.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/releases/GobangServer1.0.3_rc4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

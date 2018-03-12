@@ -275,44 +275,6 @@ public class TestServiceRunnable implements Runnable{
                             break;
                         }
 
-                        /*if (num != 1 && (num-1) % DIS_FREQ == 0) {
-                            if (whiteMoves.isEmpty()) {
-                                winner = 0;
-                                MainFrame.instance().log("Not Enough White pieces, Black Win");
-                                record.get(round).add("WHITE NOT ENOUGH");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                break;
-                            }
-                            String whitedisappear = whiteMoves.poll();
-                            System.out.println("WHITE_DIS: " + whitedisappear);
-                            String disappearedCode = "R0D" + whitedisappear + "1";
-                            try {
-                                // System.out.println("WHITE SEND " + disappearedCode);
-                                players[white].send(disappearedCode);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            try {
-                                // System.out.println("BLACK SEND " + disappearedCode);
-                                players[black].send(disappearedCode);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                            System.out.println("348 board.step");
-                            board.step("SD" + whitedisappear, num,1);
-                        }*/
-
                         stepstart = System.nanoTime();
                         // receive white step
                         try {

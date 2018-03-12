@@ -1,44 +1,32 @@
-2018-03-05 19:57:16  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-03-05 19:57:16  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-03-05 19:57:16  INFO CreateServiceRunnable:325 - Start test mode!
-2018-03-05 20:05:31  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:05:31  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:17:37  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:17:37  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:18:36  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:18:36  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:28:38  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-03-05 20:28:38  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-03-05 20:28:38  INFO CreateServiceRunnable:325 - Start test mode!
-2018-03-05 20:29:00  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:29:00  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:30:26  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-03-05 20:30:26  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-03-05 20:30:26  INFO CreateServiceRunnable:325 - Start test mode!
-2018-03-05 20:30:52  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:30:52  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:32:10  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-03-05 20:32:10  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-03-05 20:32:10  INFO CreateServiceRunnable:325 - Start test mode!
-2018-03-05 20:32:31  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:32:31  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:34:26  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-03-05 20:34:26  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-03-05 20:34:26  INFO CreateServiceRunnable:325 - Start test mode!
-2018-03-05 20:35:44  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:35:44  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:37:57  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-03-05 20:37:57  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-03-05 20:37:57  INFO CreateServiceRunnable:325 - Start test mode!
-2018-03-05 20:38:04  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:38:04  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:40:42  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-03-05 20:40:42  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-03-05 20:40:42  INFO CreateServiceRunnable:325 - Start test mode!
-2018-03-05 20:40:51  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:40:51  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
-2018-03-05 20:42:46  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-03-05 20:42:46  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-03-05 20:42:46  INFO CreateServiceRunnable:325 - Start test mode!
-2018-03-05 20:42:52  INFO CreateServiceRunnable:386 - Accepted 111111110
-2018-03-05 20:42:52  INFO CreateServiceRunnable:400 - Welcome 111111110,aaa
+2018-03-09 20:13:34  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-03-09 20:13:34  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-03-09 20:13:34  INFO CreateServiceRunnable:325 - Start test mode!
+2018-03-09 20:17:21  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-03-09 20:17:21  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-03-09 20:17:21  INFO CreateServiceRunnable:325 - Start test mode!
+2018-03-09 20:17:41  INFO CreateServiceRunnable:387 - Accepted 111111110
+2018-03-09 20:17:41  INFO CreateServiceRunnable:401 - Welcome 111111110,aaa
+2018-03-09 20:33:16  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-03-09 20:33:16  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-03-09 20:33:16  INFO CreateServiceRunnable:325 - Start test mode!
+2018-03-09 20:39:00  INFO CreateServiceRunnable:387 - Accepted 111111110
+2018-03-09 20:39:00  INFO CreateServiceRunnable:401 - Welcome 111111110,aaa
+2018-03-09 20:48:46  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-03-09 20:48:46  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-03-09 20:48:46  INFO CreateServiceRunnable:325 - Start test mode!
+2018-03-09 20:49:24  INFO CreateServiceRunnable:387 - Accepted 111111111
+2018-03-09 20:49:24  INFO CreateServiceRunnable:425 - Not in Player List111111111
+2018-03-09 20:49:53  INFO CreateServiceRunnable:387 - Accepted 111111110
+2018-03-09 20:49:53  INFO CreateServiceRunnable:401 - Welcome 111111110,aaa
+2018-03-09 22:17:38  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-03-09 22:17:38  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-03-09 22:17:38  INFO CreateServiceRunnable:325 - Start test mode!
+2018-03-09 22:17:43  INFO CreateServiceRunnable:387 - Accepted 111111111
+2018-03-09 22:17:43  INFO CreateServiceRunnable:425 - Not in Player List111111111
+2018-03-09 22:17:58  INFO CreateServiceRunnable:387 - Accepted 111111110
+2018-03-09 22:17:58  INFO CreateServiceRunnable:401 - Welcome 111111110,aaa
+2018-03-09 22:34:08  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-03-09 22:34:08  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-03-09 22:34:08  INFO CreateServiceRunnable:325 - Start test mode!
+2018-03-09 22:34:15  INFO CreateServiceRunnable:387 - Accepted 111111110
+2018-03-09 22:34:15  INFO CreateServiceRunnable:401 - Welcome 111111110,aaa

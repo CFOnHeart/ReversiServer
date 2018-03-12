@@ -380,6 +380,7 @@ public class CreateServiceRunnable extends Thread {
 
 						String msg = new String(buffer);
 						Arrays.fill(buffer, (byte) 0);  // clear buffer
+						System.out.println("ganjun debug receive msg: " + msg);
 						if (msg.charAt(0) == 'A') {
 							String id = msg.substring(1, 10);
 							String password = msg.substring(10, 16);

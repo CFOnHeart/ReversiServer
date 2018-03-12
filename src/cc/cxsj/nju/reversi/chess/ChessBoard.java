@@ -239,7 +239,7 @@ public class ChessBoard {
 				
 				//can reversi in an direction 
 				if(canReversiInDirection(x,y,chessmanColor, dir)){
-					//System.out.println("dir£º" + dir);
+					//System.out.println("dirï¿½ï¿½" + dir);
 					lazi = true;
 					break;
 				}

@@ -2,60 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bba32a84-2494-4518-9a50-3e8d78915d06" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/logs/create-service.log" afterPath="$PROJECT_DIR$/logs/create-service.log" />
-      <change beforePath="$PROJECT_DIR$/logs/main.log" afterPath="$PROJECT_DIR$/logs/main.log" />
-      <change beforePath="$PROJECT_DIR$/logs/test-service.log" afterPath="$PROJECT_DIR$/logs/test-service.log" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/Main.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/Main.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAI.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAI.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIFactory.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIFactory.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIModel.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIModel.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotI.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotI.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotII.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotII.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotO.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotO.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/ChessBoard.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/ChessBoard.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/Square.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/Square.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/communication/ClientConnectMonitor.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/communication/ClientConnectMonitor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/config/ServerProperties.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/config/ServerProperties.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResult.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResult.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults$1.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Player.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Player.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$1.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$2.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RecordResolver.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RecordResolver.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ReplayStep.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ReplayStep.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RobotPlayerAdapter.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RobotPlayerAdapter.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/ContestServiceRunnable.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/ContestServiceRunnable.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/CreateServiceRunnable.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/CreateServiceRunnable.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/DebugServiceRunnable.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/DebugServiceRunnable.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/TestServiceRunnable.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/TestServiceRunnable.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$1.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$10.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$10.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$11.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$11.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$12.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$12.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$13.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$13.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$14.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$14.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$15.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$15.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$16.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$16.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$17.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$17.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$18.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$18.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$19.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$19.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$2.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$3.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$4.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$4.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$5.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$5.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$6.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$6.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$7.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$7.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$8.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$8.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$9.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$9.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$PopupListener.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$PopupListener.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole$1.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole.class" afterPath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole.class" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-0.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-0.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-1.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-1.record" />
-      <change beforePath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-0.result" afterPath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-0.result" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/Main.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/ReversiRobotAI.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/ReversiRobotAITravel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAI.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIFactory$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIFactory.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotAIModel.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotI.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotII.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ai/RobotO.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/ChessBoard.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/chess/Square.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/communication/ClientConnectMonitor.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/config/ServerProperties.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResult.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ContestResults.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Player.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/Players.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RecordResolver.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/ReplayStep.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/info/RobotPlayerAdapter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/ContestServiceRunnable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/CreateServiceRunnable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/DebugServiceRunnable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/task/TestServiceRunnable.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$10.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$11.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$12.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$13.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$14.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$15.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$16.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$17.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$18.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$19.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$3.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$4.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$5.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$6.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$7.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$8.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$9.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame$PopupListener.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/MainFrame.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReversiServer/cc/cxsj/nju/reversi/ui/SwingConsole.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java" afterPath="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/CreateServiceRunnable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="20">
-              <caret line="382" column="51" lean-forward="false" selection-start-line="382" selection-start-column="51" selection-end-line="382" selection-end-column="51" />
+              <caret line="383" column="51" lean-forward="false" selection-start-line="383" selection-start-column="51" selection-end-line="383" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -130,15 +129,13 @@
       <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="308" column="13" lean-forward="true" selection-start-line="308" selection-start-column="13" selection-end-line="308" selection-end-column="13" />
+            <state relative-caret-position="435">
+              <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="11" />
               <folding>
                 <element signature="method#generateEmptyChessBoard#0;class#ChessBoard#0" expanded="false" />
                 <element signature="e#1780#1781#0" expanded="true" />
                 <element signature="e#1852#1853#0" expanded="true" />
                 <element signature="docComment;method#step#0;class#ChessBoard#0" expanded="false" />
-                <element signature="method#step#1;class#ChessBoard#0" expanded="false" />
-                <element signature="method#isGameEnd#0;class#ChessBoard#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -160,9 +157,12 @@
       <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ui/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="616" column="62" lean-forward="false" selection-start-line="616" selection-start-column="62" selection-end-line="616" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="397">
+              <caret line="627" column="62" lean-forward="false" selection-start-line="627" selection-start-column="62" selection-end-line="627" selection-end-column="62" />
+              <folding>
+                <marker date="1520857957000" expanded="true" signature="24366:25543" ph="{...}" />
+                <marker date="1520857957000" expanded="true" signature="25776:26083" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -197,10 +197,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/CreateServiceRunnable.java" />
-        <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java" />
         <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java" />
         <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAI.java" />
         <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ui/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java" />
       </list>
     </option>
   </component>
@@ -461,12 +461,12 @@
       <option name="presentableId" value="Default" />
       <updated>1520597588546</updated>
       <workItem from="1520597592840" duration="6634000" />
-      <workItem from="1520851191509" duration="4692000" />
+      <workItem from="1520851191509" duration="5445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11326000" />
+    <option name="totallyTimeSpent" value="12079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
@@ -474,13 +474,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23521851" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23521851" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -553,8 +553,6 @@
             <element signature="e#1780#1781#0" expanded="true" />
             <element signature="e#1852#1853#0" expanded="true" />
             <element signature="docComment;method#step#0;class#ChessBoard#0" expanded="false" />
-            <element signature="method#step#1;class#ChessBoard#0" expanded="false" />
-            <element signature="method#isGameEnd#0;class#ChessBoard#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -574,7 +572,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11820">
           <caret line="619" column="58" lean-forward="false" selection-start-line="619" selection-start-column="58" selection-end-line="619" selection-end-column="58" />
-          <folding />
+          <folding>
+            <marker date="1520857957000" expanded="true" signature="24366:25543" ph="{...}" />
+            <marker date="1520857957000" expanded="true" signature="25776:26083" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -664,16 +665,19 @@
     <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/CreateServiceRunnable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
-          <caret line="382" column="51" lean-forward="false" selection-start-line="382" selection-start-column="51" selection-end-line="382" selection-end-column="51" />
+          <caret line="383" column="51" lean-forward="false" selection-start-line="383" selection-start-column="51" selection-end-line="383" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ui/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="616" column="62" lean-forward="false" selection-start-line="616" selection-start-column="62" selection-end-line="616" selection-end-column="62" />
-          <folding />
+        <state relative-caret-position="397">
+          <caret line="627" column="62" lean-forward="false" selection-start-line="627" selection-start-column="62" selection-end-line="627" selection-end-column="62" />
+          <folding>
+            <marker date="1520857957000" expanded="true" signature="24366:25543" ph="{...}" />
+            <marker date="1520857957000" expanded="true" signature="25776:26083" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -687,15 +691,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="308" column="13" lean-forward="true" selection-start-line="308" selection-start-column="13" selection-end-line="308" selection-end-column="13" />
+        <state relative-caret-position="435">
+          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="11" />
           <folding>
             <element signature="method#generateEmptyChessBoard#0;class#ChessBoard#0" expanded="false" />
             <element signature="e#1780#1781#0" expanded="true" />
             <element signature="e#1852#1853#0" expanded="true" />
             <element signature="docComment;method#step#0;class#ChessBoard#0" expanded="false" />
-            <element signature="method#step#1;class#ChessBoard#0" expanded="false" />
-            <element signature="method#isGameEnd#0;class#ChessBoard#0" expanded="false" />
           </folding>
         </state>
       </provider>

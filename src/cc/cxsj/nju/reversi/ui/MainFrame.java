@@ -614,7 +614,7 @@ public class MainFrame extends JFrame {
 					chessBoard[r][c].setIcon(ReplayStep.icon_b);
 				}
 				else if( (r == 3 && c == 4) || (r == 4 && c == 3) ){
-					chessBoard[r][c].setIcon(ReplayStep.icon_b);
+					chessBoard[r][c].setIcon(ReplayStep.icon_w);
 				}
 				else{
 					chessBoard[r][c].setIcon(null);

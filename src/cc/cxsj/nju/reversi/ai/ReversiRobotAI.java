@@ -17,7 +17,7 @@ public abstract class ReversiRobotAI {
 	protected String thisStep;
 	
 	
-	public ReversiRobotAI() {           // Î¬»¤±¾µØÆåÅÌ
+	public ReversiRobotAI() {           // Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		chessboard = new ChessBoard();
 		chessboard.generateEmptyChessBoard();
 	}
@@ -43,14 +43,6 @@ public abstract class ReversiRobotAI {
                 chessboard.lazi(desRow, desCol, color);
                 break;
             }
-			/*case 'D':
-			{
-				int desRow = Integer.valueOf(step.substring(1, 3)), desCol = Integer.valueOf(step.substring(3, 5));
-				int color = step.charAt(5) - '0';
-				board[desRow][desCol].empty = true;
-				board[desRow][desCol].color = -1;
-				break;
-			}*/
             case 'N':
                 break;
             default:

@@ -168,44 +168,8 @@ public class TestServiceRunnable implements Runnable{
                             MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
                             break;
                         }
-                         System.out.println("NUM = " + num);
-                        /*if (num != 1 && (num-1) % DIS_FREQ == 0) {
-                            if (blackMoves.isEmpty()) {
-                                winner = 1;
-                                MainFrame.instance().log("Not Enough Black pieces, White Win");
-                                record.get(round).add("BLACK NOT ENOUGH");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                break;
-                            }
-                            String blackdisappear = blackMoves.poll();
-                            System.out.println("BLACK_DIS: " + blackdisappear);
-                            String disappearedCode = "R0D" + blackdisappear + "0";
-                            try {
-                                // System.out.println("BLACK SEND " + disappearedCode);
-                                players[black].send(disappearedCode);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                            try {
-                                // System.out.println("WHITE SEND " + disappearedCode);
-                                players[white].send(disappearedCode);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            System.out.println("206 board step");
-                            board.step("SD" + blackdisappear, num, 0);
-                        }*/
+                        System.out.println("NUM = " + num);
+
                         long stepstart = System.nanoTime();
                         // receive black player step
                         try {

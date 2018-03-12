@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-2018-03-09 20:17:41  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
-2018-03-09 20:17:41  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
-2018-03-09 20:17:41 ERROR TestServiceRunnable:268 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
-2018-03-09 20:17:41  INFO TestServiceRunnable:456 - 111111110vsRobotOmega-test-0 round 0 end
-2018-03-09 20:17:41  INFO TestServiceRunnable:483 - 111111110vsRobotOmega-test-0 game over
-2018-03-09 20:17:41  INFO TestServiceRunnable:490 - 111111110vsRobotOmega-test-0 result save done!
-2018-03-09 20:17:41  INFO TestServiceRunnable:495 - 111111110vsRobotOmega-test-0 record save done!
-2018-03-09 20:39:00  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
-2018-03-09 20:39:00  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
-2018-03-09 20:39:01 ERROR TestServiceRunnable:268 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
-2018-03-09 20:39:01  INFO TestServiceRunnable:456 - 111111110vsRobotOmega-test-0 round 0 end
-2018-03-09 20:39:01  INFO TestServiceRunnable:483 - 111111110vsRobotOmega-test-0 game over
-2018-03-09 20:39:01  INFO TestServiceRunnable:490 - 111111110vsRobotOmega-test-0 result save done!
-2018-03-09 20:39:01  INFO TestServiceRunnable:495 - 111111110vsRobotOmega-test-0 record save done!
-2018-03-09 20:49:53  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
-2018-03-09 20:49:53  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
-2018-03-09 20:49:53 ERROR TestServiceRunnable:264 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
-2018-03-09 20:49:53  INFO TestServiceRunnable:452 - 111111110vsRobotOmega-test-0 round 0 end
-2018-03-09 20:49:53  INFO TestServiceRunnable:479 - 111111110vsRobotOmega-test-0 game over
-2018-03-09 20:49:53  INFO TestServiceRunnable:486 - 111111110vsRobotOmega-test-0 result save done!
-2018-03-09 20:49:53  INFO TestServiceRunnable:491 - 111111110vsRobotOmega-test-0 record save done!
-2018-03-09 22:17:59  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
-2018-03-09 22:17:59  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
-2018-03-09 22:17:59 ERROR TestServiceRunnable:264 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
-2018-03-09 22:17:59  INFO TestServiceRunnable:452 - 111111110vsRobotOmega-test-0 round 0 end
-2018-03-09 22:17:59  INFO TestServiceRunnable:479 - 111111110vsRobotOmega-test-0 game over
-2018-03-09 22:17:59  INFO TestServiceRunnable:486 - 111111110vsRobotOmega-test-0 result save done!
-2018-03-09 22:17:59  INFO TestServiceRunnable:491 - 111111110vsRobotOmega-test-0 record save done!
-2018-03-09 22:34:16  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
-2018-03-09 22:34:16  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
-2018-03-09 22:34:16 ERROR TestServiceRunnable:229 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
-2018-03-09 22:34:16  INFO TestServiceRunnable:417 - 111111110vsRobotOmega-test-0 round 0 end
-2018-03-09 22:34:16  INFO TestServiceRunnable:444 - 111111110vsRobotOmega-test-0 game over
-2018-03-09 22:34:16  INFO TestServiceRunnable:451 - 111111110vsRobotOmega-test-0 result save done!
-2018-03-09 22:34:16  INFO TestServiceRunnable:456 - 111111110vsRobotOmega-test-0 record save done!
-=======
 2018-03-10 00:00:04  INFO TestServiceRunnable:62 - 111111110vsRobotOmega-test-0 begin!
 2018-03-10 00:00:04  INFO TestServiceRunnable:72 - 111111110vsRobotOmega-test-0 round 0 start
 2018-03-10 00:01:10 ERROR TestServiceRunnable:273 - java.lang.StringIndexOutOfBoundsException: String index out of range: 5
@@ -322,4 +285,21 @@
 2018-03-10 21:12:07  INFO TestServiceRunnable:490 - 111111110vsRobotTravel-test-4 game over
 2018-03-10 21:12:07  INFO TestServiceRunnable:497 - 111111110vsRobotTravel-test-4 result save done!
 2018-03-10 21:12:07  INFO TestServiceRunnable:502 - 111111110vsRobotTravel-test-4 record save done!
->>>>>>> cxc
+2018-03-12 20:45:17  INFO TestServiceRunnable:62 - 111111110vsRobotTravel-test-0 begin!
+2018-03-12 20:45:17  INFO TestServiceRunnable:72 - 111111110vsRobotTravel-test-0 round 0 start
+2018-03-12 20:45:17  INFO TestServiceRunnable:427 - 111111110vsRobotTravel-test-0 round 0 end
+2018-03-12 20:45:17  INFO TestServiceRunnable:72 - 111111110vsRobotTravel-test-0 round 1 start
+2018-03-12 20:46:43  INFO TestServiceRunnable:62 - 111111110vsRobotTravel-test-0 begin!
+2018-03-12 20:46:43  INFO TestServiceRunnable:72 - 111111110vsRobotTravel-test-0 round 0 start
+2018-03-12 20:58:34  INFO TestServiceRunnable:62 - 111111110vsRobotTravel-test-0 begin!
+2018-03-12 20:58:34  INFO TestServiceRunnable:72 - 111111110vsRobotTravel-test-0 round 0 start
+2018-03-12 20:58:35  INFO TestServiceRunnable:389 - 111111110vsRobotTravel-test-0 round 0 end
+2018-03-12 20:58:35  INFO TestServiceRunnable:72 - 111111110vsRobotTravel-test-0 round 1 start
+2018-03-12 21:01:41  INFO TestServiceRunnable:62 - 111111110vsRobotTravel-test-0 begin!
+2018-03-12 21:01:41  INFO TestServiceRunnable:72 - 111111110vsRobotTravel-test-0 round 0 start
+2018-03-12 21:01:42  INFO TestServiceRunnable:389 - 111111110vsRobotTravel-test-0 round 0 end
+2018-03-12 21:01:42  INFO TestServiceRunnable:72 - 111111110vsRobotTravel-test-0 round 1 start
+2018-03-12 21:01:42  INFO TestServiceRunnable:389 - 111111110vsRobotTravel-test-0 round 1 end
+2018-03-12 21:01:42  INFO TestServiceRunnable:416 - 111111110vsRobotTravel-test-0 game over
+2018-03-12 21:01:42  INFO TestServiceRunnable:423 - 111111110vsRobotTravel-test-0 result save done!
+2018-03-12 21:01:42  INFO TestServiceRunnable:428 - 111111110vsRobotTravel-test-0 record save done!

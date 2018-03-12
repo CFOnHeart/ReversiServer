@@ -605,22 +605,11 @@ public class MainFrame extends JFrame {
 	    player1info.setText(playerA);
 	    player2info.setText(playerB);
     }
- 	// 清理UI界面，还原到最初状况，也就是中间四个棋子摆好的情况
+
     public void ClearChessBoardUI() {
         Color color = new Color(207, 141, 47);
 	    for (int r = 0; r < ROWS; r++) {
 	        for (int c = 0; c < COLS; c++) {
-<<<<<<< HEAD
-
-				if( (r == 3 && c == 3) || (r == 4 && c == 4)){
-					chessBoard[r][c].setIcon(ReplayStep.icon_b); //color = 0 black
-				}
-				else if( (r == 3 && c == 4) || (r == 4 && c == 3) ){
-					chessBoard[r][c].setIcon(ReplayStep.icon_w); //color = 1 white
-				}
-				else {
-					chessBoard[r][c].setIcon(null); // 无棋子
-=======
 				if( (r == 3 && c == 3) || (r == 4 && c == 4)){
 					chessBoard[r][c].setIcon(ReplayStep.icon_b);
 				}
@@ -629,7 +618,6 @@ public class MainFrame extends JFrame {
 				}
 				else{
 					chessBoard[r][c].setIcon(null);
->>>>>>> cxc
 				}
                 chessBoard[r][c].setText("");
                 chessBoard[r][c].setBorder(BorderFactory.createLineBorder(color.darker()));

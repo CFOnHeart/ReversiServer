@@ -204,14 +204,8 @@ public class ChessBoard {
 		
 		for(int x = 0; x < ROWS; x ++){
 			for(int y = 0; y < COLS; y ++){
-<<<<<<< HEAD
-				// ganjun need to debug
-				// 这个位置不存在棋子，且白棋可落子或者黑气可落子(但是这里落子考虑了当前回合的禁手，之后应该需要改为无禁手位置可落子)
-				if(!board[x][y].existChessman()  && (canLazi(x,y,0) || canLazi(x,y,1))){
-=======
 				if( (board[x][y].color == -1 && (canLazi(x,y,0) || canLazi(x,y,1))) ){
 				//if(! (board[x][y].existChessman() || !canLazi(x,y,0) || !canLazi(x,y,1))){
->>>>>>> cxc
 					return false;
 					
 				}
@@ -239,7 +233,7 @@ public class ChessBoard {
 				
 				//can reversi in an direction 
 				if(canReversiInDirection(x,y,chessmanColor, dir)){
-					//System.out.println("dir��" + dir);
+					//System.out.println("dir��" + dir);
 					lazi = true;
 					break;
 				}

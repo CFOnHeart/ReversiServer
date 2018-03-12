@@ -23,7 +23,6 @@
  */
 
 
-
 class Board
 {
 private:
@@ -63,6 +62,8 @@ public:
     
     //can player put down a chessman on position (x,y)
     bool canLazi(int x, int y, int color);
+    //exist a position that a chessman can lazi
+    bool existLazi(int color);
     
     /*player put down a chessman on position (x,y)
      can reversi some chessman in direction dir

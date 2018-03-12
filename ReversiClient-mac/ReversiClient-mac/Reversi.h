@@ -8,8 +8,11 @@
 
 #ifndef Reversi_h
 #define Reversi_h
+#include <stdio.h>
 #include "ClientSocket.h"
 #include "Board.h"
+
+using namespace std;
 
 class Reversi{
 private:
@@ -40,11 +43,13 @@ public:
     
     void noStep();
     
-    void step();
+    pair<int,int> step();
     
     void saveChessBoard();
     
     void debug_lastmsg();
+    
+    
 };
 
 #endif /* Reversi_h */

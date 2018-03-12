@@ -70,11 +70,7 @@ void Reversi::gameOver()
 void Reversi::roundStart(int round)
 {
     printf("Round %d Ready Start!\n" , round);
-    for (int r=0 ; r<ROWS ; r++){
-        for (int c=0 ; c<COLS ; c++){
-            board.resetBoard();
-        }
-    }
+    board.resetBoard();
     
     memset(lastmsg , 0 , sizeof(lastmsg));
     // first time receive msg from server
@@ -108,29 +104,15 @@ void Reversi::roundStart(int round)
 
 void Reversi::oneRound()
 {
-    int DIS_FREQ = 5, STEP = 1;
+    int STEP = 1;
     switch (ownColor) {
         case 0:
             while (STEP < 10000) {
-                
-                if (STEP != 1 && (STEP-1) % DIS_FREQ == 0) {
-                    int ret = observe();       // self disappeared
-                    if (ret >= 1) break;
-                    else if (ret != -8) {
-                        std::cout << "ERROR: Not Self(BLACK) Disappeared" << std::endl;
-                    }
-                }
-                step();                        // take action, send message
+          
+                pair<int,int> chess = step();                        // take action, send message
+                putDown(chess.first, chess.second);
                 
                 if (observe() >= 1) break;     // receive RET Code
-                // saveChessBoard();
-                if (STEP != 1 && (STEP-1) % DIS_FREQ == 0) {
-                    int ret = observe();       // see white disappear
-                    if (ret >= 1) break;
-                    else if (ret != -9) {
-                        std::cout << ret << " ERROR: Not White Disappeared" << std::endl;
-                    }
-                }
                 
                 if (observe() >= 1) break;    // see white move
                 STEP++;
@@ -141,24 +123,11 @@ void Reversi::oneRound()
         case 1:
             while (STEP < 10000) {
                 
-                if (STEP != 1 && (STEP-1) % DIS_FREQ == 0) {
-                    int ret = observe();       // black disappeared
-                    if (ret >= 1) break;
-                    else if (ret != -8) {
-                        std::cout << "ERROR: Not Black Disappeared" << std::endl;
-                    }
-                }
                 if (observe() >= 1) break;    // see black move
                 
-                if (STEP != 1 && (STEP-1) % DIS_FREQ == 0) {
-                    int ret = observe();      // self disappeared
-                    if (ret >= 1) break;
-                    else if (ret != -9) {
-                        std::cout << "ERROR: Not Self Disappeared" << std::endl;
-                    }
-                }
+                pair<int,int> chess = step();                        // take action, send message
+                putDown(chess.first, chess.second);
                 
-                step();                        // take action, send message
                 if (observe() >= 1) break;     // receive RET Code
                 // saveChessBoard();
                 STEP++;
@@ -196,14 +165,6 @@ int Reversi::observe()
                             int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
                             int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
                             board.lazi(desRow, desCol, client_socket.getRecvMsg()[7] - '0');
-                            memcpy(lastmsg, client_socket.getRecvMsg(), strlen(client_socket.getRecvMsg()));
-                            break;
-                        }
-                        case 'D':   // Disappeared
-                        {
-                            int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
-                            int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
-                           board.lazi(desRow, desCol, client_socket.getRecvMsg()[7] - '0');
                             memcpy(lastmsg, client_socket.getRecvMsg(), strlen(client_socket.getRecvMsg()));
                             break;
                         }
@@ -279,17 +240,23 @@ void Reversi::noStep()
     printf("send msg %s\n" , "SN");
 }
 
-void Reversi::step()
+
+pair<int,int> Reversi::step()
 {
     int r = -1, c = -1;
     // printf("%s\n", lastMsg());
+    
+    //board.step(r, c, ownColor);
+    if(!board.existLazi(ownColor)){
+        return make_pair(0,0);
+    }
     while (!(r >= 0 && r < ROWS && c >= 0 && c < COLS && board.canLazi(r, c, ownColor))) {
         r = random(8);
         c = random(8);
         // System.out.println("Rand " + r + " " + c);
     }
     // saveChessBoard();
-    putDown(r, c);
+    return make_pair(r,c);
 }
 
 void Reversi::saveChessBoard()

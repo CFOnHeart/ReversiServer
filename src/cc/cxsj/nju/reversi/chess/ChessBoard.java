@@ -70,8 +70,10 @@ public class ChessBoard {
     }
     
 	public String step(String step, int stepNum, int color) {
+		System.out.println("The " + stepNum + " of color " +
+				(color==0?"Black":"White")+" Step " + " with message: " + step);
     	// ganjun add 下过来的棋子出错功能
-		if (step.compareTo("Invalid") == 0){
+		if (step.substring(0 , 2).compareTo("In") == 0){
 			MainFrame.instance().log("color : " + (color==0?"black":"white")
 					+ " play an invalid step\n It will get an 5 score punishment");
 			return step("SP"+randomStep(color) , stepNum , color);

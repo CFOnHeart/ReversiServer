@@ -100,7 +100,7 @@ public class TestServiceRunnable implements Runnable{
 
                     try {
                          System.out.println("players[black].send(BB)");
-                        players[black].send("BB");
+                         players[black].send("BB");
                          System.out.println("players[black].send(BB) end");
                     } catch (Exception e) {
                         LOG.error(e);
@@ -206,16 +206,15 @@ public class TestServiceRunnable implements Runnable{
                             result.winner = white;
                             break;
                         }
-                        result.timecost[black][round] += System.nanoTime() - stepstart;
+                        //result.timecost[black][round] += System.nanoTime() - stepstart;
+                        players[black].addCostTime(System.nanoTime() - stepstart);
+
                         // test and verify the black step
                         String blackStep = new String(recvBuffer);
                         System.out.println("248 board.step");
+                        // 向黑棋方返回的消息字符串
                         String blackReturnCode = board.step(blackStep, num,0);
-                        // System.out.println("BLACK STEP: " + blackStep);
-                        if (!blackStep.substring(0, 2).equals("SN")) {
-                            blackMoves.offer(blackStep.substring(2, 6));
-                            // System.out.println("offer");
-                        }
+
                         if (blackReturnCode.charAt(1) == '0') {
                             // valid step
                             record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));

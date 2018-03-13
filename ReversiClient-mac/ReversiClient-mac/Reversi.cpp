@@ -153,7 +153,7 @@ int Reversi::observe()
     int rtn = 0;
     int recvrtn = client_socket.recvMsg();
     if (recvrtn != 0) return 1;
-    printf("receive msg %s\n", client_socket.getRecvMsg());
+    printf("receive msg %s\n" , client_socket.getRecvMsg());
     switch (client_socket.getRecvMsg()[0]) {
         case 'R':
         {
@@ -217,21 +217,29 @@ int Reversi::observe()
 
 void Reversi::putDown(int row, int col)
 {
-    char msg[6];
-    memset(msg , 0 , sizeof(msg));
-    msg[0] = 'S';
-    msg[1] = 'P';
-    msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
-    msg[3] = '0' + row % 10;
-    msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
-    msg[5] = '0' + col % 10;
+    // 落子不合法的情况
+    if (!board.canLazi(row, col, ownColor)){
+        char msg[] = "Invalid";
+        debug_lastmsg();
+        printf("put down (%2d,%2d) : %s\n", row , col , msg);
+        client_socket.sendMsg(msg);
+    }
+    else{
+        char msg[6];
+        memset(msg , 0 , sizeof(msg));
+        msg[0] = 'S';
+        msg[1] = 'P';
+        msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
+        msg[3] = '0' + row % 10;
+        msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
+        msg[5] = '0' + col % 10;
+        
+        board.lazi(row, col, ownColor);
+        debug_lastmsg();
+        printf("put down (%c%c, %c%c)\n", msg[2], msg[3], msg[4], msg[5]);
+        client_socket.sendMsg(msg);
+    }
     
-    board.lazi(row, col, ownColor);
-    debug_lastmsg();
-    printf("put down (%c%c, %c%c)\n", msg[2], msg[3], msg[4], msg[5]);
-    debug_lastmsg();
-    printf("put down (%c%c, %c%c)\n", msg[2] , msg[3] , msg[4] , msg[5]);
-    client_socket.sendMsg(msg);
 }
 
 void Reversi::noStep()

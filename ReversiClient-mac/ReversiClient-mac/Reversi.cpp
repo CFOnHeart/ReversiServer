@@ -42,11 +42,11 @@ void Reversi::authorize(const char *id , const char *pass)
 // 用户id输入，服务器上需要有对应的账号密码：对应文件 players-0.txt
 void Reversi::gameStart()
 {
-    char id[12] , passwd[10];
-    printf("ID: \n");
-    scanf("%s" , id);
-    printf("PASSWD: \n");
-    scanf("%s", passwd);
+    char id[12] = "111111110", passwd[10] = "123456";
+    printf("ID: %s\n" , id);
+//    scanf("%s" , id);
+    printf("PASSWD: %s\n", passwd);
+//    scanf("%s", passwd);
     
     authorize(id, passwd);
     
@@ -110,7 +110,10 @@ void Reversi::oneRound()
             while (STEP < 10000) {
           
                 pair<int,int> chess = step();                        // take action, send message
-                putDown(chess.first, chess.second);
+                
+                // lazi only excute after server's message confirm  in observe function
+                char * send_msg = generateOneStepMessage(chess.first,chess.second);
+                client_socket.sendMsg(send_msg);
                 
                 if (observe() >= 1) break;     // receive RET Code
                 
@@ -126,7 +129,9 @@ void Reversi::oneRound()
                 if (observe() >= 1) break;    // see black move
                 
                 pair<int,int> chess = step();                        // take action, send message
-                putDown(chess.first, chess.second);
+                // lazi only excute after server's message confirm  in observe function
+                char * send_msg = generateOneStepMessage(chess.first,chess.second);
+                client_socket.sendMsg(send_msg);
                 
                 if (observe() >= 1) break;     // receive RET Code
                 // saveChessBoard();
@@ -153,7 +158,7 @@ int Reversi::observe()
     int rtn = 0;
     int recvrtn = client_socket.recvMsg();
     if (recvrtn != 0) return 1;
-    printf("receive msg %s\n", client_socket.getRecvMsg());
+    printf("receive msg %s\n" , client_socket.getRecvMsg());
     switch (client_socket.getRecvMsg()[0]) {
         case 'R':
         {
@@ -217,21 +222,55 @@ int Reversi::observe()
 
 void Reversi::putDown(int row, int col)
 {
-    char msg[6];
-    memset(msg , 0 , sizeof(msg));
-    msg[0] = 'S';
-    msg[1] = 'P';
-    msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
-    msg[3] = '0' + row % 10;
-    msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
-    msg[5] = '0' + col % 10;
+    // 落子不合法的情况
+    if (!board.canLazi(row, col, ownColor)){
+        char msg[] = "Invalid";
+        debug_lastmsg();
+        printf("put down (%2d,%2d) : %s\n", row , col , msg);
+        client_socket.sendMsg(msg);
+    }
+    else{
+        char msg[6];
+        memset(msg , 0 , sizeof(msg));
+        msg[0] = 'S';
+        msg[1] = 'P';
+        msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
+        msg[3] = '0' + row % 10;
+        msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
+        msg[5] = '0' + col % 10;
+        
+        board.lazi(row, col, ownColor);
+        debug_lastmsg();
+        printf("put down (%c%c, %c%c)\n", msg[2], msg[3], msg[4], msg[5]);
+        client_socket.sendMsg(msg);
+    }
     
-    board.lazi(row, col, ownColor);
-    debug_lastmsg();
-    printf("put down (%c%c, %c%c)\n", msg[2], msg[3], msg[4], msg[5]);
-    debug_lastmsg();
-    printf("put down (%c%c, %c%c)\n", msg[2] , msg[3] , msg[4] , msg[5]);
-    client_socket.sendMsg(msg);
+}
+
+char * Reversi::generateOneStepMessage(int row, int col)
+{
+    // 落子不合法的情况
+    if (!board.canLazi(row, col, ownColor)){
+        char * msg = new char[6];
+        memset(msg , 0 , sizeof(msg));
+        strcpy(msg , "In");
+        msg[7] = '\0';
+        debug_lastmsg();
+        printf("generate one step at invalid possition (%2d,%2d) : %s\n", row , col , msg);
+        return msg;
+    }
+    else{
+        char * msg = new char[6];
+        memset(msg , 0 , sizeof(msg));
+        msg[0] = 'S';
+        msg[1] = 'P';
+        msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
+        msg[3] = '0' + row % 10;
+        msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
+        msg[5] = '0' + col % 10;
+        printf("generate one step at possition (%2d,%2d) : %s\n", row , col , msg);
+        return msg;
+    }
 }
 
 void Reversi::noStep()
@@ -243,19 +282,21 @@ void Reversi::noStep()
 
 pair<int,int> Reversi::step()
 {
-    int r = -1, c = -1;
-    // printf("%s\n", lastMsg());
-    
-    //board.step(r, c, ownColor);
-    if(!board.existLazi(ownColor)){
-        return make_pair(0,0);
-    }
-    while (!(r >= 0 && r < ROWS && c >= 0 && c < COLS && board.canLazi(r, c, ownColor))) {
-        r = random(8);
-        c = random(8);
-        // System.out.println("Rand " + r + " " + c);
-    }
+//    int r = -1, c = -1;
+//    // printf("%s\n", lastMsg());
+//
+//    //board.step(r, c, ownColor);
+//    if(!board.existLazi(ownColor)){
+//        return make_pair(0,0);
+//    }
+//    while (!(r >= 0 && r < ROWS && c >= 0 && c < COLS && board.canLazi(r, c, ownColor))) {
+//        r = random(8);
+//        c = random(8);
+//        // System.out.println("Rand " + r + " " + c);
+//    }
     // saveChessBoard();
+    int r = random(8);
+    int c = random(8);
     return make_pair(r,c);
 }
 

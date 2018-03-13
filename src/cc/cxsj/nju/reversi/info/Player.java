@@ -17,12 +17,16 @@ public class Player {
 	
 	protected byte[] sendBuffer = new byte[16];
 	protected byte[] recvBuffer = new byte[16];
-	
+
+	private int punishmentScore; // 惩罚分数(超时, 下了不合法棋子)
+	private long costTime; // 下棋花费的时间统计
+
 	public Player(String id, String password, String name) {
 		this.id = id;
 		this.password = password;
 		if (name == null) this.name = "";
 		else this.name = name;
+		punishmentScore = 0;
 	}
 	
 	public String getId() {
@@ -42,6 +46,18 @@ public class Player {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public int getPunishment(){ return punishmentScore; }
+
+	public void setPunishmentScore(int punishmentScore){ this.punishmentScore = punishmentScore; }
+
+	public void punish(int score){ punishmentScore+=score; }
+
+	public long getCostTime(){ return costTime; }
+
+	public void setCostTime(long costTime) { this.costTime = costTime; }
+
+	public void addCostTime(long time) { this.costTime += time; }
 
 	public void initial(Socket socket, BufferedInputStream bfin) throws IOException{
 		this.socket = socket;

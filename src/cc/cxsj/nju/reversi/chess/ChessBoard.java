@@ -6,7 +6,10 @@ import org.apache.log4j.Logger;
 import cc.cxsj.nju.reversi.Main;
 import cc.cxsj.nju.reversi.config.ServerProperties;
 
+import java.util.ArrayList;
 import java.util.IntSummaryStatistics;
+import java.util.List;
+import java.util.Vector;
 
 public class ChessBoard {
 	private static final Logger LOG = Logger.getLogger(Main.class);
@@ -67,6 +70,15 @@ public class ChessBoard {
     }
     
 	public String step(String step, int stepNum, int color) {
+		System.out.println("The " + stepNum + " of color " +
+				(color==0?"Black":"White")+" Step " + " with message: " + step);
+    	// ganjun add 下过来的棋子出错功能
+		if (step.substring(0 , 2).compareTo("In") == 0){
+			MainFrame.instance().log("color : " + (color==0?"black":"white")
+					+ " play an invalid step\n It will get an 5 score punishment");
+			return step("SP"+randomStep(color) , stepNum , color);
+		}
+
 		// System.out.println("Handle Step " + step + " " + color);
 		// check step or not
 		if (step.charAt(0) != 'S') {  // S represents step
@@ -95,15 +107,7 @@ public class ChessBoard {
                     MainFrame.instance().updateChessBoardUI(lastStepRow, lastStepCol, desRow, desCol, color);
                     
                     //used for test
-                    for (int i=0; i<ROWS; i++) {
-                        for (int j=0; j<COLS; j++) {
-                            if (this.board[i][j].color != -1)
-                                System.out.print(this.board[i][j].color + " ");
-                            else
-                                System.out.print("-" + " ");
-                        }
-                        System.out.println();
-                    }
+					printChessBoard();
                     
                     lastStepRow = desRow;
                     lastStepCol = desCol;
@@ -116,77 +120,12 @@ public class ChessBoard {
                 }
                 else{
                 	System.out.println("Put Down ERROR");
-                    for (int i=0; i<ROWS; i++) {
-                        for (int j=0; j<COLS; j++) {
-                            if (this.board[i][j].color != -1)
-                                System.out.print(this.board[i][j].color + " ");
-                            else
-                                System.out.print("-" + " ");
-                        }
-                        System.out.println();
-                    }
+					printChessBoard();
                     return "R4";
                 }
-                
-                /*if (desSquare.empty) {
-                    // update step result
-                    desSquare.empty = false;
-                    desSquare.color = color;
-                    MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+step.substring(0, 6), stepNum);
-                    MainFrame.instance().updateChessBoardUI(lastStepRow, lastStepCol, desRow, desCol, color);
-                    lastStepRow = desRow;
-                    lastStepCol = desCol;
-                    try {
-                        Thread.sleep(INTERVAL);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    return "R0" + step.substring(1, 6) + desSquare.color;
-                } else {
-                    System.out.println("Put Down ERROR");
-                    for (int i=0; i<15; i++) {
-                        for (int j=0; j<15; j++) {
-                            if (this.board[i][j].color != -1)
-                                System.out.print(this.board[i][j].color + " ");
-                            else
-                                System.out.print("-" + " ");
-                        }
-                        System.out.println();
-                    }
-                    return "R4";
-                }*/
-            }
-            /*case 'D':
-            {
-                // put down the piece
-                for (int i = 2; i < 6; i++) {
-                    if (step.charAt(i) > '9' || step.charAt(i) < '0')
-                        return "R2";
-                }
-                int desRow = Integer.valueOf(step.substring(2, 4)), desCol = Integer.valueOf(step.substring(4, 6));
-                if (desRow >= ROWS || desRow < 0) return "R2";
-                if (desCol >= COLS || desCol < 0) return "R2";
-                Square desSquare = this.board[desRow][desCol];
 
-                if (!desSquare.empty) {
-                    // update step result
-                    desSquare.empty = true;
-                    desSquare.color = -1;
-                    MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+step.substring(0, 6), stepNum);
-                    MainFrame.instance().updateChessBoardUI(lastStepRow, lastStepCol, desRow, desCol, -1);
-                    lastStepRow = desRow;
-                    lastStepCol = desCol;
-                    try {
-                        Thread.sleep(INTERVAL);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    return "R0" + step.substring(1, 6) + color;
-                } else {
-                    System.out.println("Disappear ERROR");
-                    return "R4";
-                }
-            }*/
+            }
+
             case 'N': {   // Nostep
                 return "R0N";
             }
@@ -233,7 +172,7 @@ public class ChessBoard {
 				
 				//can reversi in an direction 
 				if(canReversiInDirection(x,y,chessmanColor, dir)){
-					//System.out.println("dir��" + dir);
+					//System.out.println("dir��" + dir);
 					lazi = true;
 					break;
 				}
@@ -361,38 +300,6 @@ public class ChessBoard {
 		}
 		return -1;
 	}
-	
-	
-	/*public int isGeneratedWinnner() {
-		int sR = lastStepRow;
-        int sC = lastStepCol;
-        int nowColor = -1;
-        if (inBoard(sR, sC) && board[sR][sC].color == -1) return -1;
-        else if(inBoard(sR, sC)) nowColor = board[sR][sC].color;
-        int MaxSeq = 1;
-        for (int dir = 0; dir < 4; dir++) {       // 4 directions and their opposite directions
-            int seq = 1;
-            boolean d0 = true, d1 = true;
-            for (int len = 1; len <= 4; len++) {  // walk at most 4 steps
-                int deltax = dx[dir]*len;
-                int deltay = dy[dir]*len;
-                if (d0 && inBoard(sR+deltax, sC+deltay) && board[sR+deltax][sC+deltay].color == nowColor)
-                    seq++;
-                else
-                    d0 = false;
-                if (d1 && inBoard(sR-deltax, sC-deltay) && board[sR-deltax][sC-deltay].color == nowColor)
-                    seq++;
-                else
-                    d1 = false;
-                MaxSeq = seq > MaxSeq ? seq:MaxSeq;
-            }
-        }
-        if (MaxSeq >= 5) {
-            System.out.println("Winner is " + (nowColor==0?"Black":"White"));
-            return nowColor;
-        }
-		return -1;
-	}*/
 
 	public String toStringToDisplay() {
 		// TODO Auto-generated method stub
@@ -411,5 +318,37 @@ public class ChessBoard {
 	
 	public Square[][] getSquares(){
 		return this.board;
+	}
+
+	/*
+	随机下下一步可以下的棋，返回行和列 如row = 2 , col = 3 , 返回 "0203"
+	 */
+	public String randomStep(int color){
+		List<String> list = new ArrayList<>();
+		for(int r=0 ; r<ROWS ; r++){
+			for (int c=0 ; c<COLS ; c++){
+				if(canLazi(r , c , color)) list.add(int2String(r) + int2String(c));
+			}
+		}
+		return list.get((int)Math.random()*list.size());
+	}
+	// 将整数转化为2位数字符串
+	public String int2String(int x){
+		if(x<10) return "0"+String.valueOf(x);
+		else
+			return String.valueOf(x);
+	}
+
+	// 打印board
+	public void printChessBoard(){
+		for (int i=0; i<ROWS; i++) {
+			for (int j=0; j<COLS; j++) {
+				if (this.board[i][j].color != -1)
+					System.out.print(this.board[i][j].color + " ");
+				else
+					System.out.print("-" + " ");
+			}
+			System.out.println();
+		}
 	}
 }

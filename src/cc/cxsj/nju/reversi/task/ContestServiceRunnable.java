@@ -197,41 +197,7 @@ public class ContestServiceRunnable implements Runnable{
                             // MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
                             break;
                         }
-                        if (num != 1 && (num-1) % DIS_FREQ == 0) {
-                            if (blackMoves.isEmpty()) {
-                                winner = 1;
-                                MainFrame.instance().log("Not Enough Black pieces, White Win");
-                                record.get(round).add("BLACK NOT ENOUGH");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                break;
-                            }
-                            String blackdisappear = blackMoves.poll();
-                            String disappearedCode = "R0D" + blackdisappear + "0";
-                            try {
-                                // System.out.println("BLACK SEND " + disappearedCode);
-                                players[black].send(disappearedCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                            try {
-                                // System.out.println("WHITE SEND " + disappearedCode);
-                                players[white].send(disappearedCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            board.step("SD" + blackdisappear, num, 0);
-                        }
+                        
                         long stepstart = System.nanoTime();
                         // receive black step
                         try {
@@ -358,53 +324,7 @@ public class ContestServiceRunnable implements Runnable{
                             break;
                         }
 
-                        if (num != 1 && (num-1) % DIS_FREQ == 0) {
-                            if (whiteMoves.isEmpty()) {
-                                winner = 0;
-                                MainFrame.instance().log("Not Enough White pieces, Black Win");
-                                record.get(round).add("WHITE NOT ENOUGH");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                break;
-                            }
-                            String whitedisappear = whiteMoves.poll();
-                            String disappearedCode = "R0D" + whitedisappear + "1";
-                            try {
-                                if (players[white].isclosed()) {
-                                    System.out.println("WHITE SOCKET CLOSED");
-                                    record.get(round).add("WHITE SOCKET CLOSED");
-                                    result.errors[white][round]++;
-                                    result.winner = black;
-                                    return;
-                                }
-                                players[white].send(disappearedCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            try {
-                                if (players[black].isclosed()) {
-                                    System.out.println("BLACK SOCKET CLOSED");
-                                    record.get(round).add("BLACK SOCKET CLOSED");
-                                    result.errors[black][round]++;
-                                    result.winner = white;
-                                    return;
-                                }
-                                players[black].send(disappearedCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                            board.step("SD" + whitedisappear, num,1);
-                        }
+                        
                         stepstart = System.nanoTime();
                         // receive white player step
                         try {

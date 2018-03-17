@@ -41,15 +41,18 @@ public:
     
     void putDown(int row , int col);
     
+    // according to chessman position (row , col) , generate one step message in order to send to server
+    char * generateOneStepMessage(int row , int col);
+    
     void noStep();
     
-    void step();
+    pair<int,int> step();
     
     void saveChessBoard();
     
     void debug_lastmsg();
-
-
+    
+    
 };
 
 #endif /* Reversi_h */

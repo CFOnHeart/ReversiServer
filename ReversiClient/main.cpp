@@ -12,7 +12,6 @@ int main() {
     Reversi reversi = Reversi();
     reversi.gameStart();
 
-	int a = 0;
-	cin >> a;
+	system("pause");
     return 0;
 }

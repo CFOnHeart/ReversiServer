@@ -71,5 +71,9 @@ public:
      return reversi chessman's count
      */
     int countReversiInDirection(int x, int y, int color, int dir);
+
+	/*print the total board
+     */
+	void print();
 };
 #endif /* Board_h */

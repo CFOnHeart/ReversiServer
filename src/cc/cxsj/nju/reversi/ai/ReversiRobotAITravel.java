@@ -29,14 +29,17 @@ public class ReversiRobotAITravel extends ReversiRobotAI{
        
         Random rand = new Random(System.currentTimeMillis());
         int r = -1, c = -1;
-        int count = 0;  // 如果随机抽取超过200次，表示robot无棋可以下
+        //int count = 0;  // 如果随机抽取超过200次，表示robot无棋可以下
+        if(!chessboard.existLazi(ownColor)){
+        	return false;
+        }
         System.out.println("robot start chess");
 		while (!(r >= 0 && r < ROWS && c >= 0 && c < COLS && chessboard.canLazi(r, c, ownColor))) {
 			
 			r = rand.nextInt(ROWS);
 			c = rand.nextInt(COLS);
-            count++;
-            if(count >= 200) return false;
+            //count++;
+            //if(count >= 200) return false;
 			// System.out.println("Rand " + r + " " + c);
 		}
         System.out.println("robot chess at: " + r + " - " + c);

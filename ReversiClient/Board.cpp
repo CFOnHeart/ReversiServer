@@ -177,11 +177,11 @@ void Board::resetBoard(){
         for(int y = 0; y < COLS; y ++){
             //put black chessman on the position (3,3) (4,4)
             if( (x == 3 && y == 3) || (x == 4 && y == 4) ){
-                squares[x][y].lazi(0);
+				squares[x][y].setColor(0);
             }
             //put white chessman on the position (3,4) (4,3)
             else if( (x == 3 && y == 4) || (x == 4 && y == 3) ){
-                squares[x][y].lazi(1);
+                squares[x][y].setColor(1);
             }
             else{
                 squares[x][y].clear();
@@ -201,4 +201,16 @@ bool Board::existLazi(int color){
 		}
 	}
 	return false;
+}
+
+//print the total board
+void Board::print(){
+	std::string str;
+	for(int r = 0; r < ROWS; r ++){
+		for(int c = 0; c < COLS; c ++){
+			squares[r][c].print(str);
+		}
+		str += "\n";
+	}
+	printf("%s\n", str.c_str());
 }

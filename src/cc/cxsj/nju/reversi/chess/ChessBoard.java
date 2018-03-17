@@ -127,7 +127,13 @@ public class ChessBoard {
             }
 
             case 'N': {   // Nostep
-                return "R0N";
+            	if(existLazi(color)){
+            		return "R0N";
+            	}
+            	else{
+            		return "R0N";
+            		//return "R1N";
+            	}
             }
             default:
                 return "R1";
@@ -339,6 +345,18 @@ public class ChessBoard {
 			return String.valueOf(x);
 	}
 
+	// if exist an position that a chessman can lazi at
+		public boolean existLazi(int color){
+			for(int i = 0; i < ROWS; i ++){
+				for(int j = 0; j < COLS; j ++){
+					if(canLazi(i, j , color)){
+						return true;
+					}
+					
+				}
+			}
+			return false;
+		}
 	// 打印board
 	public void printChessBoard(){
 		for (int i=0; i<ROWS; i++) {

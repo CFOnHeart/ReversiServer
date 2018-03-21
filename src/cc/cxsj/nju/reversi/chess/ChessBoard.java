@@ -79,7 +79,7 @@ public class ChessBoard {
 		if (step.substring(0 , 2).compareTo("In") == 0){
 			MainFrame.instance().log("color : " + (color==0?"black":"white")
 					+ " play an invalid step\n It will get an 5 score punishment");
-			return step("EP"+randomStep(color) , stepNum , color);
+			return step("SP"+randomStep(color) , stepNum , color);
 		}
 
 		switch (step.charAt(1)) {
@@ -379,15 +379,16 @@ public class ChessBoard {
 	}
 	// 打印board
 	public void printChessBoard(){
-		for (int i=0; i<ROWS; i++) {
-			for (int j=0; j<COLS; j++) {
-				if (this.board[i][j].color != -1)
-					System.out.print(this.board[i][j].color + " ");
-				else
-					System.out.print("-" + " ");
-			}
-			System.out.println();
-		}
+//		for (int i=0; i<ROWS; i++) {
+//////			for (int j=0; j<COLS; j++) {
+//////				if (this.board[i][j].color != -1)
+//////					System.out.print(this.board[i][j].color + " ");
+//////				else
+//////					System.out.print("-" + " ");
+//////			}
+//////			System.out.println();
+//////		}
+		System.out.println(toStringToDisplay());
 	}
 
 	public static void main(String [] args) {

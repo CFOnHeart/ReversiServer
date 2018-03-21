@@ -27,14 +27,12 @@ public class TestServiceRunnable implements Runnable{
     private static final int STEPS = Integer.valueOf(ServerProperties.instance().getProperty("round.steps"));
     private static final int ERRORS = Integer.valueOf(ServerProperties.instance().getProperty("step.error.number"));
     private static final RobotAIModel ROBOT_MODEL = RobotAIModel.values()[Integer.valueOf(ServerProperties.instance().getProperty("robot.model"))];
-    private static final int DIS_FREQ = Integer.valueOf(ServerProperties.instance().getProperty("disappear_freq"));
     private static int ID = 0;
 
     private Player[] players;
     private String info;
     private ContestResult result;
     private ArrayList<ArrayList<String>> record;
-    private Queue<String> blackMoves, whiteMoves;
 
     public TestServiceRunnable(Player user) {
 
@@ -92,8 +90,7 @@ public class TestServiceRunnable implements Runnable{
                 
                 System.out.println("flag new board end");
                 // record.get(round).add("INITIAL CHESS BOARD\n" + board.toStringToRecord());
-                blackMoves = new LinkedList<String>();
-                whiteMoves = new LinkedList<String>();
+
                 int winner = -1;
 
                 try {
@@ -191,7 +188,6 @@ public class TestServiceRunnable implements Runnable{
                                 record.get(round).add(board.toStringToDisplay());
                             }
 
-                            // 标记一下这里
                             else{
                                 // valid step
                                 record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
@@ -206,34 +202,8 @@ public class TestServiceRunnable implements Runnable{
                                     return;
                                 }
                             }
-                        } else {
-                            // invalid step
-                            result.errors[black][round]++;
-                            record.get(round).add("ERROR_STEP BLACK " + result.errors[black][round] + " " + blackStep.substring(0, 6));
-                            System.out.println("ERROR_STEP BLACK " + result.errors[black][round] + " " + blackStep.substring(0, 6));
-                            try {
-                                players[black].send(blackReturnCode);
-                            } catch (Exception e) {
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                            try {
-                                players[white].send("R0N");
-                            } catch (Exception e) {
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            if (result.errors[black][round] > ERRORS) {
-                                record.get(round).add("ERROR_MAXTIME BLACK");
-                                break;
-                            }
                         }
+
                         System.out.println("307 baord.isGeneratedWinner()");
                         winner = board.isGeneratedWinner();
                         if (winner >= 0) { // a player won
@@ -243,50 +213,17 @@ public class TestServiceRunnable implements Runnable{
 
                         stepstart = System.nanoTime();
                         // receive white step
-                        try {
-                            // block...
-                            recvBuffer = players[white].receive();
-                        } catch (SocketTimeoutException e) {
-                            // step timeout
-                            result.errors[white][round]++;
-                            LOG.error(e);
-                            LOG.error(this.info + " ROUND " + round + " TimeoutException when receive WHITE step: "
-                                    + result.errors[white][round] + " time!");
-                            record.get(round).add("TIMEOUT WHITE " + result.errors[white][round]);
-                            while (result.errors[white][round] <= ERRORS) {
-                                try {
-                                    recvBuffer = players[white].receive();
-                                } catch (SocketTimeoutException ee) {
-                                    result.errors[white][round]++;
-                                    LOG.error(e);
-                                    LOG.error(this.info + " ROUND " + round + " TimeoutException when receive WHITE step: "
-                                            + result.errors[white][round] + " time!");
-                                    record.get(round).add("TIMEOUT WHITE " + result.errors[white][round]);
-                                    continue;
-                                }
-                                break;
-                            }
-                            if (result.errors[white][round] > ERRORS) {
-                                record.get(round).add("ERROR_MAXTIME WHITE");
-                                break;
-                            }
-                        } catch (Exception e) {
-                            // other exception
-                            LOG.error(e);
-                            LOG.error(this.info + " ROUND " + round + " Unkown Exception when receive WHITE step!");
-                            record.get(round).add("UNKOWN_EXCEPTION WHITE");
-                            result.errors[white][round]++;
-                            result.winner = black;
+                        if((recvBuffer = receiveMsg(white , round)) == null){
                             break;
                         }
+
                         result.timecost[white][round] += System.nanoTime() - stepstart;
                         // test and verify the white step
                         String whiteStep = new String(recvBuffer);
                         System.out.println("393 board.step");
                         String whiteReturnCode = board.step(whiteStep, num,1);
                         // System.out.println("WHITE STEP: " + whiteStep);
-                        if (!whiteStep.substring(0, 2).equals("SN"))
-                            whiteMoves.offer(whiteStep.substring(2, 6));
+
                         if (whiteReturnCode.charAt(1) == '0') {
                             // valid step
                             record.get(round).add("VALID_STEP WHITE " + whiteStep.substring(0, 6));
@@ -309,32 +246,6 @@ public class TestServiceRunnable implements Runnable{
                                 result.winner = white;
                                 return;
                             }
-                        } else {
-                            // invalid step
-                            result.errors[white][round]++;
-                            record.get(round).add("ERROR_STEP WHITE " + result.errors[white][round] + " " + whiteStep.substring(0, 6));
-                            try {
-                                players[white].send(whiteReturnCode);
-                            } catch (Exception e) {
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            try {
-                                players[black].send("R0N");
-                            } catch (Exception e) {
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                            if (result.errors[white][round] > ERRORS) {
-                                record.get(round).add("ERROR_MAXTIME WHITE");
-                                break;
-                            }
                         }
                     }
                 } catch (Exception e) {
@@ -353,7 +264,8 @@ public class TestServiceRunnable implements Runnable{
                         LOG.error(e);
                     }
                     LOG.info(this.info + " round " + round + " end");
-                    MainFrame.instance().log(this.info + " round " + round + " end");
+
+
 
                     // record result
                     result.stepsNum[round] = num;
@@ -361,6 +273,14 @@ public class TestServiceRunnable implements Runnable{
                         winner = board.isGeneratedWinner();
                     result.scores[black][round] = winner == 0 ? 1 : 0;
                     result.scores[white][round] = winner == 1 ? 1 : 0;
+
+                    String winnerStr = "BLACK AND WHITE";
+                    if(winner == 0){
+                        winnerStr = "BLACK";
+                    }else if(winner == 1){
+                        winnerStr = "WHITE";
+                    }
+                    MainFrame.instance().log(this.info + " round " + round + " end \n Winner is: " + winnerStr);
 
                     record.get(round).add("ROUND_END " + round);
                 }
@@ -479,7 +399,7 @@ public class TestServiceRunnable implements Runnable{
     }
 
     // 对颜色为color方，在第round轮，请求接收对面的消息
-    public byte[] receiveMsg(int color , int round){
+    public byte[] receiveMsg(int color , int round) throws Exception{
         byte[] recvBuffer = null;
         try {
             // block...
@@ -501,15 +421,6 @@ public class TestServiceRunnable implements Runnable{
                             (color == 0?"BLACK":"WHITE") + "step: " + result.errors[color][round] + " time!");
                     record.get(round).add("TIMEOUT " + (color == 0?"BLACK ":"WHITE ") + result.errors[color][round]);
                     continue;
-                }catch (Exception ee) {
-                    // other exception
-                    LOG.error(ee);
-                    LOG.error(this.info + " ROUND " + round + " Unkown Exception when receive "
-                            + (color == 0?"BLACK ":"WHITE ") + "step!");
-                    record.get(round).add("UNKOWN_EXCEPTION " + (color == 0?"BLACK ":"WHITE "));
-                    result.errors[color][round]++;
-                    result.winner = 1-color;
-                    return null;
                 }
                 break;
             }

@@ -21,7 +21,7 @@ public class ChessBoard {
     private int[] dy = new int[]{1, 1, 0, -1, -1, -1, 0, 1};
 	
 	// the chess board
-	private Square[][] board = new Square[ROWS][COLS];
+	public Square[][] board = new Square[ROWS][COLS];
     private int lastStepRow = -1, lastStepCol = -1;
 
 	public ChessBoard() {}
@@ -52,7 +52,7 @@ public class ChessBoard {
 
 	/**
 	 * 
-	 * @param step
+	 * @param
 	 * @param color 0 is black, 1 is white
 	 * @return if
 	 * 		   code true : success;
@@ -72,20 +72,16 @@ public class ChessBoard {
 	public String step(String step, int stepNum, int color) {
 		System.out.println("The " + stepNum + " of color " +
 				(color==0?"Black":"White")+" Step " + " with message: " + step);
+		if(existLazi(color) == false){
+			return "R0N";
+		}
     	// ganjun add 下过来的棋子出错功能
 		if (step.substring(0 , 2).compareTo("In") == 0){
 			MainFrame.instance().log("color : " + (color==0?"black":"white")
 					+ " play an invalid step\n It will get an 5 score punishment");
-			return step("SP"+randomStep(color) , stepNum , color);
+			return step("EP"+randomStep(color) , stepNum , color);
 		}
 
-		// System.out.println("Handle Step " + step + " " + color);
-		// check step or not
-		if (step.charAt(0) != 'S') {  // S represents step
-            // System.out.println("Step.charAt(0) != S");
-            return "R1";
-        }
-		
 		switch (step.charAt(1)) {
             case 'P':
             {
@@ -149,8 +145,8 @@ public class ChessBoard {
 		
 		for(int x = 0; x < ROWS; x ++){
 			for(int y = 0; y < COLS; y ++){
-				if( (board[x][y].color == -1 && (canLazi(x,y,0) || canLazi(x,y,1))) ){
-				//if(! (board[x][y].existChessman() || !canLazi(x,y,0) || !canLazi(x,y,1))){
+				if( ((board[x][y].color == -1 || board[x][y].color==2)
+						&& (stopCanLazi(x,y,0) || stopCanLazi(x,y,1))) ){
 					return false;
 					
 				}
@@ -159,7 +155,28 @@ public class ChessBoard {
 		
 		return gameEnd;
 	}
-	
+
+	/**
+	 * can player put chessman on the position (x,y)
+	 * function same as canLazi
+	 * but x,y can be stop position
+	 */
+	public boolean stopCanLazi(int x, int y, int chessmanColor){
+		boolean lazi = false;
+
+
+		//travel all direction of position (x,y) to find the chessman confirm to reversi rules
+		for(int dir = 0; dir < dx.length; dir ++){
+
+			//can reversi in an direction
+			if(canReversiInDirection(x,y,chessmanColor, dir)){
+				//System.out.println("dir��" + dir);
+				lazi = true;
+				break;
+			}
+		}
+		return lazi;
+	}
 	/**
 	 * can player put chessman on the position (x,y)
 	 * 
@@ -295,12 +312,15 @@ public class ChessBoard {
 			}
 			
 			if(blackCount > whiteCount){
+				System.out.println("This round BLACK WIN");
 				return 0;
 			}
 			else if(blackCount < whiteCount){
+				System.out.println("This round WHITE WIN");
 				return 1;
 			}
 			else{
+				System.out.println("This round BLACK AND WHITE ALL WIN");
 				return 2;
 			}
 		}
@@ -346,17 +366,17 @@ public class ChessBoard {
 	}
 
 	// if exist an position that a chessman can lazi at
-		public boolean existLazi(int color){
-			for(int i = 0; i < ROWS; i ++){
-				for(int j = 0; j < COLS; j ++){
-					if(canLazi(i, j , color)){
-						return true;
-					}
-					
+	public boolean existLazi(int color){
+		for(int i = 0; i < ROWS; i ++){
+			for(int j = 0; j < COLS; j ++){
+				if(canLazi(i, j , color)){
+					return true;
 				}
+
 			}
-			return false;
 		}
+		return false;
+	}
 	// 打印board
 	public void printChessBoard(){
 		for (int i=0; i<ROWS; i++) {
@@ -369,4 +389,22 @@ public class ChessBoard {
 			System.out.println();
 		}
 	}
+
+	public static void main(String [] args) {
+		ChessBoard cb = new ChessBoard();
+		cb.generateEmptyChessBoard();
+		for(int i = 0 ; i<ChessBoard.ROWS ; i++){
+			for(int j=0 ; j<ChessBoard.COLS ; j++){
+				cb.board[i][j].reset();
+			}
+		}
+		cb.board[0][0].color = 0;
+		cb.board[0][1].color = cb.board[1][0].color = 1;
+		cb.board[0][2].color = cb.board[2][0].color = 2;
+		System.out.println("here");
+		System.out.println(cb.isGameEnd());
+	}
 }
+
+
+

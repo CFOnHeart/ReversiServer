@@ -172,41 +172,10 @@ public class TestServiceRunnable implements Runnable{
 
                         long stepstart = System.nanoTime();
                         // receive black player step
-                        try {
-                            // block...
-                            recvBuffer = players[black].receive();
-                        } catch (SocketTimeoutException e) {
-                            // step timeout
-                            result.errors[black][round]++;
-                            LOG.error(e);
-                            LOG.error(this.info + " ROUND " + round + " TimeoutException when receive BLACK step: " + result.errors[black][round] + " time!");
-                            record.get(round).add("TIMEOUT BLACK " + result.errors[black][round]);
-                            while (result.errors[black][round] <= ERRORS) {
-                                try {
-                                    recvBuffer = players[black].receive();
-                                } catch (SocketTimeoutException ee) {
-                                    result.errors[black][round]++;
-                                    LOG.error(e);
-                                    LOG.error(this.info + " ROUND " + round + " TimeoutException when receive BLACK step: " + result.errors[black][round] + " time!");
-                                    record.get(round).add("TIMEOUT BLACK " + result.errors[black][round]);
-                                    continue;
-                                }
-                                break;
-                            }
-                            if (result.errors[black][round] > ERRORS) {
-                                record.get(round).add("ERROR_MAXTIME BLACK");
-                                break;
-                            }
-                        } catch (Exception e) {
-                            // other exception
-                            LOG.error(e);
-                            LOG.error(this.info + " ROUND " + round + " Unkown Exception when receive BLACK step!");
-                            record.get(round).add("UNKOWN_EXCEPTION BLACK");
-                            result.errors[black][round]++;
-                            result.winner = white;
+                        if((recvBuffer=receiveMsg(black, round)) == null){
                             break;
                         }
-                        //result.timecost[black][round] += System.nanoTime() - stepstart;
+                        result.timecost[black][round] += System.nanoTime() - stepstart;
                         players[black].addCostTime(System.nanoTime() - stepstart);
 
                         // test and verify the black step
@@ -216,28 +185,26 @@ public class TestServiceRunnable implements Runnable{
                         String blackReturnCode = board.step(blackStep, num,0);
 
                         if (blackReturnCode.charAt(1) == '0') {
-                            // valid step
-                            record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
-                            System.out.println("258 board.toStringToDisplay");
-                            record.get(round).add(board.toStringToDisplay());
-                            System.out.println("260 board.toStringToDisplay over");
-                            try {
-                                players[black].send(blackReturnCode);
-                            } catch (Exception e) {
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
+                            // R0N no step can lazi
+                            if(blackReturnCode.charAt(2) == 'N'){
+                                record.get(round).add("NO_STEP_CAN_LAZI BLACK: MSG(R0N)");
+                                record.get(round).add(board.toStringToDisplay());
                             }
-                            try {
-                                players[white].send(blackReturnCode);
-                            } catch (Exception e) {
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
+
+                            // 标记一下这里
+                            else{
+                                // valid step
+                                record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
+                                System.out.println("258 board.toStringToDisplay");
+                                record.get(round).add(board.toStringToDisplay());
+                                System.out.println("260 board.toStringToDisplay over");
+
+                                if(sendMsg(black , round , blackReturnCode) == false){
+                                    return;
+                                }
+                                if(sendMsg(white , round , blackReturnCode) == false){
+                                    return;
+                                }
                             }
                         } else {
                             // invalid step
@@ -509,6 +476,71 @@ public class TestServiceRunnable implements Runnable{
             result = null;
             out.close();
         }
+    }
+
+    // 对颜色为color方，在第round轮，请求接收对面的消息
+    public byte[] receiveMsg(int color , int round){
+        byte[] recvBuffer = null;
+        try {
+            // block...
+            recvBuffer = players[color].receive();
+        } catch (SocketTimeoutException e) {
+            // step timeout
+            result.errors[color][round]++;
+            LOG.error(e);
+            LOG.error(this.info + " ROUND " + round + " TimeoutException when receive " +
+                    (color == 0?"BLACK":"WHITE") + " step: " + result.errors[color][round] + " time!");
+            record.get(round).add("TIMEOUT " + (color == 0?"BLACK ":"WHITE ") + result.errors[color][round]);
+            while (result.errors[color][round] <= ERRORS) {
+                try {
+                    recvBuffer = players[color].receive();
+                } catch (SocketTimeoutException ee) {
+                    result.errors[color][round]++;
+                    LOG.error(e);
+                    LOG.error(this.info + " ROUND " + round + " TimeoutException when receive" +
+                            (color == 0?"BLACK":"WHITE") + "step: " + result.errors[color][round] + " time!");
+                    record.get(round).add("TIMEOUT " + (color == 0?"BLACK ":"WHITE ") + result.errors[color][round]);
+                    continue;
+                }catch (Exception ee) {
+                    // other exception
+                    LOG.error(ee);
+                    LOG.error(this.info + " ROUND " + round + " Unkown Exception when receive "
+                            + (color == 0?"BLACK ":"WHITE ") + "step!");
+                    record.get(round).add("UNKOWN_EXCEPTION " + (color == 0?"BLACK ":"WHITE "));
+                    result.errors[color][round]++;
+                    result.winner = 1-color;
+                    return null;
+                }
+                break;
+            }
+            if (result.errors[color][round] > ERRORS) {
+                record.get(round).add("ERROR_MAXTIME " + (color == 0?"BLACK ":"WHITE "));
+                return null;
+            }
+        } catch (Exception e) {
+            // other exception
+            LOG.error(e);
+            LOG.error(this.info + " ROUND " + round + " Unkown Exception when receive "
+                    + (color == 0?"BLACK ":"WHITE ") + " step!");
+            record.get(round).add("UNKOWN_EXCEPTION " + (color == 0?"BLACK ":"WHITE "));
+            result.errors[color][round]++;
+            result.winner = 1-color;
+            return null;
+        }
+        return recvBuffer;
+    }
+
+    public boolean sendMsg(int color , int round , String msg){
+        try {
+            players[color].send(msg);
+        } catch (Exception e) {
+            LOG.error(e);
+            record.get(round).add("SEND_ERROR " + (color == 0? "BLACK":"WHITE"));
+            result.errors[color][round]++;
+            result.winner = 1-color;
+            return false;
+        }
+        return true;
     }
 
 }

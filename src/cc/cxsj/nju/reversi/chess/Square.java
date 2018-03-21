@@ -78,4 +78,5 @@ public class Square {
 	public boolean existChessman(){
 		return (color == 0 || color == 1);
 	}
+
 }

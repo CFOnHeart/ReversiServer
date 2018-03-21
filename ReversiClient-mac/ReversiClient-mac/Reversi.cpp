@@ -256,14 +256,13 @@ char * Reversi::generateOneStepMessage(int row, int col)
         char* msg = new char[3];
         msg[0] = 'S';
         msg[1] = 'N';
-        msg[2] = '0';
+        msg[2] = 0;
         return msg;
     }
     else if (!board.canLazi(row, col, ownColor)){
         char * msg = new char[6];
         memset(msg , 0 , sizeof(msg));
         strcpy(msg , "In");
-        msg[7] = '\0';
         debug_lastmsg();
         printf("generate one step at invalid possition (%2d,%2d) : %s\n", row , col , msg);
         return msg;

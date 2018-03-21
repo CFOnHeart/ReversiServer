@@ -42,11 +42,12 @@ void Reversi::authorize(const char *id , const char *pass)
 // 用户id输入，服务器上需要有对应的账号密码：对应文件 players-0.txt
 void Reversi::gameStart()
 {
-    char id[12] = "111111110", passwd[10] = "123456";
+    char id[12] = {0}, passwd[10] = {0};
+    //char id[12] = "111111110", passwd[10] = "123456";
     printf("ID: %s\n" , id);
-//    scanf("%s" , id);
+    scanf("%s" , id);
     printf("PASSWD: %s\n", passwd);
-//    scanf("%s", passwd);
+    scanf("%s", passwd);
     
     authorize(id, passwd);
     
@@ -108,7 +109,7 @@ void Reversi::oneRound()
     switch (ownColor) {
         case 0:
             while (STEP < 10000) {
-          
+                
                 pair<int,int> chess = step();                        // take action, send message
                 
                 // lazi only excute after server's message confirm  in observe function
@@ -249,8 +250,16 @@ void Reversi::putDown(int row, int col)
 
 char * Reversi::generateOneStepMessage(int row, int col)
 {
+    
     // 落子不合法的情况
-    if (!board.canLazi(row, col, ownColor)){
+    if(row == -1 && col == -1){
+        char* msg = new char[3];
+        msg[0] = 'S';
+        msg[1] = 'N';
+        msg[2] = '0';
+        return msg;
+    }
+    else if (!board.canLazi(row, col, ownColor)){
         char * msg = new char[6];
         memset(msg , 0 , sizeof(msg));
         strcpy(msg , "In");
@@ -282,21 +291,25 @@ void Reversi::noStep()
 
 pair<int,int> Reversi::step()
 {
-//    int r = -1, c = -1;
-//    // printf("%s\n", lastMsg());
-//
-//    //board.step(r, c, ownColor);
-//    if(!board.existLazi(ownColor)){
-//        return make_pair(0,0);
-//    }
-//    while (!(r >= 0 && r < ROWS && c >= 0 && c < COLS && board.canLazi(r, c, ownColor))) {
-//        r = random(8);
-//        c = random(8);
-//        // System.out.println("Rand " + r + " " + c);
-//    }
+    //    int r = -1, c = -1;
+    //    // printf("%s\n", lastMsg());
+    //
+    //    //board.step(r, c, ownColor);
+    //    if(!board.existLazi(ownColor)){
+    //        return make_pair(0,0);
+    //    }
+    //    while (!(r >= 0 && r < ROWS && c >= 0 && c < COLS && board.canLazi(r, c, ownColor))) {
+    //        r = random(8);
+    //        c = random(8);
+    //        // System.out.println("Rand " + r + " " + c);
+    //    }
     // saveChessBoard();
-    int r = random(8);
-    int c = random(8);
+    if(!board.existLazi(ownColor)){
+        return make_pair(-1,-1);
+    }
+    srand(time(0));
+    int r = rand()%8;
+    int c = rand()%(8);
     return make_pair(r,c);
 }
 
@@ -309,5 +322,3 @@ void Reversi::debug_lastmsg()
 {
     printf("%s\n" , lastmsg);
 }
-
-

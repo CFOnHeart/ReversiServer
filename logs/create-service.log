@@ -268,3 +268,25 @@
 2018-03-17 15:24:17  INFO CreateServiceRunnable:279 - The number of registered players: 12
 2018-03-17 15:24:17  INFO CreateServiceRunnable:289 - No passed player in contest
 2018-03-17 15:24:17  INFO CreateServiceRunnable:291 - Contest start!
+2018-03-21 15:32:23  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-03-21 15:32:23  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-03-21 15:32:23  INFO CreateServiceRunnable:106 - Start contest mode!
+2018-03-21 15:32:23  INFO CreateServiceRunnable:116 - The number of registered players: 0
+2018-03-21 15:34:24  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-03-21 15:34:24  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-03-21 15:34:24  INFO CreateServiceRunnable:106 - Start contest mode!
+2018-03-21 15:34:24  INFO CreateServiceRunnable:116 - The number of registered players: 0
+2018-03-21 15:34:35  INFO CreateServiceRunnable:200 - Accepted 111111110
+2018-03-21 15:34:35  INFO CreateServiceRunnable:217 - Welcome 111111110,aaa
+2018-03-21 15:34:35  INFO CreateServiceRunnable:116 - The number of registered players: 1
+2018-03-21 15:34:46  INFO CreateServiceRunnable:200 - Accepted 111111111
+2018-03-21 15:34:46  INFO CreateServiceRunnable:217 - Welcome 111111111,aaa
+2018-03-21 15:34:46  INFO CreateServiceRunnable:116 - The number of registered players: 2
+2018-03-21 15:35:02  INFO CreateServiceRunnable:200 - Accepted 111111112
+2018-03-21 15:35:02  INFO CreateServiceRunnable:217 - Welcome 111111112,aaa
+2018-03-21 15:35:02  INFO CreateServiceRunnable:116 - The number of registered players: 3
+2018-03-21 15:35:11  INFO CreateServiceRunnable:200 - Accepted 111111113
+2018-03-21 15:35:11  INFO CreateServiceRunnable:217 - Welcome 111111113,aaa
+2018-03-21 15:35:11  INFO CreateServiceRunnable:279 - The number of registered players: 4
+2018-03-21 15:35:11  INFO CreateServiceRunnable:289 - No passed player in contest
+2018-03-21 15:35:11  INFO CreateServiceRunnable:291 - Contest start!

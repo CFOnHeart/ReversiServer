@@ -4,27 +4,12 @@
     <list default="true" id="bba32a84-2494-4518-9a50-3e8d78915d06" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac.xcodeproj/project.xcworkspace/xcuserdata/ganjun.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac.xcodeproj/project.xcworkspace/xcuserdata/ganjun.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change beforePath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac/Board.cpp" afterPath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac/Board.cpp" />
+      <change beforePath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac/Board.h" afterPath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac/Board.h" />
       <change beforePath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac/Reversi.cpp" afterPath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac/Reversi.cpp" />
-      <change beforePath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac/Reversi.h" afterPath="$PROJECT_DIR$/ReversiClient-mac/ReversiClient-mac/Reversi.h" />
       <change beforePath="$PROJECT_DIR$/logs/create-service.log" afterPath="$PROJECT_DIR$/logs/create-service.log" />
       <change beforePath="$PROJECT_DIR$/logs/main.log" afterPath="$PROJECT_DIR$/logs/main.log" />
-      <change beforePath="$PROJECT_DIR$/logs/test-service.log" afterPath="$PROJECT_DIR$/logs/test-service.log" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-0.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-0.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-1.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-0-round-1.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-1-round-0.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-1-round-0.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-1-round-1.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-1-round-1.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-2-round-0.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-2-round-0.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-2-round-1.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-2-round-1.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-3-round-0.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-3-round-0.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-3-round-1.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-3-round-1.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-4-round-0.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-4-round-0.record" />
-      <change beforePath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-4-round-1.record" afterPath="$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-4-round-1.record" />
-      <change beforePath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-0.result" afterPath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-0.result" />
-      <change beforePath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-1.result" afterPath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-1.result" />
-      <change beforePath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-2.result" afterPath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-2.result" />
-      <change beforePath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-3.result" afterPath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-3.result" />
-      <change beforePath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-4.result" afterPath="$PROJECT_DIR$/result/test/result-0/111111110vsRobotTravel-test-4.result" />
-      <change beforePath="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java" afterPath="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java" />
+      <change beforePath="$PROJECT_DIR$/players/players-0.txt" afterPath="$PROJECT_DIR$/players/players-0.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,77 +20,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
-              <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+            <state relative-caret-position="297">
+              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestServiceRunnable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java">
+      <file leaf-file-name="players-0.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/players/players-0.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="176" column="60" lean-forward="true" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChessBoard.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="75" column="47" lean-forward="false" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
-              <folding>
-                <element signature="e#8983#8984#0" expanded="true" />
-                <element signature="e#9007#9008#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Math.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Math.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="771" column="35" lean-forward="false" selection-start-line="771" selection-start-column="35" selection-end-line="771" selection-end-column="35" />
-              <folding>
-                <element signature="e#32095#32096#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/info/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="928">
-              <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReversiRobotAITravel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAITravel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReversiRobotAI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="123" column="34" lean-forward="false" selection-start-line="123" selection-start-column="34" selection-end-line="123" selection-end-column="34" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -139,6 +69,7 @@
         <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/info/Player.java" />
         <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java" />
         <option value="$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java" />
+        <option value="$PROJECT_DIR$/players/players-0.txt" />
       </list>
     </option>
   </component>
@@ -168,16 +99,39 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="players" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="record" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="record" type="462c0819:PsiDirectoryNode" />
+              <item name="contest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
+              <item name="record" type="462c0819:PsiDirectoryNode" />
+              <item name="contest" type="462c0819:PsiDirectoryNode" />
+              <item name="record-1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ReversiServer" type="b2602c69:ProjectViewProjectNode" />
@@ -375,33 +329,33 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17436000" />
+    <option name="totallyTimeSpent" value="18262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23521851" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33619457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -417,13 +371,12 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23521851" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23521851" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20028612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -442,6 +395,119 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/CreateServiceRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="383" column="51" lean-forward="false" selection-start-line="383" selection-start-column="51" selection-end-line="383" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="627" column="62" lean-forward="false" selection-start-line="627" selection-start-column="62" selection-end-line="627" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="123" column="34" lean-forward="false" selection-start-line="123" selection-start-column="34" selection-end-line="123" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="771" column="35" lean-forward="false" selection-start-line="771" selection-start-column="35" selection-end-line="771" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/ai/ReversiRobotAITravel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/info/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/test-service.log.2018-03-12">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/test/record-0/111111110vsRobotOmega-test-0-round-0.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/test/record-0/111111110vsRobotOmega-test-0-round-1.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-2-round-0.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/test/record-0/111111110vsRobotTravel-test-1-round-0.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/info/ReplayStep.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="59" column="7" lean-forward="false" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
+          <folding>
+            <element signature="method#printChessBoard#0;class#ChessBoard#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2277">
+          <caret line="102" column="22" lean-forward="false" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-105">
@@ -455,8 +521,7 @@
         <state relative-caret-position="-137">
           <caret line="335" column="15" lean-forward="false" selection-start-line="335" selection-start-column="15" selection-end-line="335" selection-end-column="15" />
           <folding>
-            <element signature="e#8983#8984#0" expanded="true" />
-            <element signature="e#9007#9008#0" expanded="true" />
+            <element signature="method#printChessBoard#0;class#ChessBoard#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -530,8 +595,7 @@
         <state relative-caret-position="1140">
           <caret line="65" column="18" lean-forward="false" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
           <folding>
-            <element signature="e#8983#8984#0" expanded="true" />
-            <element signature="e#9007#9008#0" expanded="true" />
+            <element signature="method#printChessBoard#0;class#ChessBoard#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -541,8 +605,8 @@
         <state relative-caret-position="620">
           <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
           <folding>
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1369#1370#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1369#1370#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -551,7 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11820">
           <caret line="619" column="58" lean-forward="false" selection-start-line="619" selection-start-column="58" selection-end-line="619" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -559,7 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17800">
           <caret line="890" column="19" lean-forward="false" selection-start-line="890" selection-start-column="19" selection-end-line="890" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -571,19 +633,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/javax/swing/JLabel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16320">
           <caret line="890" column="19" lean-forward="false" selection-start-line="890" selection-start-column="19" selection-end-line="890" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -595,21 +648,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/players/players-0.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/Square.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="33" column="29" lean-forward="false" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
           <folding>
-            <element signature="e#1329#1330#0" expanded="true" />
-            <element signature="e#1369#1370#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1369#1370#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -626,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="627" column="62" lean-forward="false" selection-start-line="627" selection-start-column="62" selection-end-line="627" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -642,9 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="771" column="35" lean-forward="false" selection-start-line="771" selection-start-column="35" selection-end-line="771" selection-end-column="35" />
-          <folding>
-            <element signature="e#32095#32096#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -658,15 +699,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/TestServiceRunnable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="176" column="60" lean-forward="true" selection-start-line="176" selection-start-column="60" selection-end-line="176" selection-end-column="60" />
+        <state relative-caret-position="1680">
+          <caret line="102" column="22" lean-forward="false" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/info/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
+        <state relative-caret-position="1080">
           <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
           <folding />
         </state>
@@ -674,12 +715,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/chess/ChessBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="75" column="47" lean-forward="false" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
+        <state relative-caret-position="960">
+          <caret line="59" column="7" lean-forward="false" selection-start-line="59" selection-start-column="7" selection-end-line="59" selection-end-column="7" />
           <folding>
-            <element signature="e#8983#8984#0" expanded="true" />
-            <element signature="e#9007#9008#0" expanded="true" />
+            <element signature="method#printChessBoard#0;class#ChessBoard#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/task/ContestServiceRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/players/players-0.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/contest/record-0/111111112vs111111113-contest-1-round-0.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/contest/record-3/111111112vs111111114-contest-3-round-1.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-646">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/contest/record-3/111111112vs111111114-contest-3-round-0.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/contest/record-2/111111115vs111111112-contest-2-round-0.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/contest/record-1/111111115vs111111111-contest-1-round-1.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/contest/record-1/111111115vs111111111-contest-1-round-0.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/contest/record-0/111111111vs111111110-contest-0-round-1.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/contest/record-0/111111111vs111111110-contest-0-round-0.record">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13510">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc/cxsj/nju/reversi/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

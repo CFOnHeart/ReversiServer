@@ -202,3 +202,15 @@ bool Board::existLazi(int color){
     }
     return false;
 }
+
+//print the total board
+void Board::print(){
+    std::string str;
+    for(int r = 0; r < ROWS; r ++){
+        for(int c = 0; c < COLS; c ++){
+            squares[r][c].print(str);
+        }
+        str += "\n";
+    }
+    printf("%s\n", str.c_str());
+}

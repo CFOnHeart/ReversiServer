@@ -31,7 +31,6 @@ public class ContestServiceRunnable implements Runnable{
     private String info;
     private ArrayList<ArrayList<String>> record;
     private ContestResult result;
-    private Queue<String> blackMoves, whiteMoves;
 
     public ContestServiceRunnable(Player user1, Player user2) {
 
@@ -77,46 +76,16 @@ public class ContestServiceRunnable implements Runnable{
                 // generate chess board randomly
                 ChessBoard board = new ChessBoard();
                 board.generateEmptyChessBoard();
-                blackMoves = new LinkedList<String>();
-                whiteMoves = new LinkedList<String>();
                 // record.get(round).add("INITIAL CHESS BOARD\n" + board.toStringToRecord());
                 int winner = -1;
 
                 try {
-                    try {
-                        if (players[black].isclosed()) {
-                            System.out.println("BLACK SOCKET CLOSED");
-                            record.get(round).add("BLACK SOCKET CLOSED");
-                            result.errors[black][round]++;
-                            result.winner = white;
-                            return;
-                        }
-                        players[black].send("BB");
-                    } catch (Exception e) {
-                        if (PRINT_ERROR) e.printStackTrace();
-                        LOG.error(e);
-                        record.get(round).add("SEND_ERROR BLACK");
-                        result.errors[black][round]++;
-                        result.winner = white;
-                        return;
-                    }
-                    try {
-                        if (players[white].isclosed()) {
-                            System.out.println("WHITE SOCKET CLOSED");
-                            record.get(round).add("WHITE SOCKET CLOSED");
-                            result.errors[white][round]++;
-                            result.winner = black;
-                            return;
-                        }
-                        players[white].send("BW");
-                    } catch (Exception e) {
-                        if (PRINT_ERROR) e.printStackTrace();
-                        LOG.error(e);
-                        record.get(round).add("SEND_ERROR WHITE");
-                        result.errors[white][round]++;
-                        result.winner = black;
-                        return;
-                    }
+                    // socket close ， game regard as finish, the connected color win
+                    if(checkPlayerIsConnected(black , round, "BLACK") == false)
+                        return ;
+
+                    if(checkPlayerIsConnected(white , round, "WHITE") == false)
+                        return ;
 
                     int synNum = 0;
                     try {
@@ -129,6 +98,7 @@ public class ContestServiceRunnable implements Runnable{
                             synNum++;
                             if (synNum >= 5) {
                                 // syn fail too much time
+                                System.out.println(syn);
                                 result.errors[black][round]++;
                                 LOG.error(this.info + " ROUND " + round + " Sync. Failed too much(5) times");
                                 record.get(round).add("SYNTIME_EXCEED BLACK " + result.errors[0][round]);
@@ -194,7 +164,7 @@ public class ContestServiceRunnable implements Runnable{
                     for ( ; num <= STEPS; num++) {
                         winner = board.isGeneratedWinner();
                         if (winner >= 0) {   // a player won
-                            // MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
+                            MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
                             break;
                         }
                         
@@ -241,81 +211,13 @@ public class ContestServiceRunnable implements Runnable{
                         // test and verify the black step
                         String blackStep = new String(recvBuffer);
                         String blackReturnCode = board.step(blackStep, num,0);
-                        if (!blackStep.substring(0, 2).equals("SN"))
-                            blackMoves.offer(blackStep.substring(2, 6));
+
                         if (blackReturnCode.charAt(1) == '0') {
                             // valid step
                             record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
                             record.get(round).add(board.toStringToDisplay());
-                            try {
-                                players[black].send(blackReturnCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
+                            if(sendMsg(black , round , blackReturnCode) == false)
                                 return;
-                            }
-                            try {
-                                if (players[white].isclosed()) {
-                                    System.out.println("WHITE SOCKET CLOSED");
-                                    record.get(round).add("WHITE SOCKET CLOSED");
-                                    result.errors[white][round]++;
-                                    result.winner = black;
-                                    return;
-                                }
-                                players[white].send(blackReturnCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                        } else {
-                            // invalid step
-                            result.errors[black][round]++;
-                            record.get(round).add("ERROR_STEP BLACK " + result.errors[black][round] + " " + blackStep.substring(0, 6));
-                            try {
-                                if (players[black].isclosed()) {
-                                    System.out.println("BLACK SOCKET CLOSED");
-                                    record.get(round).add("BLACK SOCKET CLOSED");
-                                    result.errors[black][round] = 1;
-                                    result.winner = white;
-                                    return;
-                                }
-                                players[black].send(blackReturnCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                            try {
-                                if (players[white].isclosed()) {
-                                    System.out.println("WHITE SOCKET CLOSED");
-                                    record.get(round).add("WHITE SOCKET CLOSED");
-                                    result.errors[white][round]++;
-                                    result.winner = black;
-                                    return;
-                                }
-                                players[white].send("R0N");
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            if (result.errors[black][round] > ERRORS) {
-                                record.get(round).add("ERROR_MAXTIME BLACK");
-                                break;
-                            }
                         }
 
                         winner = board.isGeneratedWinner();
@@ -367,88 +269,15 @@ public class ContestServiceRunnable implements Runnable{
                         // test and verify the white step
                         String whiteStep = new String(recvBuffer);
                         String whiteReturnCode = board.step(whiteStep, num,1);
-                        if (!whiteStep.substring(0, 2).equals("SN"))
-                            whiteMoves.offer(whiteStep.substring(2, 6));
+
                         if (whiteReturnCode.charAt(1) == '0') {
                             // valid step
                             record.get(round).add("VALID_STEP WHITE " + whiteStep.substring(0, 6));
                             record.get(round).add(board.toStringToDisplay());
-                            try {
-                                if (players[white].isclosed()) {
-                                    System.out.println("WHITE SOCKET CLOSED");
-                                    record.get(round).add("WHITE SOCKET CLOSED");
-                                    result.errors[white][round]++;
-                                    result.winner = black;
-                                    return;
-                                }
-                                players[white].send(whiteReturnCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
+
+                            if(sendMsg(white, round, whiteReturnCode) == false)
                                 return;
-                            }
-                            try {
-                                if (players[black].isclosed()) {
-                                    System.out.println("BLACK SOCKET CLOSED");
-                                    record.get(round).add("BLACK SOCKET CLOSED");
-                                    result.errors[black][round]++;
-                                    result.winner = white;
-                                    return;
-                                }
-                                players[black].send(whiteReturnCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                        } else {
-                            // invalid step
-                            result.errors[white][round]++;
-                            record.get(round).add("ERROR_STEP WHITE " + result.errors[white][round] + " " + whiteStep.substring(0, 6));
-                            try {
-                                if (players[white].isclosed()) {
-                                    System.out.println("WHITE SOCKET CLOSED");
-                                    record.get(round).add("WHITE SOCKET CLOSED");
-                                    result.errors[white][round]++;
-                                    result.winner = black;
-                                    return;
-                                }
-                                players[white].send(whiteReturnCode);
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            try {
-                                if (players[black].isclosed()) {
-                                    System.out.println("BLACK SOCKET CLOSED");
-                                    record.get(round).add("BLACK SOCKET CLOSED");
-                                    result.errors[black][round]++;
-                                    result.winner = white;
-                                    return;
-                                }
-                                players[black].send("R0N");
-                            } catch (Exception e) {
-                                if (PRINT_ERROR) e.printStackTrace();
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
-                            if (result.errors[white][round] > ERRORS) {
-                                record.get(round).add("ERROR_MAXTIME WHITE");
-                                break;
-                            }
+
                         }
                     }
                 } catch (Exception e) {
@@ -591,5 +420,66 @@ public class ContestServiceRunnable implements Runnable{
             result = null;
             out.close();
         }
+    }
+
+    // check player is connected
+    public boolean checkPlayerIsConnected(int color , int round , String colInfo){
+        try {
+            if (players[color].isclosed()) {
+                System.out.println((colInfo.compareTo("BLACK") == 0?"BLACK":"WHITE") + " SOCKET CLOSED");
+                record.get(round).add((colInfo.compareTo("BLACK") == 0?"BLACK":"WHITE") + " SOCKET CLOSED");
+                result.errors[color][round]++;
+                result.winner = 1-color;
+                return false;
+            }
+            players[color].send(colInfo.compareTo("BLACK") == 0?"BB":"BW");
+        } catch (Exception e) {
+            if (PRINT_ERROR) e.printStackTrace();
+            LOG.error(e);
+            record.get(round).add("SEND_ERROR "+ (colInfo.compareTo("BLACK") == 0?"BLACK":"WHITE"));
+            result.errors[color][round]++;
+            result.winner = 1-color;
+            return false;
+        }
+        return true;
+    }
+
+    // 对颜色为color方，在第round轮，向对方发送消息
+    public boolean sendMsg(int color , int round , String msg){
+        try {
+            if (players[color].isclosed()) {
+                System.out.println(color==0?"BLACK":"WHITE" + " SOCKET CLOSED");
+                record.get(round).add((color==0?"BLACK":"WHITE") + " SOCKET CLOSED");
+                result.errors[color][round]++;
+                result.winner = 1-color;
+                return false;
+            }
+            players[color].send(msg);
+        } catch (Exception e) {
+            if (PRINT_ERROR) e.printStackTrace();
+            LOG.error(e);
+            record.get(round).add("SEND_ERROR " + (color == 0?"BLACK":"WHITE"));
+            result.errors[color][round]++;
+            result.winner = color;
+            return false;
+        }
+        try {
+            if (players[1-color].isclosed()) {
+                System.out.println(color==0?"WHITE":"BLACK" + " SOCKET CLOSED");
+                record.get(round).add((color==0?"WHITE":"BLACK") + " SOCKET CLOSED");
+                result.errors[1-color][round]++;
+                result.winner = color;
+                return false;
+            }
+            players[1-color].send(msg);
+        } catch (Exception e) {
+            if (PRINT_ERROR) e.printStackTrace();
+            LOG.error(e);
+            record.get(round).add("SEND_ERROR " + (color==0?"WHITE":"BLACK"));
+            result.errors[1-color][round]++;
+            result.winner = color;
+            return false;
+        }
+        return true;
     }
 }

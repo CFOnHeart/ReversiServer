@@ -11,7 +11,7 @@
 #define random(x) (rand()%x)
 #define ROWS 8
 #define COLS 8
-#define ROUNDS 2
+#define ROUNDS 3
 
 Reversi::Reversi(){
     client_socket = ClientSocket();

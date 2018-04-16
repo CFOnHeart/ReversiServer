@@ -43,7 +43,6 @@ public abstract class RobotAI {
             {
                 int desRow = Integer.valueOf(step.substring(1, 3)), desCol = Integer.valueOf(step.substring(3, 5));
                 int color = step.charAt(5) - '0';
-                board[desRow][desCol].empty = false;
                 board[desRow][desCol].color = color;
                 break;
             }
@@ -51,7 +50,6 @@ public abstract class RobotAI {
 			{
 				int desRow = Integer.valueOf(step.substring(1, 3)), desCol = Integer.valueOf(step.substring(3, 5));
 				int color = step.charAt(5) - '0';
-				board[desRow][desCol].empty = true;
 				board[desRow][desCol].color = -1;
 				break;
 			}

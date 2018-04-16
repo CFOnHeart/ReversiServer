@@ -1,0 +1,57 @@
+2018-04-07 02:14:40  INFO ContestServiceRunnable:58 - 111111111vs111111110-contest-0 begin!
+2018-04-07 02:14:40  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 0 start
+2018-04-07 02:14:41  INFO ContestServiceRunnable:298 - 111111111vs111111110-contest-0 round 0 end
+2018-04-07 02:14:41  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 1 start
+2018-04-07 02:14:41  INFO ContestServiceRunnable:298 - 111111111vs111111110-contest-0 round 1 end
+2018-04-07 02:14:41  INFO ContestServiceRunnable:326 - 111111111vs111111110-contest-0 game over
+2018-04-07 02:14:41  INFO ContestServiceRunnable:333 - 111111111vs111111110-contest-0 result saved!
+2018-04-07 02:14:41  INFO ContestServiceRunnable:338 - 111111111vs111111110-contest-0 record save completed!
+2018-04-07 02:20:29  INFO ContestServiceRunnable:58 - 111111111vs111111110-contest-0 begin!
+2018-04-07 02:20:29  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 0 start
+2018-04-07 02:20:30  INFO ContestServiceRunnable:298 - 111111111vs111111110-contest-0 round 0 end
+2018-04-07 02:20:30  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 1 start
+2018-04-07 02:20:30  INFO ContestServiceRunnable:298 - 111111111vs111111110-contest-0 round 1 end
+2018-04-07 02:20:30  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 2 start
+2018-04-07 02:20:30 ERROR ContestServiceRunnable:102 - 111111111vs111111110-contest-0 ROUND 2 Sync. Failed too much(5) times
+2018-04-07 02:20:30  INFO ContestServiceRunnable:298 - 111111111vs111111110-contest-0 round 2 end
+2018-04-07 02:20:30  INFO ContestServiceRunnable:326 - 111111111vs111111110-contest-0 game over
+2018-04-07 02:20:30  INFO ContestServiceRunnable:333 - 111111111vs111111110-contest-0 result saved!
+2018-04-07 02:20:30  INFO ContestServiceRunnable:338 - 111111111vs111111110-contest-0 record save completed!
+2018-04-07 02:37:14  INFO ContestServiceRunnable:58 - 111111111vs111111110-contest-0 begin!
+2018-04-07 02:37:14  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 0 start
+2018-04-07 02:37:14  INFO ContestServiceRunnable:299 - 111111111vs111111110-contest-0 round 0 end
+2018-04-07 02:37:14  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 1 start
+2018-04-07 02:37:15  INFO ContestServiceRunnable:299 - 111111111vs111111110-contest-0 round 1 end
+2018-04-07 02:37:15  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 2 start
+2018-04-07 02:37:15 ERROR ContestServiceRunnable:119 - java.net.SocketException: Connection reset
+2018-04-07 02:37:15 ERROR ContestServiceRunnable:120 - 111111111vs111111110-contest-0 ROUND 2 Unkown Exception when synchronize black round!
+2018-04-07 02:37:15 ERROR ContestServiceRunnable:297 - java.net.SocketException: Broken pipe (Write failed)
+2018-04-07 02:37:15  INFO ContestServiceRunnable:299 - 111111111vs111111110-contest-0 round 2 end
+2018-04-07 02:37:15 ERROR ContestServiceRunnable:324 - java.net.SocketException: Broken pipe (Write failed)
+2018-04-07 02:37:15  INFO ContestServiceRunnable:327 - 111111111vs111111110-contest-0 game over
+2018-04-07 02:37:15  INFO ContestServiceRunnable:334 - 111111111vs111111110-contest-0 result saved!
+2018-04-07 02:37:15  INFO ContestServiceRunnable:339 - 111111111vs111111110-contest-0 record save completed!
+2018-04-07 02:39:57  INFO ContestServiceRunnable:58 - 111111110vs111111111-contest-0 begin!
+2018-04-07 02:39:57  INFO ContestServiceRunnable:68 - 111111110vs111111111-contest-0 round 0 start
+2018-04-07 02:39:58  INFO ContestServiceRunnable:299 - 111111110vs111111111-contest-0 round 0 end
+2018-04-07 02:39:58  INFO ContestServiceRunnable:68 - 111111110vs111111111-contest-0 round 1 start
+2018-04-07 02:39:58  INFO ContestServiceRunnable:299 - 111111110vs111111111-contest-0 round 1 end
+2018-04-07 02:39:58  INFO ContestServiceRunnable:68 - 111111110vs111111111-contest-0 round 2 start
+2018-04-07 02:39:58 ERROR ContestServiceRunnable:119 - java.net.SocketException: Connection reset
+2018-04-07 02:39:58 ERROR ContestServiceRunnable:120 - 111111110vs111111111-contest-0 ROUND 2 Unkown Exception when synchronize black round!
+2018-04-07 02:39:58 ERROR ContestServiceRunnable:297 - java.net.SocketException: Broken pipe (Write failed)
+2018-04-07 02:39:58  INFO ContestServiceRunnable:299 - 111111110vs111111111-contest-0 round 2 end
+2018-04-07 02:39:58 ERROR ContestServiceRunnable:324 - java.net.SocketException: Broken pipe (Write failed)
+2018-04-07 02:39:58  INFO ContestServiceRunnable:327 - 111111110vs111111111-contest-0 game over
+2018-04-07 02:39:58  INFO ContestServiceRunnable:334 - 111111110vs111111111-contest-0 result saved!
+2018-04-07 02:39:58  INFO ContestServiceRunnable:339 - 111111110vs111111111-contest-0 record save completed!
+2018-04-07 02:42:35  INFO ContestServiceRunnable:58 - 111111111vs111111110-contest-0 begin!
+2018-04-07 02:42:35  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 0 start
+2018-04-07 02:42:35  INFO ContestServiceRunnable:299 - 111111111vs111111110-contest-0 round 0 end
+2018-04-07 02:42:35  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 1 start
+2018-04-07 02:42:36  INFO ContestServiceRunnable:299 - 111111111vs111111110-contest-0 round 1 end
+2018-04-07 02:42:36  INFO ContestServiceRunnable:68 - 111111111vs111111110-contest-0 round 2 start
+2018-04-07 02:42:37  INFO ContestServiceRunnable:299 - 111111111vs111111110-contest-0 round 2 end
+2018-04-07 02:42:37  INFO ContestServiceRunnable:327 - 111111111vs111111110-contest-0 game over
+2018-04-07 02:42:37  INFO ContestServiceRunnable:334 - 111111111vs111111110-contest-0 result saved!
+2018-04-07 02:42:37  INFO ContestServiceRunnable:339 - 111111111vs111111110-contest-0 record save completed!

@@ -2,6 +2,7 @@ package cc.cxsj.nju.reversi;
 
 import cc.cxsj.nju.reversi.communication.ClientConnectMonitor;
 import cc.cxsj.nju.reversi.config.ServerProperties;
+import cc.cxsj.nju.reversi.info.Player;
 import cc.cxsj.nju.reversi.info.Players;
 import cc.cxsj.nju.reversi.task.CreateServiceRunnable;
 import cc.cxsj.nju.reversi.ui.MainFrame;
@@ -39,5 +40,6 @@ public class Main {
         // monitor connect
         ClientConnectMonitor.instance().start();
 
+        Players.GenerateNextPlayersNameListFile();
     }
 }

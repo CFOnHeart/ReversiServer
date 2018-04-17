@@ -50,6 +50,17 @@ public class ChessBoard {
         return (row >= 0 && row < ROWS && col >=0 && col < COLS);
     }
 
+    public void cancelProhibition(){
+    	//cancel prohibition
+		for(int i = 0; i < ROWS; i ++){
+			for(int j = 0; j < COLS; j ++){
+				if(board[i][j].color == 2){
+					board[i][j].color = -1;
+				}
+			}
+		}
+    }
+    
 	/**
 	 * 
 	 * @param
@@ -64,7 +75,8 @@ public class ChessBoard {
     		
     		return true;
     	}
-    	
+    	//cancel prohibition
+    	cancelProhibition();
     	
     	return false;
     }
@@ -73,13 +85,14 @@ public class ChessBoard {
 		System.out.println("The " + stepNum + " of color " +
 				(color==0?"Black":"White")+" Step " + " with message: " + step);
 		if(existLazi(color) == false){
+			cancelProhibition();
 			return "R0N";
 		}
     	// ganjun add 下过来的棋子出错功能
 		if (step.substring(0 , 2).compareTo("In") == 0){
 			MainFrame.instance().log("color : " + (color==0?"black":"white")
 					+ " play an invalid step\n It will get an 5 score punishment");
-			return step("SP"+randomStep(color) , stepNum , color);
+			return step(randomStep(color) , stepNum , color);
 		}
 
 		switch (step.charAt(1)) {
@@ -123,10 +136,13 @@ public class ChessBoard {
             }
 
             case 'N': {   // Nostep
+            	
             	if(existLazi(color)){
+            		cancelProhibition();
             		return "R0N";
             	}
             	else{
+            		cancelProhibition();
             		return "R0N";
             		//return "R1N";
             	}
@@ -169,7 +185,7 @@ public class ChessBoard {
 		for(int dir = 0; dir < dx.length; dir ++){
 
 			//can reversi in an direction
-			if(canReversiInDirection(x,y,chessmanColor, dir)){
+			if(reversiNumInDirection(x,y,chessmanColor, dir) >0 ){
 				//System.out.println("dir��" + dir);
 				lazi = true;
 				break;
@@ -194,7 +210,7 @@ public class ChessBoard {
 			for(int dir = 0; dir < dx.length; dir ++){
 				
 				//can reversi in an direction 
-				if(canReversiInDirection(x,y,chessmanColor, dir)){
+				if(reversiNumInDirection(x,y,chessmanColor, dir) > 0){
 					//System.out.println("dir��" + dir);
 					lazi = true;
 					break;
@@ -218,19 +234,13 @@ public class ChessBoard {
 		//}
 		
 		//cancel prohibition
-		for(int i = 0; i < ROWS; i ++){
-			for(int j = 0; j < COLS; j ++){
-				if(board[i][j].color == 2){
-					board[i][j].color = -1;
-				}
-			}
-		}
+		cancelProhibition();
 		
 		//travel all direction of position (x,y) to find the chessman confirm to reversi rules 
 		for(int dir = 0; dir < dx.length; dir ++){
 			
 			//can reversi in an direction 
-			if(canReversiInDirection(x,y,chessmanColor, dir)){
+			if(reversiNumInDirection(x,y,chessmanColor, dir) > 0){
 				int pos_x = x + dx[dir];
 				int pos_y = y + dy[dir];
 				while(board[pos_x][pos_y].color != chessmanColor){
@@ -253,12 +263,27 @@ public class ChessBoard {
 		
 	}
 	
-	/**
-	 * 
+	public int reversiNum(int x, int y, int color){
+		int totalCnt = 0;
+		for(int i = 0; i < dx.length; i ++){
+			totalCnt += reversiNumInDirection(x, y, color, i);
+		}
+		
+		return totalCnt;
+	}
+	
+	/*count the number of chess that can be reversi in the direction 
+	 * x,y means position that you want to lazi
+	 * chessmanColor means the color of your chess
+	 * dir means the direction
+	 * return the number of chess that can be reversi
 	 */
-	private boolean canReversiInDirection(int x, int y, int chessmanColor, int dir){
+	
+	private int reversiNumInDirection(int x, int y, int chessmanColor, int dir){
 		int pos_x = x + dx[dir], pos_y = y + dy[dir];
 		int color = chessmanColor;
+		
+		int cnt = 0;
 		
 		boolean opposite = false;
 		boolean reversi = false;
@@ -271,6 +296,7 @@ public class ChessBoard {
 			}
 			//if the color of neighbor position is the opposite color of player 
 			if(board[pos_x][pos_y].color == 1-color){
+				cnt ++;
 				opposite = true;
 			}
 			//if the color of neighbor position is the same color of player 
@@ -287,7 +313,10 @@ public class ChessBoard {
 			pos_x += dx[dir];
 			pos_y += dy[dir];
 		}	
-		return reversi;
+		if(!reversi){
+			return 0;
+		}
+		return cnt;
 	}
 	
 	/**
@@ -356,7 +385,10 @@ public class ChessBoard {
 				if(canLazi(r , c , color)) list.add(int2String(r) + int2String(c));
 			}
 		}
-		return list.get((int)Math.random()*list.size());
+		if(list.size() == 0){
+			return "SN";
+		}
+		return "SP"+list.get((int)(Math.random()*list.size()));
 	}
 	// 将整数转化为2位数字符串
 	public String int2String(int x){

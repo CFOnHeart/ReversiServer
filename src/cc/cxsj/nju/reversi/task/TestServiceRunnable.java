@@ -170,6 +170,7 @@ public class TestServiceRunnable implements Runnable{
                         long stepstart = System.nanoTime();
                         // receive black player step
                         if((recvBuffer=receiveMsg(black, round)) == null){
+                        	System.out.println("173 break flag");
                             break;
                         }
                         result.timecost[black][round] += System.nanoTime() - stepstart;
@@ -186,6 +187,12 @@ public class TestServiceRunnable implements Runnable{
                             if(blackReturnCode.charAt(2) == 'N'){
                                 record.get(round).add("NO_STEP_CAN_LAZI BLACK: MSG(R0N)");
                                 record.get(round).add(board.toStringToDisplay());
+                                if(sendMsg(black , round , blackReturnCode) == false){
+                                    return;
+                                }
+                                if(sendMsg(white , round , blackReturnCode) == false){
+                                    return;
+                                }
                             }
 
                             else{
@@ -214,6 +221,7 @@ public class TestServiceRunnable implements Runnable{
                         stepstart = System.nanoTime();
                         // receive white step
                         if((recvBuffer = receiveMsg(white , round)) == null){
+                        	System.out.println("break flag");
                             break;
                         }
 

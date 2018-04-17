@@ -9,9 +9,9 @@ public class RobotAIFactory {
 	
 	public static ReversiRobotAI produceRobotAIof(RobotAIModel model) {
 		switch (model) {
-			case RobotOmega:
+			case RobotMoreChess:
                 LOG.info("Produce Robot Omega");
-           //     return new RobotO(1);
+                return new ReversiRobotAIMoreChessOneStep();
 			case RobotAlpha:
 				LOG.info("Produce one Robot Alpha");
 			//	return new RobotI();

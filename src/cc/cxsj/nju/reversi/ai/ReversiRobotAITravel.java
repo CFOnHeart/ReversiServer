@@ -22,6 +22,13 @@ public class ReversiRobotAITravel extends ReversiRobotAI{
 			System.out.println("Robot no step");
 		}
 		
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			// TODO 自动生成的 catch 块
+//			e.printStackTrace();
+//		}
+		
 		return thisStep;
 	}
 	

@@ -137,7 +137,7 @@ public class ContestServiceRunnable implements Runnable{
                             // syn fail too much time
                             result.errors[white][round]++;
                             LOG.error(this.info + " ROUND " + round + " Sync. Failed too much(5) times");
-                            record.get(round).add("SYNTIME_EXCEED WHITE " + result.errors[1][round]);
+                            record.get(round).add("SYNTIME_EXCEED WHITE " + result.errors[white][round]);
                             result.winner = black;
                             return;
                         }

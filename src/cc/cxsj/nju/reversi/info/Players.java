@@ -110,6 +110,7 @@ public class Players {
 		MainFrame.instance().log("The winners as follow:");
 		for (Integer id : ContestResults.getContestIdsOrderly()) {
 			ContestResult result = ContestResults.getContestResult(id);
+			System.out.println("debug generate next players winner: " + result.winner);
 			switch (result.winner) {
 				case 0:   // A赢
 					nextPlayers.add(result.players[0]);
@@ -172,6 +173,7 @@ public class Players {
 			}
 			out = new PrintWriter(file);
 			for (Player player : nextPlayers) {
+				System.out.println("debug generate next players: "+player.getId() + "," + player.getPassword() + "," + player.getName());
 			    if (!player.getName().equalsIgnoreCase(""))
 				    out.println(player.getId() + "," + player.getPassword() + "," + player.getName());
 			    else

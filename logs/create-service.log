@@ -1,12 +1,89 @@
-2018-04-16 16:24:02  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
-2018-04-16 16:24:02  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
-2018-04-16 16:24:02  INFO CreateServiceRunnable:106 - Start contest mode!
-2018-04-16 16:24:02  INFO CreateServiceRunnable:116 - The number of registered players: 0
-2018-04-16 16:24:45  INFO CreateServiceRunnable:200 - Accepted 111111110
-2018-04-16 16:24:45  INFO CreateServiceRunnable:217 - Welcome 111111110,aaa
-2018-04-16 16:24:45  INFO CreateServiceRunnable:116 - The number of registered players: 1
-2018-04-16 16:24:56  INFO CreateServiceRunnable:200 - Accepted 111111111
-2018-04-16 16:24:56  INFO CreateServiceRunnable:217 - Welcome 111111111,bbb
-2018-04-16 16:24:56  INFO CreateServiceRunnable:279 - The number of registered players: 2
-2018-04-16 16:24:56  INFO CreateServiceRunnable:289 - No passed player in contest
-2018-04-16 16:24:56  INFO CreateServiceRunnable:291 - Contest start!
+2018-04-17 16:33:08  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-04-17 16:33:08  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-04-17 16:33:08  INFO CreateServiceRunnable:106 - Start contest mode!
+2018-04-17 16:33:08  INFO CreateServiceRunnable:116 - The number of registered players: 0
+2018-04-17 16:33:27  INFO CreateServiceRunnable:200 - Accepted 111111110
+2018-04-17 16:33:27  INFO CreateServiceRunnable:217 - Welcome 111111110,aaa
+2018-04-17 16:33:27  INFO CreateServiceRunnable:116 - The number of registered players: 1
+2018-04-17 16:33:39  INFO CreateServiceRunnable:200 - Accepted 111111111
+2018-04-17 16:33:39  INFO CreateServiceRunnable:217 - Welcome 111111111,bbb
+2018-04-17 16:33:39  INFO CreateServiceRunnable:279 - The number of registered players: 2
+2018-04-17 16:33:39  INFO CreateServiceRunnable:289 - No passed player in contest
+2018-04-17 16:33:39  INFO CreateServiceRunnable:291 - Contest start!
+2018-04-17 16:39:40  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-04-17 16:39:40  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-04-17 16:39:40  INFO CreateServiceRunnable:106 - Start contest mode!
+2018-04-17 16:39:40  INFO CreateServiceRunnable:116 - The number of registered players: 0
+2018-04-17 16:39:42  INFO CreateServiceRunnable:200 - Accepted 111111110
+2018-04-17 16:39:42  INFO CreateServiceRunnable:217 - Welcome 111111110,aaa
+2018-04-17 16:39:42  INFO CreateServiceRunnable:116 - The number of registered players: 1
+2018-04-17 16:39:52  INFO CreateServiceRunnable:200 - Accepted 111111111
+2018-04-17 16:39:52  INFO CreateServiceRunnable:217 - Welcome 111111111,bbb
+2018-04-17 16:39:52  INFO CreateServiceRunnable:279 - The number of registered players: 2
+2018-04-17 16:39:52  INFO CreateServiceRunnable:289 - No passed player in contest
+2018-04-17 16:39:52  INFO CreateServiceRunnable:291 - Contest start!
+2018-04-17 17:04:49  INFO CreateServiceRunnable:85 - CreateServiceRunnable initialization complete!
+2018-04-17 17:04:49  INFO CreateServiceRunnable:97 - CreateServiceRunnable is running...
+2018-04-17 17:04:49  INFO CreateServiceRunnable:106 - Start contest mode!
+2018-04-17 17:04:49  INFO CreateServiceRunnable:116 - The number of registered players: 0
+2018-04-17 17:04:51  INFO CreateServiceRunnable:200 - Accepted 111111110
+2018-04-17 17:04:51  INFO CreateServiceRunnable:217 - Welcome 111111110,aaa
+2018-04-17 17:04:51  INFO CreateServiceRunnable:116 - The number of registered players: 1
+2018-04-17 17:05:02  INFO CreateServiceRunnable:200 - Accepted 111111111
+2018-04-17 17:05:02  INFO CreateServiceRunnable:217 - Welcome 111111111,bbb
+2018-04-17 17:05:02  INFO CreateServiceRunnable:279 - The number of registered players: 2
+2018-04-17 17:05:02  INFO CreateServiceRunnable:289 - No passed player in contest
+2018-04-17 17:05:02  INFO CreateServiceRunnable:291 - Contest start!
+2018-04-17 20:40:39  INFO CreateServiceRunnable:87 - CreateServiceRunnable initialization complete!
+2018-04-17 20:40:39  INFO CreateServiceRunnable:99 - CreateServiceRunnable is running...
+2018-04-17 20:40:39  INFO CreateServiceRunnable:108 - Start contest mode!
+2018-04-17 20:40:39  INFO CreateServiceRunnable:118 - The number of registered players: 0
+2018-04-17 20:40:48  INFO CreateServiceRunnable:202 - Accepted 111111110
+2018-04-17 20:40:48  INFO CreateServiceRunnable:219 - Welcome 111111110,aaa
+2018-04-17 20:40:48  INFO CreateServiceRunnable:118 - The number of registered players: 1
+2018-04-17 20:40:58  INFO CreateServiceRunnable:202 - Accepted 111111111
+2018-04-17 20:40:58  INFO CreateServiceRunnable:219 - Welcome 111111111,bbb
+2018-04-17 20:40:58  INFO CreateServiceRunnable:281 - The number of registered players: 2
+2018-04-17 20:40:58  INFO CreateServiceRunnable:291 - No passed player in contest
+2018-04-17 20:40:58  INFO CreateServiceRunnable:293 - Contest start!
+2018-04-17 20:44:06  INFO CreateServiceRunnable:87 - CreateServiceRunnable initialization complete!
+2018-04-17 20:44:06  INFO CreateServiceRunnable:99 - CreateServiceRunnable is running...
+2018-04-17 20:44:06  INFO CreateServiceRunnable:108 - Start contest mode!
+2018-04-17 20:44:06  INFO CreateServiceRunnable:118 - The number of registered players: 0
+2018-04-17 20:44:19  INFO CreateServiceRunnable:87 - CreateServiceRunnable initialization complete!
+2018-04-17 20:44:19  INFO CreateServiceRunnable:99 - CreateServiceRunnable is running...
+2018-04-17 20:44:19  INFO CreateServiceRunnable:108 - Start contest mode!
+2018-04-17 20:44:19  INFO CreateServiceRunnable:118 - The number of registered players: 0
+2018-04-17 20:44:21  INFO CreateServiceRunnable:202 - Accepted 111111111
+2018-04-17 20:44:21  INFO CreateServiceRunnable:219 - Welcome 111111111,bbb
+2018-04-17 20:44:21  INFO CreateServiceRunnable:118 - The number of registered players: 1
+2018-04-17 20:44:31  INFO CreateServiceRunnable:202 - Accepted 111111111
+2018-04-17 20:44:31  INFO CreateServiceRunnable:219 - Welcome 111111111,bbb
+2018-04-17 20:44:31  INFO CreateServiceRunnable:118 - The number of registered players: 1
+2018-04-17 20:44:54  INFO CreateServiceRunnable:202 - Accepted 111111110
+2018-04-17 20:44:54  INFO CreateServiceRunnable:219 - Welcome 111111110,aaa
+2018-04-17 20:44:54  INFO CreateServiceRunnable:281 - The number of registered players: 2
+2018-04-17 20:44:54  INFO CreateServiceRunnable:291 - No passed player in contest
+2018-04-17 20:44:54  INFO CreateServiceRunnable:293 - Contest start!
+2018-04-17 20:45:55  INFO CreateServiceRunnable:51 - Contest Started or Contest over!
+2018-04-17 20:46:04  INFO CreateServiceRunnable:87 - CreateServiceRunnable initialization complete!
+2018-04-17 20:46:04  INFO CreateServiceRunnable:99 - CreateServiceRunnable is running...
+2018-04-17 20:46:04  INFO CreateServiceRunnable:108 - Start contest mode!
+2018-04-17 20:46:04  INFO CreateServiceRunnable:118 - The number of registered players: 0
+2018-04-17 20:46:13  INFO CreateServiceRunnable:202 - Accepted 111111110
+2018-04-17 20:46:13  INFO CreateServiceRunnable:219 - Welcome 111111110,aaa
+2018-04-17 20:46:13  INFO CreateServiceRunnable:118 - The number of registered players: 1
+2018-04-17 20:46:23  INFO CreateServiceRunnable:202 - Accepted 111111111
+2018-04-17 20:46:23  INFO CreateServiceRunnable:219 - Welcome 111111111,bbb
+2018-04-17 20:46:23  INFO CreateServiceRunnable:118 - The number of registered players: 2
+2018-04-17 20:46:34  INFO CreateServiceRunnable:202 - Accepted 111111112
+2018-04-17 20:46:34  INFO CreateServiceRunnable:219 - Welcome 111111112,bbb
+2018-04-17 20:46:34  INFO CreateServiceRunnable:118 - The number of registered players: 3
+2018-04-17 20:46:44  INFO CreateServiceRunnable:202 - Accepted 111111113
+2018-04-17 20:46:44  INFO CreateServiceRunnable:219 - Welcome 111111113,bbb
+2018-04-17 20:46:44  INFO CreateServiceRunnable:118 - The number of registered players: 4
+2018-04-17 20:47:01  INFO CreateServiceRunnable:202 - Accepted 111111114
+2018-04-17 20:47:01  INFO CreateServiceRunnable:219 - Welcome 111111114,bbb
+2018-04-17 20:47:01  INFO CreateServiceRunnable:281 - The number of registered players: 5
+2018-04-17 20:47:01  INFO CreateServiceRunnable:304 - The passed player in contest: 111111110
+2018-04-17 20:47:01  INFO CreateServiceRunnable:306 - Contest start!

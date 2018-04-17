@@ -31,8 +31,9 @@ public class ContestResults {
 	private static final Logger LOG = Logger.getLogger(Main.class);
 	private static final Integer MODE = Integer.valueOf(ServerProperties.instance().getProperty("server.mode"));
     private static final String sep = File.separator;
-	private static HashMap<Integer, ContestResult> contestResults = new HashMap<Integer, ContestResult>();
-	
+
+	public static HashMap<Integer, ContestResult> contestResults = new HashMap<Integer, ContestResult>();
+
 	public static synchronized void addContestResult(ContestResult result) {
 		contestResults.put(result.id, result);
 	}

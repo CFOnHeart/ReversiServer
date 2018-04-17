@@ -12,6 +12,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import cc.cxsj.nju.reversi.Main;
 import cc.cxsj.nju.reversi.config.ServerProperties;
+import cc.cxsj.nju.reversi.info.ContestResult;
+import cc.cxsj.nju.reversi.info.ContestResults;
 import cc.cxsj.nju.reversi.info.Player;
 import cc.cxsj.nju.reversi.info.Players;
 import cc.cxsj.nju.reversi.ui.MainFrame;
@@ -317,6 +319,17 @@ public class CreateServiceRunnable extends Thread {
 //			    if (PRINT_ERROR)
 //			    MainFrame.instance().log("May Interrupted Current Thread");
 //			    System.exit(0);
+				try{
+					while(true){
+						Thread.sleep(1000);
+						if(matchPlayerList.size()/2 == ContestResults.contestResults.size()){
+						    Players.GenerateNextPlayersNameListFile();
+						    break;
+                        }
+					}
+				}catch (Exception ex){
+					ex.printStackTrace();
+				}
 			}
 			break;
 		}

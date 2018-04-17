@@ -40,6 +40,5 @@ public class Main {
         // monitor connect
         ClientConnectMonitor.instance().start();
 
-        Players.GenerateNextPlayersNameListFile();
     }
 }

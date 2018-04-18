@@ -164,36 +164,67 @@ int Reversi::observe()
         case 'R':
         {
             switch (client_socket.getRecvMsg()[1]) {
-                case '0':   // valid step
+                case 'Y':   // valid step
                     switch (client_socket.getRecvMsg()[2]) {
                         case 'P':   // update chessboard
                         {
                             int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
                             int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
-                            board.lazi(desRow, desCol, client_socket.getRecvMsg()[7] - '0');
-                            memcpy(lastmsg, client_socket.getRecvMsg(), strlen(client_socket.getRecvMsg()));
+//                            board.lazi(desRow, desCol, client_socket.getRecvMsg()[7] - '0');
+//                            memcpy(lastmsg, client_socket.getRecvMsg(), strlen(client_socket.getRecvMsg()));
+//                            board.setLastStepRow(desRow);
+//                            board.setLastStepCol(desCol);
+                            printf("a valid step of : (%d %d)\n" , desRow , desCol);
                             break;
                         }
                         case 'N':   // R0N: enemy wrong step
                         {
+//                            board.setLastStepRow(-1);
+//                            board.setLastStepCol(-1);
+                            printf("a true judgement of no step\n");
                             break;
                         }
                     }
                     
                     break;
+                case 'W':
+                    // invalid step
+                    switch (client_socket.getRecvMsg()[2]) {
+                        case 'P':{
+                            int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
+                            int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
+                            printf("Invalid step , server random a true step of : (%d %d)\n" , desRow , desCol);
+                            break;
+                        }
+                        case 'N':{
+                            printf("a wrong judgement of no step\n");
+                            break;
+                        }
+                        default:
+                            break;
+                    }
+                    break;
                 case '1':
+                    board.setLastStepRow(-1);
+                    board.setLastStepCol(-1);
                     printf("Error -1: Msg format error!\n");
                     rtn = -1;
                     break;
                 case '2':
+                    board.setLastStepRow(-1);
+                    board.setLastStepCol(-1);
                     printf("Error -2: Corrdinate error!\n");
                     rtn = -2;
                     break;
                 case '4':
+                    board.setLastStepRow(-1);
+                    board.setLastStepCol(-1);
                     printf("Error -4: Invalid step!\n");
                     rtn = -4;
                     break;
                 default:
+                    board.setLastStepRow(-1);
+                    board.setLastStepCol(-1);
                     printf("Error -5: Other error!\n");
                     rtn = -5;
                     break;
@@ -231,7 +262,7 @@ void Reversi::putDown(int row, int col)
         client_socket.sendMsg(msg);
     }
     else{
-        char msg[6];
+        char msg[7];
         memset(msg , 0 , sizeof(msg));
         msg[0] = 'S';
         msg[1] = 'P';
@@ -239,6 +270,7 @@ void Reversi::putDown(int row, int col)
         msg[3] = '0' + row % 10;
         msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
         msg[5] = '0' + col % 10;
+        msg[6] = '\0';
         
         board.lazi(row, col, ownColor);
         debug_lastmsg();
@@ -250,35 +282,17 @@ void Reversi::putDown(int row, int col)
 
 char * Reversi::generateOneStepMessage(int row, int col)
 {
-    
-    // 落子不合法的情况
-    if(row == -1 && col == -1){
-        char* msg = new char[3];
-        msg[0] = 'S';
-        msg[1] = 'N';
-        msg[2] = 0;
-        return msg;
-    }
-    else if (!board.canLazi(row, col, ownColor)){
-        char * msg = new char[6];
-        memset(msg , 0 , sizeof(msg));
-        strcpy(msg , "In");
-        debug_lastmsg();
-        printf("generate one step at invalid possition (%2d,%2d) : %s\n", row , col , msg);
-        return msg;
-    }
-    else{
-        char * msg = new char[6];
-        memset(msg , 0 , sizeof(msg));
-        msg[0] = 'S';
-        msg[1] = 'P';
-        msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
-        msg[3] = '0' + row % 10;
-        msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
-        msg[5] = '0' + col % 10;
-        printf("generate one step at possition (%2d,%2d) : %s\n", row , col , msg);
-        return msg;
-    }
+    char * msg = new char[7];
+    memset(msg , 0 , sizeof(msg));
+    msg[0] = 'S';
+    msg[1] = 'P';
+    msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
+    msg[3] = '0' + row % 10;
+    msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
+    msg[5] = '0' + col % 10;
+    msg[6] = '\0';
+    printf("generate one step at possition (%2d,%2d) : %s\n", row , col , msg);
+    return msg;
 }
 
 void Reversi::noStep()

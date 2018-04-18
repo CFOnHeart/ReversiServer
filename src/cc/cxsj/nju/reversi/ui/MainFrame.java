@@ -478,15 +478,17 @@ public class MainFrame extends JFrame {
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					int round = roundSelectComboBox.getSelectedIndex();
+                    selectedRound = round;
 					if (round < ROUNDS && round >= 0) {
-
-						ContestResult result = ContestResults.getContestResult(selectedContestId);
+						System.out.println("debug roundSelectComboBox: "+ContestResults.contestResults.size()
+                                + " select round : "+round);
+						ContestResult result = ContestResults.getContestResult(round);
 						if (result == null) {
-							MainFrame.instance().log("No result with id: " + selectedContestId);
+							MainFrame.instance().log("No result with id: " + round);
                             return;
 						}
 
-						selectedRound = round;
+
 						if (RecordResolver.resolve(mode, result, selectedRound)) {
 							player1info.setText("");
 							player1info.setText(result.players[0].getId());
@@ -596,6 +598,18 @@ public class MainFrame extends JFrame {
 		// System.out.println(String.format("Put %d %d with color %d", r, c, color));
     }
 
+	public void updateChessboardOneSquare(int r, int c, int color) {
+		Color backcolor = new Color(207, 141, 47);
+
+		if (color == -1 || color == 2) {
+			chessBoard[r][c].setIcon(null);
+		}
+		else
+			chessBoard[r][c].setIcon(color == 0 ? ReplayStep.icon_b : ReplayStep.icon_w);
+		chessBoard[r][c].setBorder(BorderFactory.createLineBorder(backcolor.darker()));
+		// System.out.println(String.format("Put %d %d with color %d", r, c, color));
+	}
+
     public void updateStepInfo(String step, int num) {
 	    stepInfo.setText(step);
 	    stepNumIuput.setText(String.valueOf(num));
@@ -689,6 +703,7 @@ public class MainFrame extends JFrame {
         }
 	}
 
+
     /**
      * invoke static instance of MainFrame to change contents of main panel
      * without `synchronized` key word
@@ -698,4 +713,6 @@ public class MainFrame extends JFrame {
 	public static MainFrame instance() {
 		return instance;
 	}
+
+
 }

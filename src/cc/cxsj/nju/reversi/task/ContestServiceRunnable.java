@@ -63,7 +63,6 @@ public class ContestServiceRunnable implements Runnable{
         try {
 
             for (int round = 0; round < ROUNDS; round++) {
-
                 record.get(round).add("ROUND_START " + round);
                 LOG.info(this.info + " round " + round + " start");
                 MainFrame.instance().log(this.info + " round " + round + " start");
@@ -211,14 +210,21 @@ public class ContestServiceRunnable implements Runnable{
                         // test and verify the black step
                         String blackStep = new String(recvBuffer);
                         String blackReturnCode = board.step(blackStep, num,0);
+                        board.updateProhibition();
 
-                        if (blackReturnCode.charAt(1) == '0') {
+                        if (blackReturnCode.charAt(1) == 'Y') {
                             // valid step
                             record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
-                            record.get(round).add(board.toStringToDisplay());
-                            if(sendMsg(black , round , blackReturnCode) == false)
-                                return;
                         }
+                        else{
+                            // invalid step
+                            record.get(round).add("INVALID_STEP BLACK " + blackStep.substring(0, 6));
+                        }
+                        record.get(round).add(board.toStringToDisplay());
+                        if(sendMsg(black , round , blackReturnCode) == false)
+                            return;
+
+
 
                         winner = board.isGeneratedWinner();
                         if (winner >= 0) { // a player won
@@ -226,8 +232,9 @@ public class ContestServiceRunnable implements Runnable{
                             break;
                         }
 
-                        
+
                         stepstart = System.nanoTime();
+
                         // receive white player step
                         try {
                             // block...
@@ -269,16 +276,19 @@ public class ContestServiceRunnable implements Runnable{
                         // test and verify the white step
                         String whiteStep = new String(recvBuffer);
                         String whiteReturnCode = board.step(whiteStep, num,1);
+                        board.updateProhibition();
 
-                        if (whiteReturnCode.charAt(1) == '0') {
+                        if (whiteReturnCode.charAt(1) == 'Y') {
                             // valid step
                             record.get(round).add("VALID_STEP WHITE " + whiteStep.substring(0, 6));
-                            record.get(round).add(board.toStringToDisplay());
-
-                            if(sendMsg(white, round, whiteReturnCode) == false)
-                                return;
-
                         }
+                        else{
+                            // invalid step
+                            record.get(round).add("INVALID_STEP WHITE " + whiteStep.substring(0, 6));
+                        }
+                        record.get(round).add(board.toStringToDisplay());
+                        if(sendMsg(black , round , whiteReturnCode) == false)
+                            return;
                     }
                 } catch (Exception e) {
                     // round end abnormally

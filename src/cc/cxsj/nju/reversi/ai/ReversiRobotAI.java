@@ -44,6 +44,7 @@ public abstract class ReversiRobotAI {
                 break;
             }
             case 'N':
+            	chessboard.cancelProhibition();
                 break;
             default:
                 break;

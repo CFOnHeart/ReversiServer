@@ -104,16 +104,16 @@ public class ChessBoard {
 			else{
 				// 客户端实际有棋可以下，系统随机找一个可以下棋的位置
 				String lazimsg = randomStep(color);
-				int randomRow = Integer.valueOf(lazimsg.substring(0,2));
-				int randomCol = Integer.valueOf(lazimsg.substring(2,4));
+				int randomRow = Integer.valueOf(lazimsg.substring(2,4));
+				int randomCol = Integer.valueOf(lazimsg.substring(4,6));
 				step(randomRow , randomCol , color); // 下棋
-				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SW"+lazimsg, stepNum);
+				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SW"+lazimsg.substring(2,6), stepNum);
 				updateUIChessboard();
 				//used for test
 				printChessBoard();
 				lastStepRow = randomRow;
 				lastStepCol = randomCol;
-				return "RWP" + lazimsg;
+				return "RWP" + lazimsg.substring(2,6);
 			}
 		}
 		else{
@@ -139,16 +139,16 @@ public class ChessBoard {
 			else{
 				// 客户端判断的下棋位置不能落子
 				String lazimsg = randomStep(color);
-				int randomRow = Integer.valueOf(lazimsg.substring(0,2));
-				int randomCol = Integer.valueOf(lazimsg.substring(2,4));
+				int randomRow = Integer.valueOf(lazimsg.substring(2,4));
+				int randomCol = Integer.valueOf(lazimsg.substring(4,6));
 				step(randomRow , randomCol , color); // 下棋
-				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SW"+lazimsg, stepNum);
+				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SW"+lazimsg.substring(2,6), stepNum);
 				updateUIChessboard();
 				//used for test
 				printChessBoard();
 				lastStepRow = randomRow;
 				lastStepCol = randomCol;
-				return "RWP" + lazimsg;
+				return "RWP" + lazimsg.substring(2,6);
 			}
 		}
 	}

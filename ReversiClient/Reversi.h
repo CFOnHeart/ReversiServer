@@ -10,14 +10,12 @@
 #define Reversi_h
 #include <stdio.h>
 #include "ClientSocket.h"
-#include "Board.h"
 
 using namespace std;
 
 class Reversi{
 private:
     ClientSocket client_socket;
-    Board board;
     int ownColor;
     int oppositeColor;
     char lastmsg[16];

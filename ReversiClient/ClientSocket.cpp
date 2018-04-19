@@ -68,7 +68,7 @@ int ClientSocket::sendMsg(const char* msg)
 
 	//set length 
 	int len = strlen(msg);
-	len = len < BUFSIZE ? len : BUFSIZE;
+	len = len < BUFSIZE ? len+1 : BUFSIZE;
 
 	//set sendBuf
 	memset(sendBuf, 0, BUFSIZE);

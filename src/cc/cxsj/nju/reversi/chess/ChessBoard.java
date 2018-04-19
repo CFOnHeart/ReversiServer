@@ -75,9 +75,6 @@ public class ChessBoard {
     		
     		return true;
     	}
-    	//cancel prohibition
-    	cancelProhibition();
-    	
     	return false;
     }
     
@@ -97,8 +94,8 @@ public class ChessBoard {
 		// 客户端判断无棋可下
 		if(desRow < 0 || desCol < 0){
 			if(canLazi == false) {
-				lastStepRow = lastStepCol = -1;
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SYNoStep", stepNum);
+				cancelProhibition();
 				return "RYN";  // 客户端对于无法下棋判断正确
 			}
 			else{
@@ -111,33 +108,20 @@ public class ChessBoard {
 				updateUIChessboard();
 				//used for test
 				printChessBoard();
-				lastStepRow = randomRow;
-				lastStepCol = randomCol;
 				return "RWP" + lazimsg.substring(2,6);
 			}
 		}
 		else{
 			// 客户端判断有棋可下
-			if (desRow >= ROWS || desRow < 0) return "R2";
-			if (desCol >= COLS || desCol < 0) return "R2";
 			if(canLazi == false){
-				lastStepRow = lastStepCol = -1;
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SWNoStep", stepNum);
+				cancelProhibition();
 				return "RWN";
 			}
-			else if(step(desRow , desCol , color) == true){
-				// 客户端判断的下棋位置可以合法落子
-				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+
-						"SY" + String.valueOf(desRow) + String.valueOf(desCol), stepNum);
-				updateUIChessboard();
-				//used for test
-				printChessBoard();
-				lastStepRow = desRow;
-				lastStepCol = desCol;
-				return "RYP" + step.substring(2, 6);
-			}
-			else{
-				// 客户端判断的下棋位置不能落子
+			else if((desRow >= ROWS || desRow < 0) ||
+					(desCol >= COLS || desCol < 0) ||
+					step(desRow , desCol , color) == false){
+				// 客户端判断的下棋位置不能落子 或者下棋的位置不属于棋盘所在位置
 				String lazimsg = randomStep(color);
 				int randomRow = Integer.valueOf(lazimsg.substring(2,4));
 				int randomCol = Integer.valueOf(lazimsg.substring(4,6));
@@ -146,9 +130,17 @@ public class ChessBoard {
 				updateUIChessboard();
 				//used for test
 				printChessBoard();
-				lastStepRow = randomRow;
-				lastStepCol = randomCol;
 				return "RWP" + lazimsg.substring(2,6);
+
+			}
+			else{
+				// 客户端判断的下棋位置可以合法落子
+				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+
+						"SY" + String.valueOf(desRow) + String.valueOf(desCol), stepNum);
+				updateUIChessboard();
+				//used for test
+				printChessBoard();
+				return "RYP" + step.substring(2, 6);
 			}
 		}
 	}
@@ -222,25 +214,7 @@ public class ChessBoard {
 
 		return lazi;
 	}
-	/*
-	update prohibitions
-	 */
-	public void updateProhibition(){
-		for(int i=0 ; i<ROWS ; i++){
-			for(int j=0 ; j<COLS ; j++){
-				if(board[i][j].color == 2)
-					board[i][j].color = -1;
-			}
-		}
-		//prohibition
-		if(lastStepRow == -1) return;
-		for(int dir = 0; dir < 8; dir += 2){
-			int pos_x = lastStepRow + dx[dir], pos_y = lastStepCol + dy[dir];
-			if(inBoard(pos_x, pos_y) && board[pos_x][pos_y].color == -1){
-				board[pos_x][pos_y].color = 2;
-			}
-		}
-	}
+
 	/**
 	 * place a chessman on the position (x, y) 
 	 * reversi chessman
@@ -267,6 +241,15 @@ public class ChessBoard {
 		}
 	
 		board[x][y].color = chessmanColor;
+		cancelProhibition();
+
+		for(int dir=0 ; dir<8 ; dir+=2){
+			int pos_x = x + dx[dir];
+			int pos_y = y + dy[dir];
+			if(inBoard(pos_x , pos_y) && board[pos_x][pos_y].color<0){
+				board[pos_x][pos_y].color = 2;
+			}
+		}
 		
 	}
 	

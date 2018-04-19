@@ -210,7 +210,7 @@ public class ContestServiceRunnable implements Runnable{
                         // test and verify the black step
                         String blackStep = new String(recvBuffer);
                         String blackReturnCode = board.step(blackStep, num,0);
-                        board.updateProhibition();
+
 
                         if (blackReturnCode.charAt(1) == 'Y') {
                             // valid step
@@ -276,7 +276,7 @@ public class ContestServiceRunnable implements Runnable{
                         // test and verify the white step
                         String whiteStep = new String(recvBuffer);
                         String whiteReturnCode = board.step(whiteStep, num,1);
-                        board.updateProhibition();
+
 
                         if (whiteReturnCode.charAt(1) == 'Y') {
                             // valid step

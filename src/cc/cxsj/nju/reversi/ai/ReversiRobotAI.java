@@ -30,7 +30,7 @@ public abstract class ReversiRobotAI {
 	}
 	
 	protected void noStep() {
-		thisStep = "SN";
+		thisStep = "SP-1-1";
 	}
 	
 	protected void updateLastStep(String step) {   // P08070

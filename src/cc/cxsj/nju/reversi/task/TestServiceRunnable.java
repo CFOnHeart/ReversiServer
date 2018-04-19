@@ -182,7 +182,7 @@ public class TestServiceRunnable implements Runnable{
                         // 向黑棋方返回的消息字符串
                         String blackReturnCode = board.step(blackStep, num,0);
 
-                        if (blackReturnCode.charAt(1) == '0') {
+                        //if (blackReturnCode.charAt(1) == '0') {
                             // R0N no step can lazi
                             if(blackReturnCode.charAt(2) == 'N'){
                                 record.get(round).add("NO_STEP_CAN_LAZI BLACK: MSG(R0N)");
@@ -198,9 +198,9 @@ public class TestServiceRunnable implements Runnable{
                             else{
                                 // valid step
                                 record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
-                                System.out.println("258 board.toStringToDisplay");
+                                //System.out.println("258 board.toStringToDisplay");
                                 record.get(round).add(board.toStringToDisplay());
-                                System.out.println("260 board.toStringToDisplay over");
+                                //System.out.println("260 board.toStringToDisplay over");
 
                                 if(sendMsg(black , round , blackReturnCode) == false){
                                     return;
@@ -209,7 +209,7 @@ public class TestServiceRunnable implements Runnable{
                                     return;
                                 }
                             }
-                        }
+                        //}
 
                         System.out.println("307 baord.isGeneratedWinner()");
                         winner = board.isGeneratedWinner();
@@ -232,7 +232,7 @@ public class TestServiceRunnable implements Runnable{
                         String whiteReturnCode = board.step(whiteStep, num,1);
                         // System.out.println("WHITE STEP: " + whiteStep);
 
-                        if (whiteReturnCode.charAt(1) == '0') {
+                        //if (whiteReturnCode.charAt(1) == '0') {
                             // valid step
                             record.get(round).add("VALID_STEP WHITE " + whiteStep.substring(0, 6));
                             record.get(round).add(board.toStringToDisplay());
@@ -254,8 +254,8 @@ public class TestServiceRunnable implements Runnable{
                                 result.winner = white;
                                 return;
                             }
-                        }
                     }
+                    //}
                 } catch (Exception e) {
                     // round end abnormally
                     e.printStackTrace();

@@ -106,7 +106,7 @@ public class ChessBoard {
 				step(randomRow , randomCol , color); // 下棋
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SW"+lazimsg.substring(2,6), stepNum);
 				updateUIChessboard();
-				return "RWP" + lazimsg.substring(2,6);
+				return "RWP" + lazimsg.substring(2,6) + String.valueOf(color);
 			}
 		}
 		else{
@@ -127,7 +127,7 @@ public class ChessBoard {
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SW"+lazimsg.substring(2,6), stepNum);
 				updateUIChessboard();
 
-				return "RWP" + lazimsg.substring(2,6);
+				return "RWP" + lazimsg.substring(2,6) + String.valueOf(color);
 
 			}
 			else{
@@ -136,7 +136,7 @@ public class ChessBoard {
 						"SY" + String.valueOf(desRow) + String.valueOf(desCol), stepNum);
 				updateUIChessboard();
 
-				return "RYP" + step.substring(2, 6);
+				return "RYP" + step.substring(2, 6) + String.valueOf(color);
 			}
 		}
 	}

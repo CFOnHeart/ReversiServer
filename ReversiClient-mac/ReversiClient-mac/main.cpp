@@ -13,3 +13,5 @@ int main() {
     reversi.gameStart();
     return 0;
 }
+
+

@@ -158,11 +158,13 @@ public class TestServiceRunnable implements Runnable{
 
                     System.out.println("step begin");
                     // begin palying chess
-                    winner = -1;
+                    winner = -100;
+                    result.stepsNum[round] = 0;
                     for ( ; num <= STEPS; num++) {
+                        result.stepsNum[round] ++;
                         winner = board.isGeneratedWinner();
-                        if (winner >= 0) {   // a player won
-                            MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
+                        if (winner != -100) {   // a player won
+                            MainFrame.instance().log("Winner is" + (winner>0?" Black":" White"));
                             break;
                         }
                         System.out.println("NUM = " + num);
@@ -181,37 +183,22 @@ public class TestServiceRunnable implements Runnable{
                         System.out.println("248 board.step");
                         // 向黑棋方返回的消息字符串
                         String blackReturnCode = board.step(blackStep, num,0);
-
-                        if (blackReturnCode.charAt(1) == '0') {
-                            // R0N no step can lazi
-                            if(blackReturnCode.charAt(2) == 'N'){
-                                record.get(round).add("NO_STEP_CAN_LAZI BLACK: MSG(R0N)");
-                                record.get(round).add(board.toStringToDisplay());
-                                if(sendMsg(black , round , blackReturnCode) == false){
-                                    return;
-                                }
-                                if(sendMsg(white , round , blackReturnCode) == false){
-                                    return;
-                                }
-                            }
-
-                            else{
-                                // valid step
-                                record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
-                                System.out.println("258 board.toStringToDisplay");
-                                record.get(round).add(board.toStringToDisplay());
-                                System.out.println("260 board.toStringToDisplay over");
-
-                                if(sendMsg(black , round , blackReturnCode) == false){
-                                    return;
-                                }
-                                if(sendMsg(white , round , blackReturnCode) == false){
-                                    return;
-                                }
-                            }
+                        board.printChessBoard();
+                        if (blackReturnCode.charAt(1) == 'Y') {
+                            // valid step
+                            record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
                         }
+                        else{
+                            // invalid step
+                            record.get(round).add("INVALID_STEP BLACK " + blackStep.substring(0, 6)
+                                    + "REAL_STEP BLACK " + blackReturnCode);
+                        }
+                        record.get(round).add(board.toStringToDisplay());
+                        if(sendMsg(black , round , blackReturnCode) == false)
+                            return;
 
                         System.out.println("307 baord.isGeneratedWinner()");
+
                         winner = board.isGeneratedWinner();
                         if (winner >= 0) { // a player won
                             MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
@@ -230,31 +217,23 @@ public class TestServiceRunnable implements Runnable{
                         String whiteStep = new String(recvBuffer);
                         System.out.println("393 board.step");
                         String whiteReturnCode = board.step(whiteStep, num,1);
+                        board.printChessBoard();
                         // System.out.println("WHITE STEP: " + whiteStep);
 
-                        if (whiteReturnCode.charAt(1) == '0') {
+
+
+                        if (whiteReturnCode.charAt(1) == 'Y') {
                             // valid step
                             record.get(round).add("VALID_STEP WHITE " + whiteStep.substring(0, 6));
-                            record.get(round).add(board.toStringToDisplay());
-                            try {
-                                players[white].send(whiteReturnCode);
-                            } catch (Exception e) {
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR WHITE");
-                                result.errors[white][round]++;
-                                result.winner = black;
-                                return;
-                            }
-                            try {
-                                players[black].send(whiteReturnCode);
-                            } catch (Exception e) {
-                                LOG.error(e);
-                                record.get(round).add("SEND_ERROR BLACK");
-                                result.errors[black][round]++;
-                                result.winner = white;
-                                return;
-                            }
                         }
+                        else{
+                            // invalid step
+                            record.get(round).add("INVALID_STEP WHITE " + whiteStep.substring(0, 6)
+                                    + "REAL_STEP WHITE " + whiteReturnCode);
+                        }
+                        record.get(round).add(board.toStringToDisplay());
+                        if(sendMsg(black , round , whiteReturnCode) == false)
+                            return;
                     }
                 } catch (Exception e) {
                     // round end abnormally

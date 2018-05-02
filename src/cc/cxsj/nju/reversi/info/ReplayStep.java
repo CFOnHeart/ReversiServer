@@ -36,9 +36,10 @@ public class ReplayStep {
     }
 
 	public void append(int r, String line) {
-		String[] row = line.split(" ");
+//		String[] row = line.split(" ");
 		for (int c = 0; c < COLS; c++) {
-			switch (row[c].charAt(1)) {
+			System.out.printf(line.substring(4*c+1, 4*c+1));
+			switch (line.charAt(4*c+1)) {
 				case 'B':
                 {
 					board[r][c] = trans2label[0];
@@ -54,5 +55,6 @@ public class ReplayStep {
 					break;
             }
 		}
+		System.out.println("");
 	}
 }

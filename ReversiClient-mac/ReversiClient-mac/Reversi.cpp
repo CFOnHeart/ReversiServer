@@ -42,12 +42,12 @@ void Reversi::authorize(const char *id , const char *pass)
 // 用户id输入，服务器上需要有对应的账号密码：对应文件 players-0.txt
 void Reversi::gameStart()
 {
-    char id[12] = {0}, passwd[10] = {0};
-    //char id[12] = "111111110", passwd[10] = "123456";
+//    char id[12] = {0}, passwd[10] = {0};
+    char id[12] = "111111110", passwd[10] = "123456";
     printf("ID: %s\n" , id);
-    scanf("%s" , id);
+//    scanf("%s" , id);
     printf("PASSWD: %s\n", passwd);
-    scanf("%s", passwd);
+//    scanf("%s", passwd);
     
     authorize(id, passwd);
     

@@ -106,8 +106,6 @@ public class ChessBoard {
 				step(randomRow , randomCol , color); // 下棋
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SW"+lazimsg.substring(2,6), stepNum);
 				updateUIChessboard();
-				//used for test
-				printChessBoard();
 				return "RWP" + lazimsg.substring(2,6);
 			}
 		}
@@ -128,8 +126,7 @@ public class ChessBoard {
 				step(randomRow , randomCol , color); // 下棋
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SW"+lazimsg.substring(2,6), stepNum);
 				updateUIChessboard();
-				//used for test
-				printChessBoard();
+
 				return "RWP" + lazimsg.substring(2,6);
 
 			}
@@ -138,8 +135,7 @@ public class ChessBoard {
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+
 						"SY" + String.valueOf(desRow) + String.valueOf(desCol), stepNum);
 				updateUIChessboard();
-				//used for test
-				printChessBoard();
+
 				return "RYP" + step.substring(2, 6);
 			}
 		}
@@ -331,19 +327,20 @@ public class ChessBoard {
 			}
 			
 			if(blackCount > whiteCount){
-				System.out.println("This round BLACK WIN");
-				return 0;
+				System.out.println("This round BLACK CHESSMAN more than WHITE CHESSMAN");
+
 			}
 			else if(blackCount < whiteCount){
-				System.out.println("This round WHITE WIN");
-				return 1;
+				System.out.println("This round WHITE CHESSMAN more than BLACK CHESSMAN");
+
 			}
 			else{
-				System.out.println("This round BLACK AND WHITE ALL WIN");
-				return 2;
+				System.out.println("This round BLACK AND WHITE CHESSMAN EQUAL");
+
 			}
+			return blackCount - whiteCount;
 		}
-		return -1;
+		return -100;
 	}
 
 	public String toStringToDisplay() {

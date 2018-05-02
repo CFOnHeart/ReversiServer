@@ -479,34 +479,34 @@ public class MainFrame extends JFrame {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
 					int round = roundSelectComboBox.getSelectedIndex();
                     selectedRound = round;
-					if (round < ROUNDS && round >= 0) {
-						System.out.println("debug roundSelectComboBox: "+ContestResults.contestResults.size()
-                                + " select round : "+round);
-						ContestResult result = ContestResults.getContestResult(round);
-						if (result == null) {
-							MainFrame.instance().log("No result with id: " + round);
-                            return;
-						}
+//					if (round < ROUNDS && round >= 0) {
+//						System.out.println("debug roundSelectComboBox: "+ContestResults.contestResults.size()
+//                                + " select round : "+round);
+//						ContestResult result = ContestResults.getContestResult(round);
+//						if (result == null) {
+//							MainFrame.instance().log("No result with id: " + round);
+//                            return;
+//						}
 
-
-						if (RecordResolver.resolve(mode, result, selectedRound)) {
-							player1info.setText("");
-							player1info.setText(result.players[0].getId());
-							player2info.setText("");
-							player2info.setText(result.players[1].getId());
-							score1OfRound.setText("");
-							score1OfRound.setText(String.valueOf(result.scores[0][selectedRound]));
-							score2OfRound.setText("");
-							score2OfRound.setText(String.valueOf(result.scores[1][selectedRound]));
-							error1OfRound.setText("");
-							error1OfRound.setText(String.valueOf(result.errors[0][selectedRound]));
-							error2OfRound.setText("");
-							error2OfRound.setText(String.valueOf(result.errors[1][selectedRound]));
-							stepNum = 0;
-							stepNumIuput.setText("0");
-							fillChessBoard(0);
-						}
+					ContestResult result = ContestResults.getContestResult(0);
+					if (RecordResolver.resolve(mode, result, selectedRound)) {
+						player1info.setText("");
+						player1info.setText(result.players[0].getId());
+						player2info.setText("");
+						player2info.setText(result.players[1].getId());
+						score1OfRound.setText("");
+						score1OfRound.setText(String.valueOf(result.scores[0][selectedRound]));
+						score2OfRound.setText("");
+						score2OfRound.setText(String.valueOf(result.scores[1][selectedRound]));
+						error1OfRound.setText("");
+						error1OfRound.setText(String.valueOf(result.errors[0][selectedRound]));
+						error2OfRound.setText("");
+						error2OfRound.setText(String.valueOf(result.errors[1][selectedRound]));
+						stepNum = 0;
+						stepNumIuput.setText("0");
+						fillChessBoard(0);
 					}
+//					}
 				}
 			}
 		});
@@ -566,7 +566,7 @@ public class MainFrame extends JFrame {
             e.printStackTrace();
         }
     }
-
+    // 在ReplayStep中保存好一步的棋盘情况，此函数是用来更新棋盘的
 	private void fillChessBoard(int stepNum) {
 		ReplayStep step = RecordResolver.record.get(stepNum);
 		stepInfo.setText(step.step);

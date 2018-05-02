@@ -15,10 +15,10 @@ public class ContestResult {
 	public int[][] scores;
 	public int[][] errors;
 	public long[][] timecost;
-    public int [] winStep;
     public int [] errCounts;
     public int [] totalTime;
-	
+	public int [] invalidSteps; // 下棋出错的次数
+
 	public ContestResult() {
 		this.players = new Player[2];
 		this.winRound = new int[2];
@@ -26,9 +26,9 @@ public class ContestResult {
 		this.scores = new int[2][ROUNDS];
 		this.errors = new int[2][ROUNDS];
         this.timecost = new long[2][ROUNDS];
-		this.winStep = new int[2];
 		this.errCounts = new int[2];
 		this.totalTime = new int[2];
+		this.invalidSteps = new int[2];
 	}
 	
 	public ContestResult(int id, Player user1, Player user2) {
@@ -41,9 +41,9 @@ public class ContestResult {
 		this.scores = new int[2][ROUNDS];
 		this.errors = new int[2][ROUNDS];
 		this.timecost = new long[2][ROUNDS];
-        this.winStep = new int[2];
         this.errCounts = new int[2];
         this.totalTime = new int[2];
+		this.invalidSteps = new int[2];
 	}
 	
 	public void evaluate() {
@@ -51,33 +51,27 @@ public class ContestResult {
 			return;
 		}
 
-		winStep[0] = winStep[1] = 0;
 		errCounts[0] = errCounts[1] = 0;
 		totalTime[0] = totalTime[1] = 0;
+		// 每一步不合法的棋子扣1分
+		winRound[0] = -1 * invalidSteps[0];
+		winRound[1] = -1 * invalidSteps[1];
+
 		for (int round = 0; round < ROUNDS; round++) {
+			// 当前局黑白棋胜子的个数
+			winRound[0] += scores[0][round];
+			winRound[1] += scores[1][round];
+
 			if (errors[0][round] > ERRORS) {
-                winRound[1] += 3;
-                continue;
-            }
-            else
-                errCounts[0] += errors[0][round];
-            if (errors[1][round] > ERRORS) {
-                winRound[0] += 3;
-                continue;
-            }
-            else
-                errCounts[1] += errors[1][round];
-			if (scores[0][round] > scores[1][round]) {
-			    winStep[0] += stepsNum[round];
-				winRound[0] += 3;
-			} else if (scores[0][round] < scores[1][round]) {
-			    winStep[1] += stepsNum[round];
-				winRound[1] += 3;
-			} 
-			else {
-                winRound[0]++;
-                winRound[1]++;
-			}
+				winRound[1] += 5;
+				continue;
+			} else
+				errCounts[0] += errors[0][round];
+			if (errors[1][round] > ERRORS) {
+				winRound[0] += 5;
+				continue;
+			} else
+				errCounts[1] += errors[1][round];
 			totalTime[0] += timecost[0][round];
 			totalTime[1] += timecost[1][round];
 		}
@@ -86,11 +80,7 @@ public class ContestResult {
 		} else if (winRound[0] < winRound[1]) {
 			winner = 1;
 		} else {
-		    if ((winStep[0] < winStep[1]) || (errCounts[1] > errCounts[0]))
-		        winner = 0;
-		    else if ((winStep[1] < winStep[0]) || (errCounts[0] > errCounts[1]))
-		        winner = 1;
-		    else if (totalTime[0] < totalTime[1])
+		   	if (totalTime[0] < totalTime[1])
 		        winner = 0;
 		    else if (totalTime[1] < totalTime[0])
 		        winner = 1;

@@ -18,7 +18,16 @@ private:
     ClientSocket client_socket;
     int ownColor;
     int oppositeColor;
-    char lastmsg[16];
+
+	//function 
+	void handleMessage(int row, int col, int color);
+
+	 // according to chessman position (row , col) , generate one step message in order to send to server
+    void generateOneStepMessage(int row , int col);
+    
+    pair<int,int> step();
+    
+    void saveChessBoard();
 public:
     Reversi();
     ~Reversi();
@@ -36,20 +45,6 @@ public:
     void roundOver(int round);
     
     int observe();
-    
-    void putDown(int row , int col);
-    
-    // according to chessman position (row , col) , generate one step message in order to send to server
-    char * generateOneStepMessage(int row , int col);
-    
-    void noStep();
-    
-    pair<int,int> step();
-    
-    void saveChessBoard();
-    
-    void debug_lastmsg();
-    
     
 };
 

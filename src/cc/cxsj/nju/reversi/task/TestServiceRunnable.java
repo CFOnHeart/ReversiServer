@@ -183,6 +183,7 @@ public class TestServiceRunnable implements Runnable{
                         System.out.println("248 board.step");
                         // 向黑棋方返回的消息字符串
                         String blackReturnCode = board.step(blackStep, num,0);
+
                         board.printChessBoard();
                         if (blackReturnCode.charAt(1) == 'Y') {
                             // valid step
@@ -222,6 +223,7 @@ public class TestServiceRunnable implements Runnable{
 
 
 
+
                         if (whiteReturnCode.charAt(1) == 'Y') {
                             // valid step
                             record.get(round).add("VALID_STEP WHITE " + whiteStep.substring(0, 6));
@@ -234,7 +236,9 @@ public class TestServiceRunnable implements Runnable{
                         record.get(round).add(board.toStringToDisplay());
                         if(sendMsg(black , round , whiteReturnCode) == false)
                             return;
+
                     }
+                    //}
                 } catch (Exception e) {
                     // round end abnormally
                     e.printStackTrace();

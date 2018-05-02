@@ -34,21 +34,13 @@ public abstract class ReversiRobotAI {
 	}
 	
 	protected void updateLastStep(String step) {   // P08070
-		switch (step.charAt(0)) {
-            case 'P':
-            {
-            	System.out.println(step);
-                int desRow = Integer.valueOf(step.substring(1, 3)), desCol = Integer.valueOf(step.substring(3, 5));
-                int color = step.charAt(5) - '0';
-                chessboard.lazi(desRow, desCol, color);
-                break;
-            }
-            case 'N':
-            	chessboard.cancelProhibition();
-                break;
-            default:
-                break;
-		}
+		
+    	System.out.println(step);
+        int desRow = Integer.valueOf(step.substring(0, 2)), desCol = Integer.valueOf(step.substring(2, 4));
+        int color = step.charAt(4) - '0';
+        chessboard.lazi(desRow, desCol, color);
+        //chessboard.printChessBoard();
+               
 	}
 	
 	protected void roundStart(int color) {
@@ -90,12 +82,13 @@ public abstract class ReversiRobotAI {
                 break;
             case 'R':
                 // return code
-                switch (msg.charAt(1)) {
-                    case '0':
+                switch (msg.charAt(2)) {
+                    case 'P':
                         // step is valid and update board
-                        updateLastStep(msg.substring(2));
+                        updateLastStep(msg.substring(3));
                         break;
                     default:
+                    	chessboard.cancelProhibition();
                         System.out.println("Round " + round +  " Error Code " + msg.charAt(1));
                         break;
                 }

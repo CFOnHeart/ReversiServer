@@ -19,7 +19,7 @@ public class ReversiRobotAIMoreChessOneStep extends ReversiRobotAI{
 		}
 		
 		/*try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
@@ -53,6 +53,7 @@ public class ReversiRobotAIMoreChessOneStep extends ReversiRobotAI{
 			return false;
 		}
 		putDown(max_x, max_y);
+		System.out.println("robot(" + max_x + "," + max_y + "):" + maxNum);
 		
 		return true;
 	}

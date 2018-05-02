@@ -16,7 +16,6 @@
 Reversi::Reversi(){
     client_socket = ClientSocket();
     oppositeColor = ownColor = -1;
-    memset(lastmsg , 0 , sizeof(lastmsg));
 }
 
 Reversi::~Reversi(){};
@@ -71,7 +70,6 @@ void Reversi::roundStart(int round)
 {
     printf("Round %d Ready Start!\n" , round);
     
-    memset(lastmsg , 0 , sizeof(lastmsg));
     // first time receive msg from server
     int rtn = client_socket.recvMsg();
     if (rtn != 0) return ;
@@ -111,8 +109,8 @@ void Reversi::oneRound()
                 pair<int,int> chess = step();                        // take action, send message
                 
                 // lazi only excute after server's message confirm  in observe function
-                char * send_msg = generateOneStepMessage(chess.first,chess.second);
-                client_socket.sendMsg(send_msg);
+                generateOneStepMessage(chess.first,chess.second);
+                
                 
                 if (observe() >= 1) break;     // receive RET Code
                 
@@ -129,8 +127,8 @@ void Reversi::oneRound()
                 
                 pair<int,int> chess = step();                        // take action, send message
                 // lazi only excute after server's message confirm  in observe function
-                char * send_msg = generateOneStepMessage(chess.first,chess.second);
-                client_socket.sendMsg(send_msg);
+                generateOneStepMessage(chess.first,chess.second);
+                
                 
                 if (observe() >= 1) break;     // receive RET Code
                 // saveChessBoard();
@@ -168,8 +166,9 @@ int Reversi::observe()
                         {
                             int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
                             int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
-
+							int color = (client_socket.getRecvMsg()[7] - '0');
 							//你应该在这里处理desRow和desCol，推荐使用函数
+							handleMessage(desRow, desCol, color);
 
                             printf("a valid step of : (%d %d)\n" , desRow , desCol);
                             break;
@@ -189,9 +188,11 @@ int Reversi::observe()
                         case 'P':{
                             int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
                             int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
+
+							int color = (client_socket.getRecvMsg()[7] - '0');
                             printf("Invalid step , server random a true step of : (%d %d)\n" , desRow , desCol);
 							//你应该在这里处理desRow和desCol，推荐使用函数
-
+							handleMessage(desRow, desCol, color);
                             break;
                         }
                         case 'N':{
@@ -246,27 +247,39 @@ int Reversi::observe()
     return rtn;
 }
 
-char * Reversi::generateOneStepMessage(int row, int col)
+void Reversi::generateOneStepMessage(int row, int col)
 {
-    char * msg = new char[7];
+    char msg[BUFSIZE];
     memset(msg , 0 , sizeof(msg));
-    msg[0] = 'S';
+    
+	//put row and col in the message
+	msg[0] = 'S';
     msg[1] = 'P';
     msg[2] = '0' + row / 10;  
     msg[3] = '0' + row % 10;
     msg[4] = '0' + col / 10;  
     msg[5] = '0' + col % 10;
     msg[6] = '\0';
+
+	//print
     printf("generate one step at possition (%2d,%2d) : %s\n", row , col , msg);
-    return msg;
+
+
+    client_socket.sendMsg(msg);
 }
 
+/*-------------------------last three function--------------------------------
+* step : find a good position to lazi your chess.
+* saveChessBoard : save the chess board now.
+* handleMessage: handle the message from server.
+*/
 
 pair<int,int> Reversi::step()
 {
 	//此处写算法  
     int r = rand()%8;
     int c = rand()%(8);
+
     return make_pair(r,c);
 }
 
@@ -275,7 +288,6 @@ void Reversi::saveChessBoard()
     
 }
 
-void Reversi::debug_lastmsg()
-{
-    printf("%s\n" , lastmsg);
+void Reversi::handleMessage(int row, int col, int color){
+
 }

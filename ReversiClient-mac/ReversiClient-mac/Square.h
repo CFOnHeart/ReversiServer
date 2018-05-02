@@ -64,10 +64,6 @@ public:
     inline int getY(){
         return this->y;
     }
-    //get color
-    inline int getColor(){
-        return this->color;
-    }
     // set the color
     inline void setColor(int color){
         this->color = color;

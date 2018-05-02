@@ -28,7 +28,6 @@ class Board
 {
 private:
     Square squares[ROWS][COLS];
-    int lastStepCol=-1 ,lastStepRow=-1;
     
 public:
     Board(void);
@@ -76,23 +75,5 @@ public:
     /*print the total board
      */
     void print();
-    
-    void updateProhibition();
-    
-    inline int getLastStepRow(){
-        return this->lastStepRow;
-    }
-    
-    inline int getLastStepCol(){
-        return this->lastStepCol;
-    }
-    
-    inline void setLastStepRow(int lastStepRow){
-        this->lastStepRow = lastStepRow;
-    }
-    
-    inline void setLastStepCol(int lastStepCol){
-        this->lastStepCol = lastStepCol;
-    }
 };
 #endif /* Board_h */

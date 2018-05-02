@@ -644,7 +644,7 @@ public class MainFrame extends JFrame {
 	private void refreshResultListModal() {
 		resultsIdList = ContestResults.getContestIdsOrderly();
 		int resultNum = resultsIdList.size();
-		System.out.println("ResultsIdList has " + resultNum);
+//		System.out.println("ResultsIdList has " + resultNum);
 		if (resultNum == 0) {
 			resultListModel.clear();
 			return;
@@ -664,9 +664,9 @@ public class MainFrame extends JFrame {
 		});
 		resultListModel.clear();
 		for (Integer id : resultsIdList) {
-		    System.out.println(id);
+//		    System.out.println(id);
 			ContestResult result = ContestResults.getContestResult(id);
-			System.out.println(result);
+//			System.out.println(result);
 			StringBuilder sb = new StringBuilder(" ");
 			if (id < 10) {
 				sb.append("0");
@@ -695,7 +695,7 @@ public class MainFrame extends JFrame {
 	public void log(String info) {    // logInfo is shared variable
         try {
             logInfo.append(info + '\n');
-            System.out.println(info);
+//            System.out.println(info);
             // logInfo.selectAll();
             logInfo.setCaretPosition(logInfo.getText().length());
         } catch (Exception e) {

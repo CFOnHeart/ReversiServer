@@ -15,9 +15,7 @@
 
 Reversi::Reversi(){
     client_socket = ClientSocket();
-    board = Board();
     oppositeColor = ownColor = -1;
-    memset(lastmsg , 0 , sizeof(lastmsg));
 }
 
 Reversi::~Reversi(){};
@@ -42,12 +40,12 @@ void Reversi::authorize(const char *id , const char *pass)
 // 用户id输入，服务器上需要有对应的账号密码：对应文件 players-0.txt
 void Reversi::gameStart()
 {
-//    char id[12] = {0}, passwd[10] = {0};
-    char id[12] = "111111110", passwd[10] = "123456";
+    char id[12] = {0}, passwd[10] = {0};
+    //char id[12] = "111111110", passwd[10] = "123456";
     printf("ID: %s\n" , id);
-//    scanf("%s" , id);
+    scanf("%s" , id);
     printf("PASSWD: %s\n", passwd);
-//    scanf("%s", passwd);
+    scanf("%s", passwd);
     
     authorize(id, passwd);
     
@@ -71,9 +69,7 @@ void Reversi::gameOver()
 void Reversi::roundStart(int round)
 {
     printf("Round %d Ready Start!\n" , round);
-    board.resetBoard();
     
-    memset(lastmsg , 0 , sizeof(lastmsg));
     // first time receive msg from server
     int rtn = client_socket.recvMsg();
     if (rtn != 0) return ;
@@ -113,8 +109,8 @@ void Reversi::oneRound()
                 pair<int,int> chess = step();                        // take action, send message
                 
                 // lazi only excute after server's message confirm  in observe function
-                char * send_msg = generateOneStepMessage(chess.first,chess.second);
-                client_socket.sendMsg(send_msg);
+                generateOneStepMessage(chess.first,chess.second);
+                
                 
                 if (observe() >= 1) break;     // receive RET Code
                 
@@ -131,8 +127,8 @@ void Reversi::oneRound()
                 
                 pair<int,int> chess = step();                        // take action, send message
                 // lazi only excute after server's message confirm  in observe function
-                char * send_msg = generateOneStepMessage(chess.first,chess.second);
-                client_socket.sendMsg(send_msg);
+                generateOneStepMessage(chess.first,chess.second);
+                
                 
                 if (observe() >= 1) break;     // receive RET Code
                 // saveChessBoard();
@@ -150,7 +146,7 @@ void Reversi::roundOver(int round)
 {
     printf("Round %d Over!\n", round);
     // reset initializer
-    board.resetBoard();
+    
     ownColor = oppositeColor = -1;
 }
 
@@ -170,17 +166,16 @@ int Reversi::observe()
                         {
                             int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
                             int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
-//                            board.lazi(desRow, desCol, client_socket.getRecvMsg()[7] - '0');
-//                            memcpy(lastmsg, client_socket.getRecvMsg(), strlen(client_socket.getRecvMsg()));
-//                            board.setLastStepRow(desRow);
-//                            board.setLastStepCol(desCol);
+                            int color = (client_socket.getRecvMsg()[7] - '0');
+                            //你应该在这里处理desRow和desCol，推荐使用函数
+                            handleMessage(desRow, desCol, color);
+                            
                             printf("a valid step of : (%d %d)\n" , desRow , desCol);
                             break;
                         }
                         case 'N':   // R0N: enemy wrong step
                         {
-//                            board.setLastStepRow(-1);
-//                            board.setLastStepCol(-1);
+                            //
                             printf("a true judgement of no step\n");
                             break;
                         }
@@ -193,7 +188,11 @@ int Reversi::observe()
                         case 'P':{
                             int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
                             int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
+                            
+                            int color = (client_socket.getRecvMsg()[7] - '0');
                             printf("Invalid step , server random a true step of : (%d %d)\n" , desRow , desCol);
+                            //你应该在这里处理desRow和desCol，推荐使用函数
+                            handleMessage(desRow, desCol, color);
                             break;
                         }
                         case 'N':{
@@ -205,26 +204,22 @@ int Reversi::observe()
                     }
                     break;
                 case '1':
-                    board.setLastStepRow(-1);
-                    board.setLastStepCol(-1);
+                    
                     printf("Error -1: Msg format error!\n");
                     rtn = -1;
                     break;
                 case '2':
-                    board.setLastStepRow(-1);
-                    board.setLastStepCol(-1);
+                    
                     printf("Error -2: Corrdinate error!\n");
                     rtn = -2;
                     break;
                 case '4':
-                    board.setLastStepRow(-1);
-                    board.setLastStepCol(-1);
+                    
                     printf("Error -4: Invalid step!\n");
                     rtn = -4;
                     break;
                 default:
-                    board.setLastStepRow(-1);
-                    board.setLastStepCol(-1);
+                    
                     printf("Error -5: Other error!\n");
                     rtn = -5;
                     break;
@@ -252,77 +247,39 @@ int Reversi::observe()
     return rtn;
 }
 
-void Reversi::putDown(int row, int col)
+void Reversi::generateOneStepMessage(int row, int col)
 {
-    // 落子不合法的情况
-    if (!board.canLazi(row, col, ownColor)){
-        char msg[] = "Invalid";
-        debug_lastmsg();
-        printf("put down (%2d,%2d) : %s\n", row , col , msg);
-        client_socket.sendMsg(msg);
-    }
-    else{
-        char msg[7];
-        memset(msg , 0 , sizeof(msg));
-        msg[0] = 'S';
-        msg[1] = 'P';
-        msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
-        msg[3] = '0' + row % 10;
-        msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
-        msg[5] = '0' + col % 10;
-        msg[6] = '\0';
-        
-        board.lazi(row, col, ownColor);
-        debug_lastmsg();
-        printf("put down (%c%c, %c%c)\n", msg[2], msg[3], msg[4], msg[5]);
-        client_socket.sendMsg(msg);
-    }
-    
-}
-
-char * Reversi::generateOneStepMessage(int row, int col)
-{
-    char * msg = new char[7];
+    char msg[BUFSIZE];
     memset(msg , 0 , sizeof(msg));
+    
+    //put row and col in the message
     msg[0] = 'S';
     msg[1] = 'P';
-    msg[2] = '0' + row / 10;  // 之后可以删掉，在这个期盼中始终为0
+    msg[2] = '0' + row / 10;
     msg[3] = '0' + row % 10;
-    msg[4] = '0' + col / 10;  // 之后可以删掉，在这个期盼中始终为0
+    msg[4] = '0' + col / 10;
     msg[5] = '0' + col % 10;
     msg[6] = '\0';
+    
+    //print
     printf("generate one step at possition (%2d,%2d) : %s\n", row , col , msg);
-    return msg;
+    
+    
+    client_socket.sendMsg(msg);
 }
 
-void Reversi::noStep()
-{
-    client_socket.sendMsg("SN");
-    printf("send msg %s\n" , "SN");
-}
-
+/*-------------------------last three function--------------------------------
+ * step : find a good position to lazi your chess.
+ * saveChessBoard : save the chess board now.
+ * handleMessage: handle the message from server.
+ */
 
 pair<int,int> Reversi::step()
 {
-    //    int r = -1, c = -1;
-    //    // printf("%s\n", lastMsg());
-    //
-    //    //board.step(r, c, ownColor);
-    //    if(!board.existLazi(ownColor)){
-    //        return make_pair(0,0);
-    //    }
-    //    while (!(r >= 0 && r < ROWS && c >= 0 && c < COLS && board.canLazi(r, c, ownColor))) {
-    //        r = random(8);
-    //        c = random(8);
-    //        // System.out.println("Rand " + r + " " + c);
-    //    }
-    // saveChessBoard();
-    if(!board.existLazi(ownColor)){
-        return make_pair(-1,-1);
-    }
-    srand(time(0));
+    //此处写算法
     int r = rand()%8;
     int c = rand()%(8);
+    
     return make_pair(r,c);
 }
 
@@ -331,7 +288,6 @@ void Reversi::saveChessBoard()
     
 }
 
-void Reversi::debug_lastmsg()
-{
-    printf("%s\n" , lastmsg);
+void Reversi::handleMessage(int row, int col, int color){
+    
 }

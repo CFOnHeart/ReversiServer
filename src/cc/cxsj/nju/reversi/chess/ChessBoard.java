@@ -327,14 +327,17 @@ public class ChessBoard {
 			}
 			
 			if(blackCount > whiteCount){
+				MainFrame.instance().log("This round BLACK CHESSMAN more than WHITE CHESSMAN");
 				System.out.println("This round BLACK CHESSMAN more than WHITE CHESSMAN");
 
 			}
 			else if(blackCount < whiteCount){
+				MainFrame.instance().log("This round WHITE CHESSMAN more than BLACK CHESSMAN");
 				System.out.println("This round WHITE CHESSMAN more than BLACK CHESSMAN");
 
 			}
 			else{
+				MainFrame.instance().log("This round BLACK AND WHITE CHESSMAN EQUAL");
 				System.out.println("This round BLACK AND WHITE CHESSMAN EQUAL");
 
 			}

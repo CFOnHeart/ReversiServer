@@ -17,7 +17,7 @@ public class ContestResult {
 	public long[][] timecost;
     public int [] errCounts;
     public int [] totalTime;
-	public int [] invalidSteps; // 下棋出错的次数
+	public int [][] invalidSteps; // 下棋出错的次数
 
 	public ContestResult() {
 		this.players = new Player[2];
@@ -28,7 +28,7 @@ public class ContestResult {
         this.timecost = new long[2][ROUNDS];
 		this.errCounts = new int[2];
 		this.totalTime = new int[2];
-		this.invalidSteps = new int[2];
+		this.invalidSteps = new int[2][ROUNDS];
 	}
 	
 	public ContestResult(int id, Player user1, Player user2) {
@@ -43,7 +43,7 @@ public class ContestResult {
 		this.timecost = new long[2][ROUNDS];
         this.errCounts = new int[2];
         this.totalTime = new int[2];
-		this.invalidSteps = new int[2];
+		this.invalidSteps = new int[2][ROUNDS];
 	}
 	
 	public void evaluate() {
@@ -53,11 +53,12 @@ public class ContestResult {
 
 		errCounts[0] = errCounts[1] = 0;
 		totalTime[0] = totalTime[1] = 0;
-		// 每一步不合法的棋子扣1分
-		winRound[0] = -1 * invalidSteps[0];
-		winRound[1] = -1 * invalidSteps[1];
+		winRound[0] = winRound[1] = 0;
 
 		for (int round = 0; round < ROUNDS; round++) {
+			// 每一步不合法的棋子为对手加1分
+			winRound[0] += 1 * invalidSteps[1][round];
+			winRound[1] += 1 * invalidSteps[0][round];
 			// 当前局黑白棋胜子的个数
 			winRound[0] += scores[0][round];
 			winRound[1] += scores[1][round];

@@ -67,6 +67,8 @@ public class MainFrame extends JFrame {
 	private JTextField score1OfRound, score2OfRound;
 	private JLabel errorOfRoundLabel = new JLabel("Error"), errorVS = new JLabel(":");
 	private JTextField error1OfRound, error2OfRound;
+	private JLabel invalidOfRoundLabel = new JLabel("Invalid Steps"), invlidVS = new JLabel(":");
+	private JTextField invalid1OfRound, invalid2OfRound;
 	private JLabel stepLabel = new JLabel("Step Info");
 	private JTextField stepInfo;
 
@@ -86,6 +88,9 @@ public class MainFrame extends JFrame {
 	private JTextArea logInfo;
     boolean suspend = false;
 
+	private JTextArea resultInfo;
+	JScrollPane scrollResultList;
+
 	private MainFrame() {
 
 		mode = Integer.valueOf(ServerProperties.instance().getProperty("server.mode"));
@@ -96,6 +101,8 @@ public class MainFrame extends JFrame {
 		// west panel
 		JPanel westPanel = new JPanel();
 		// westPanel.setSize(100, 400);
+		westPanel.setLayout(new BorderLayout());
+		// logPanel.setSize(150, 400);
 		westPanel.setLayout(new BorderLayout());
 		{
 			resultListModel = new DefaultListModel<String>();
@@ -108,7 +115,7 @@ public class MainFrame extends JFrame {
 			resultListModel.addElement(resultListWidthPlaceHolder.toString());
 			resultList = new JList<String>(resultListModel);
 			resultList.setBackground(Color.WHITE);
-			JScrollPane scrollResultList = new JScrollPane(resultList);
+			scrollResultList = new JScrollPane(resultList);
 			scrollResultList.setBackground(Color.WHITE);
 			scrollResultList.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 			scrollResultList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -177,6 +184,13 @@ public class MainFrame extends JFrame {
 					error2OfRound.setHorizontalAlignment(JTextField.CENTER);
 					centerPanel0RowNorthPanel1Row.add(error2OfRound);
 					centerPanel0RowNorthPanel.add(centerPanel0RowNorthPanel1Row);
+
+					centerPanel0RowNorthPanel1Row.add(invalidOfRoundLabel);
+					invalid1OfRound = new JTextField("", 3);
+					centerPanel0RowNorthPanel1Row.add(invalid1OfRound);
+					centerPanel0RowNorthPanel1Row.add(invlidVS);
+					invalid2OfRound = new JTextField("", 3);
+					centerPanel0RowNorthPanel1Row.add(invalid2OfRound);
 				}
 				// Num Jump Back Next Auto Ctrl
 				{
@@ -360,7 +374,7 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				log("Load contest result...");
 				mode = 0;
-				ContestResults.loadContestResults(0);
+//				ContestResults.loadContestResults(0);
 				refreshResultListModal();
 			}
 		});
@@ -369,7 +383,7 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				log("Load test result...");
 				mode = 1;
-				ContestResults.loadContestResults(1);
+//				ContestResults.loadContestResults(1);
 				refreshResultListModal();
 			}
 		});
@@ -502,6 +516,8 @@ public class MainFrame extends JFrame {
 						error1OfRound.setText(String.valueOf(result.errors[0][selectedRound]));
 						error2OfRound.setText("");
 						error2OfRound.setText(String.valueOf(result.errors[1][selectedRound]));
+						invalid1OfRound.setText(String.valueOf(result.invalidSteps[0][selectedRound]));
+						invalid2OfRound.setText(String.valueOf(result.invalidSteps[1][selectedRound]));
 						stepNum = 0;
 						stepNumIuput.setText("0");
 						fillChessBoard(0);
@@ -644,7 +660,7 @@ public class MainFrame extends JFrame {
 	private void refreshResultListModal() {
 		resultsIdList = ContestResults.getContestIdsOrderly();
 		int resultNum = resultsIdList.size();
-//		System.out.println("ResultsIdList has " + resultNum);
+		System.out.println("ResultsIdList has " + resultNum);
 		if (resultNum == 0) {
 			resultListModel.clear();
 			return;
@@ -664,9 +680,9 @@ public class MainFrame extends JFrame {
 		});
 		resultListModel.clear();
 		for (Integer id : resultsIdList) {
-//		    System.out.println(id);
+		    System.out.println(id);
 			ContestResult result = ContestResults.getContestResult(id);
-//			System.out.println(result);
+			System.out.println(result);
 			StringBuilder sb = new StringBuilder(" ");
 			if (id < 10) {
 				sb.append("0");
@@ -703,6 +719,16 @@ public class MainFrame extends JFrame {
         }
 	}
 
+	public void updateContestResultUI(ContestResult result){
+		resultListModel.addElement(result.toString() + "\n");
+		resultList = new JList<String>(resultListModel);
+		resultList.setBackground(Color.WHITE);
+		scrollResultList = new JScrollPane(resultList);
+		scrollResultList.setBackground(Color.WHITE);
+//		scrollResultList.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+//		scrollResultList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollResultList.setBorder(new TitledBorder("Contest Result"));
+	}
 
     /**
      * invoke static instance of MainFrame to change contents of main panel

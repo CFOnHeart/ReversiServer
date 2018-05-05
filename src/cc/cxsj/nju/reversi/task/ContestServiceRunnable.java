@@ -165,7 +165,9 @@ public class ContestServiceRunnable implements Runnable{
                         result.stepsNum[round] ++;
                         winCnts = board.isGeneratedWinner();
                         if (winCnts != -100) {   // a player won
-                            MainFrame.instance().log("Winner is" + (winCnts>0?" Black":" White"));
+                            result.scores[black][round] = winCnts > 0 ? winCnts : 0;
+                            result.scores[white][round] = winCnts < 0 ? -winCnts : 0;
+                            MainFrame.instance().log("Win more chessman is" + (winCnts>0?" Black":" White"));
                             break;
                         }
                         
@@ -216,12 +218,17 @@ public class ContestServiceRunnable implements Runnable{
 
                         if (blackReturnCode.charAt(1) == 'Y') {
                             // valid step
-                            record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
+                            record.get(round).add("BLACK: VALID_STEP " + blackStep.substring(2, 6));
                         }
                         else{
                             // invalid step
-                            record.get(round).add("INVALID_STEP BLACK " + blackStep.substring(0, 6)
-                                    + "REAL_STEP BLACK " + blackReturnCode);
+                            result.invalidSteps[black][round] ++;
+                            if(blackReturnCode.compareTo("RWN") != 0)
+                                record.get(round).add("BLACK: INVALID_STEP " + blackStep.substring(2, 6)
+                                    + " REAL_STEP " + blackReturnCode.substring(3,7));
+                            else
+                                record.get(round).add("WHITE: INVALID_STEP " + blackStep.substring(2, 6)
+                                    + " REAL_STEP " + "-1-1");
                         }
                         record.get(round).add(board.toStringToDisplay());
                         if(sendMsg(black , round , blackReturnCode) == false)
@@ -231,7 +238,9 @@ public class ContestServiceRunnable implements Runnable{
 
                         winCnts = board.isGeneratedWinner();
                         if (winCnts != -100) { // a player won
-                            MainFrame.instance().log("Winner is" + (winCnts>0?" Black":" White"));
+                            result.scores[black][round] = winCnts > 0 ? winCnts : 0;
+                            result.scores[white][round] = winCnts < 0 ? -winCnts : 0;
+                            MainFrame.instance().log("Win more chessman is" + (winCnts>0?" Black":" White"));
                             break;
                         }
 
@@ -283,12 +292,17 @@ public class ContestServiceRunnable implements Runnable{
 
                         if (whiteReturnCode.charAt(1) == 'Y') {
                             // valid step
-                            record.get(round).add("VALID_STEP WHITE " + whiteStep.substring(0, 6));
+                            record.get(round).add("WHITE: VALID_STEP " + whiteStep.substring(2, 6));
                         }
                         else{
                             // invalid step
-                            record.get(round).add("INVALID_STEP WHITE " + whiteStep.substring(0, 6)
-                                    + "REAL_STEP WHITE " + whiteReturnCode);
+                            result.invalidSteps[white][round] ++;
+                            if(whiteReturnCode.compareTo("RWN") != 0)
+                                record.get(round).add("WHITE: INVALID_STEP " + whiteStep.substring(2, 6)
+                                    + " REAL_STEP " + whiteReturnCode.substring(3, 7));
+                            else
+                                record.get(round).add("WHITE: INVALID_STEP " + whiteStep.substring(2, 6)
+                                        + " REAL_STEP " + "-1-1");
                         }
                         record.get(round).add(board.toStringToDisplay());
                         if(sendMsg(white , round , whiteReturnCode) == false)

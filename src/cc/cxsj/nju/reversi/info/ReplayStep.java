@@ -38,7 +38,7 @@ public class ReplayStep {
 	public void append(int r, String line) {
 //		String[] row = line.split(" ");
 		for (int c = 0; c < COLS; c++) {
-			System.out.printf(line.substring(4*c+1, 4*c+1));
+//			System.out.printf(line.substring(4*c+1, 4*c+1));
 			switch (line.charAt(4*c+1)) {
 				case 'B':
                 {
@@ -55,6 +55,6 @@ public class ReplayStep {
 					break;
             }
 		}
-		System.out.println("");
+//		System.out.println("");
 	}
 }

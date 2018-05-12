@@ -189,7 +189,7 @@ public class TestServiceRunnable implements Runnable{
                         board.printChessBoard();
                         if (blackReturnCode.charAt(1) == 'Y') {
                             // valid step
-                            if(blackReturnCode.compareTo("RYN")!=0)
+                            if(blackReturnCode.charAt(2) != 'N')
                                 record.get(round).add("BLACK: VALID_STEP " + blackReturnCode.substring(2, 6));
                             else
                                 record.get(round).add("BLACK: VALID_STEP " + "-1-1");
@@ -197,7 +197,7 @@ public class TestServiceRunnable implements Runnable{
                         else{
                             // invalid step
                             result.invalidSteps[black][round] ++;
-                            if(blackReturnCode.compareTo("RWN") != 0)
+                            if(blackReturnCode.charAt(2) != 'N')
                                 record.get(round).add("BLACK: INVALID_STEP " + blackStep.substring(2, 6)
                                     + " REAL_STEP " + blackReturnCode.substring(3,7));
                             else
@@ -238,7 +238,7 @@ public class TestServiceRunnable implements Runnable{
 
                         if (whiteReturnCode.charAt(1) == 'Y') {
                             // valid step
-                            if(whiteReturnCode.compareTo("RYN")!=0)
+                            if(whiteReturnCode.charAt(2) != 'N')
                                 record.get(round).add("WHITE: VALID_STEP " + whiteStep.substring(2, 6));
                             else
                                 record.get(round).add("WHITE: VALID_STEP " + "-1-1");
@@ -246,7 +246,7 @@ public class TestServiceRunnable implements Runnable{
                         else{
                             // invalid step
                             result.invalidSteps[white][round] ++;
-                            if(whiteReturnCode.compareTo("RWN")!=0)
+                            if(whiteReturnCode.charAt(2) != 'N')
                                 record.get(round).add("WHITE: INVALID_STEP " + whiteStep.substring(2, 6)
                                     + " REAL_STEP " + whiteReturnCode.substring(3, 7));
                             else

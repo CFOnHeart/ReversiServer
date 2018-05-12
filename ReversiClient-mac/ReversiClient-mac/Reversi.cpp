@@ -172,10 +172,15 @@ int Reversi::observe()
                             printf("a valid step of : (%d %d)\n" , desRow , desCol);
                             break;
                         }
-                        case 'N':   // R0N: enemy wrong step
+                        case 'N':   // RYN: enemy wrong step
                         {
                             //
                             printf("a true judgement of no step\n");
+                            int desRow = -1;
+                            int desCol = -1;
+                            
+                            int color = (client_socket.getRecvMsg()[3] - '0');
+                            handleMessage(desRow, desCol, color);
                             break;
                         }
                     }
@@ -196,6 +201,11 @@ int Reversi::observe()
                         }
                         case 'N':{
                             printf("a wrong judgement of no step\n");
+                            int desRow = -1;
+                            int desCol = -1;
+                            
+                            int color = (client_socket.getRecvMsg()[3] - '0');
+                            handleMessage(desRow, desCol, color);
                             break;
                         }
                         default:
@@ -271,6 +281,7 @@ void Reversi::generateOneStepMessage(int row, int col)
  * step : find a good position to lazi your chess.
  * saveChessBoard : save the chess board now.
  * handleMessage: handle the message from server.
+ * 类中存在ownColor表示自己当前的棋子颜色，0表示黑棋，1表示白棋
  */
 
 pair<int,int> Reversi::step()
@@ -288,5 +299,6 @@ void Reversi::saveChessBoard()
 }
 
 void Reversi::handleMessage(int row, int col, int color){
-    
+    cout<<"********************************************"<<endl;
+    cout<<"in hadnleMessage: color: "<<color<<" " << "pos: "<<"("<<row<<","<<col<<")"<<endl;
 }

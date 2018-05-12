@@ -218,7 +218,10 @@ public class ContestServiceRunnable implements Runnable{
 
                         if (blackReturnCode.charAt(1) == 'Y') {
                             // valid step
-                            record.get(round).add("BLACK: VALID_STEP " + blackStep.substring(2, 6));
+                            if(blackReturnCode.compareTo("RYN")!=0)
+                                record.get(round).add("BLACK: VALID_STEP " + blackReturnCode.substring(2, 6));
+                            else
+                                record.get(round).add("BLACK: VALID_STEP " + "-1-1");
                         }
                         else{
                             // invalid step
@@ -292,7 +295,10 @@ public class ContestServiceRunnable implements Runnable{
 
                         if (whiteReturnCode.charAt(1) == 'Y') {
                             // valid step
-                            record.get(round).add("WHITE: VALID_STEP " + whiteStep.substring(2, 6));
+                            if(whiteReturnCode.compareTo("RYN")!=0)
+                                record.get(round).add("WHITE: VALID_STEP " + whiteStep.substring(2, 6));
+                            else
+                                record.get(round).add("WHITE: VALID_STEP " + "-1-1");
                         }
                         else{
                             // invalid step

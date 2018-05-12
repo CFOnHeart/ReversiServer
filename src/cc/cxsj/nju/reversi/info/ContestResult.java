@@ -57,19 +57,19 @@ public class ContestResult {
 
 		for (int round = 0; round < ROUNDS; round++) {
 			// 每一步不合法的棋子为对手加1分
-			winRound[0] += 1 * invalidSteps[1][round];
-			winRound[1] += 1 * invalidSteps[0][round];
+			winRound[0] += 10 * invalidSteps[1][round];
+			winRound[1] += 10 * invalidSteps[0][round];
 			// 当前局黑白棋胜子的个数
 			winRound[0] += scores[0][round];
 			winRound[1] += scores[1][round];
 
 			if (errors[0][round] > ERRORS) {
-				winRound[1] += 5;
+				winRound[1] += 10;
 				continue;
 			} else
 				errCounts[0] += errors[0][round];
 			if (errors[1][round] > ERRORS) {
-				winRound[0] += 5;
+				winRound[0] += 10;
 				continue;
 			} else
 				errCounts[1] += errors[1][round];

@@ -269,10 +269,16 @@ void Reversi::generateOneStepMessage(int row, int col)
     msg[4] = '0' + col / 10;
     msg[5] = '0' + col % 10;
     msg[6] = '\0';
+    if(row<0 || col<0) row=-1 , col=-1;
+    if(row == -1 && col == -1){
+        msg[2] = '-';
+        msg[3] = '1';
+        msg[4] = '-';
+        msg[5] = '1';
+    }
     
     //print
     printf("generate one step at possition (%2d,%2d) : %s\n", row , col , msg);
-    
     
     client_socket.sendMsg(msg);
 }

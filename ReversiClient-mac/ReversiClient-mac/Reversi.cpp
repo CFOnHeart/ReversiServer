@@ -293,6 +293,7 @@ pair<int,int> Reversi::step()
     return make_pair(r,c);
 }
 
+
 void Reversi::saveChessBoard()
 {
     

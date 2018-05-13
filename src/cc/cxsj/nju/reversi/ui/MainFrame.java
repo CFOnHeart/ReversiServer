@@ -500,9 +500,9 @@ public class MainFrame extends JFrame {
 //						if (result == null) {
 //							MainFrame.instance().log("No result with id: " + round);
 //                            return;
-//						}
-
-					ContestResult result = ContestResults.getContestResult(0);
+//
+					if(selectedContestId < 0) selectedContestId = 0;
+					ContestResult result = ContestResults.getContestResult(selectedContestId);
 					if (RecordResolver.resolve(mode, result, selectedRound)) {
 						player1info.setText("");
 						player1info.setText(result.players[0].getId());

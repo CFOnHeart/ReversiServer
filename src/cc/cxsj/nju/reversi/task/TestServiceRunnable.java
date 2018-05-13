@@ -262,7 +262,7 @@ public class TestServiceRunnable implements Runnable{
                         winCnts = board.isGeneratedWinner();
                         if (winCnts != -100) { // a player won
                             result.scores[black][round] = winCnts > 0 ? winCnts : 0;
-                            result.scores[white][round] = winCnts <0 ? -winCnts : 0;
+                            result.scores[white][round] = winCnts < 0 ? -winCnts : 0;
                             MainFrame.instance().log("Win more chessman is" + (winCnts>0?" Black":" White"));
                             break;
                         }

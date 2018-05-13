@@ -24,7 +24,7 @@ public:
     Reversi();
     ~Reversi();
     
-    void authorize(const char *id , const char *pass);
+    int authorize(const char *id , const char *pass);
     
     void gameStart();
     

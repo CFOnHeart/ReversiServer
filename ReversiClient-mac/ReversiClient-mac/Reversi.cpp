@@ -23,7 +23,7 @@ Reversi::~Reversi(){};
  send id and password to server by socket
  rtn != 0 represents socket transfer error
  */
-void Reversi::authorize(const char *id , const char *pass)
+int Reversi::authorize(const char *id , const char *pass)
 {
     client_socket.connectServer();
     std::cout << "Authorize " << id << std::endl;
@@ -33,7 +33,11 @@ void Reversi::authorize(const char *id , const char *pass)
     memcpy(&msgBuf[1] , id , 9);
     memcpy(&msgBuf[10] , pass , 6);
     int rtn = client_socket.sendMsg(msgBuf);
-    if (rtn != 0) printf("Authorized Failed!\n");
+    if (rtn != 0){
+        printf("Authorized Failed!\n");
+        return -1;
+    }
+    return 0;
 }
 
 // 用户id输入，服务器上需要有对应的账号密码：对应文件 players-0.txt
@@ -46,8 +50,10 @@ void Reversi::gameStart()
     printf("PASSWD: %s\n", passwd);
     scanf("%s", passwd);
     
-    authorize(id, passwd);
-    
+    int auth = authorize(id, passwd);
+    if(auth < 0) {
+        return;
+    }
     printf("Game Start!\n");
     
     for (int round = 0 ; round < ROUNDS ; round++){
@@ -139,6 +145,7 @@ void Reversi::oneRound()
         default:
             break;
     }
+    printf("One Round end ###################\n");
 }
 
 void Reversi::roundOver(int round)
@@ -284,6 +291,7 @@ void Reversi::generateOneStepMessage(int row, int col)
 }
 
 /*-------------------------last three function--------------------------------
+ * startNewRound: start a new Round, init your chessboard
  * step : find a good position to lazi your chess.
  * saveChessBoard : save the chess board now.
  * handleMessage: handle the message from server.

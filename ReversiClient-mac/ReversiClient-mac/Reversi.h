@@ -52,6 +52,8 @@ public:
     void debug_lastmsg();
     
     void handleMessage(int row, int col, int color);
+    
+    void initChessBoard();
 };
 
 #endif /* Reversi_h */

@@ -219,7 +219,7 @@ public class ContestServiceRunnable implements Runnable{
                         if (blackReturnCode.charAt(1) == 'Y') {
                             // valid step
                             if(blackReturnCode.charAt(2) != 'N')
-                                record.get(round).add("BLACK: VALID_STEP " + blackReturnCode.substring(2, 6));
+                                record.get(round).add("BLACK: VALID_STEP " + blackStep.substring(2, 6));
                             else
                                 record.get(round).add("BLACK: VALID_STEP " + "-1-1");
                         }

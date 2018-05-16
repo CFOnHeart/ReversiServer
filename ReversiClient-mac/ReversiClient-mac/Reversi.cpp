@@ -102,6 +102,8 @@ void Reversi::roundStart(int round)
             printf("Authorized Failed!\n");
             break;
     }
+    //chess board init
+    initChessBoard();
 }
 
 void Reversi::oneRound()
@@ -173,7 +175,6 @@ int Reversi::observe()
                             int desRow = (client_socket.getRecvMsg()[3] - '0') * 10 + client_socket.getRecvMsg()[4] - '0';
                             int desCol = (client_socket.getRecvMsg()[5] - '0') * 10 + client_socket.getRecvMsg()[6] - '0';
                             int color = (client_socket.getRecvMsg()[7] - '0');
-                            //你应该在这里处理desRow和desCol，推荐使用函数
                             handleMessage(desRow, desCol, color);
                             
                             printf("a valid step of : (%d %d)\n" , desRow , desCol);
@@ -202,7 +203,6 @@ int Reversi::observe()
                             
                             int color = (client_socket.getRecvMsg()[7] - '0');
                             printf("Invalid step , server random a true step of : (%d %d)\n" , desRow , desCol);
-                            //你应该在这里处理desRow和desCol，推荐使用函数
                             handleMessage(desRow, desCol, color);
                             break;
                         }
@@ -289,15 +289,14 @@ void Reversi::generateOneStepMessage(int row, int col)
     
     client_socket.sendMsg(msg);
 }
-
 /*-------------------------last three function--------------------------------
- * startNewRound: start a new Round, init your chessboard
- * step : find a good position to lazi your chess.
- * saveChessBoard : save the chess board now.
- * handleMessage: handle the message from server.
- * 类中存在ownColor表示自己当前的棋子颜色，0表示黑棋，1表示白棋
+ * startNewRound(function): start a new Round, init your chessboard
+ * step(function) : find a good position to lazi your chess.
+ * saveChessBoard(function) : save the chess board now.
+ * handleMessage(function): handle the message from server.
+ * initChessBoard(function): start a new round , initially your chessboard
+ * ownColor(variable): present your chessman color，0 present black，1 present white
  */
-
 pair<int,int> Reversi::step()
 {
     //此处写算法
@@ -316,4 +315,9 @@ void Reversi::saveChessBoard()
 void Reversi::handleMessage(int row, int col, int color){
     cout<<"********************************************"<<endl;
     cout<<"in hadnleMessage: color: "<<color<<" " << "pos: "<<"("<<row<<","<<col<<")"<<endl;
+}
+
+//init your chess board here
+void Reversi::initChessBoard(){
+    
 }

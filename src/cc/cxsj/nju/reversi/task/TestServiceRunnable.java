@@ -91,7 +91,7 @@ public class TestServiceRunnable implements Runnable{
                 System.out.println("flag new board end");
                 // record.get(round).add("INITIAL CHESS BOARD\n" + board.toStringToRecord());
 
-                int winner = -1;
+                int winCnts = -1;
 
                 try {
 
@@ -158,13 +158,15 @@ public class TestServiceRunnable implements Runnable{
 
                     System.out.println("step begin");
                     // begin palying chess
-                    winner = -100;
+                    winCnts = -100;
                     result.stepsNum[round] = 0;
                     for ( ; num <= STEPS; num++) {
                         result.stepsNum[round] ++;
-                        winner = board.isGeneratedWinner();
-                        if (winner != -100) {   // a player won
-                            MainFrame.instance().log("Winner is" + (winner>0?" Black":" White"));
+                        winCnts = board.isGeneratedWinner();
+                        if (winCnts != -100) {   // a player won
+                            result.scores[black][round] = winCnts > 0 ? winCnts : 0;
+                            result.scores[white][round] = winCnts < 0 ? -winCnts : 0;
+                            MainFrame.instance().log("Win more chessman is" + (winCnts>0?" Black":" White"));
                             break;
                         }
                         System.out.println("NUM = " + num);
@@ -187,12 +189,20 @@ public class TestServiceRunnable implements Runnable{
                         board.printChessBoard();
                         if (blackReturnCode.charAt(1) == 'Y') {
                             // valid step
-                            record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
+                            if(blackReturnCode.charAt(2) != 'N')
+                                record.get(round).add("BLACK: VALID_STEP " + blackStep.substring(2, 6));
+                            else
+                                record.get(round).add("BLACK: VALID_STEP " + "-1-1");
                         }
                         else{
                             // invalid step
-                            record.get(round).add("INVALID_STEP BLACK " + blackStep.substring(0, 6)
-                                    + "REAL_STEP BLACK " + blackReturnCode);
+                            result.invalidSteps[black][round] ++;
+                            if(blackReturnCode.charAt(2) != 'N')
+                                record.get(round).add("BLACK: INVALID_STEP " + blackStep.substring(2, 6)
+                                    + " REAL_STEP " + blackReturnCode.substring(3,7));
+                            else
+                                record.get(round).add("BLACK: INVALID_STEP " + blackStep.substring(2, 6)
+                                        + " REAL_STEP " + "-1-1");
                         }
                         record.get(round).add(board.toStringToDisplay());
                         if(sendMsg(black , round , blackReturnCode) == false)
@@ -203,9 +213,11 @@ public class TestServiceRunnable implements Runnable{
                         
                         System.out.println("307 baord.isGeneratedWinner()");
 
-                        winner = board.isGeneratedWinner();
-                        if (winner >= 0) { // a player won
-                            MainFrame.instance().log("Winner is" + (winner==0?" Black":" White"));
+                        winCnts = board.isGeneratedWinner();
+                        if (winCnts != -100) { // a player won
+                            result.scores[black][round] = winCnts > 0 ? winCnts : 0;
+                            result.scores[white][round] = winCnts <0 ? -winCnts : 0;
+                            MainFrame.instance().log("Win more chessman is" + (winCnts>0?" Black":" White"));
                             break;
                         }
 
@@ -224,47 +236,35 @@ public class TestServiceRunnable implements Runnable{
                         board.printChessBoard();
                         // System.out.println("WHITE STEP: " + whiteStep);
 
-
-                        /*if(blackReturnCode.charAt(2) == 'N'){
-                            record.get(round).add("NO_STEP_CAN_LAZI BLACK: MSG(R0N)");
-                            record.get(round).add(board.toStringToDisplay());
-                            if(sendMsg(black , round , blackReturnCode) == false){
-                                return;
-                            }
-                            if(sendMsg(white , round , blackReturnCode) == false){
-                                return;
-                            }
-                        }
-
-                        else{
-                            // valid step
-                            record.get(round).add("VALID_STEP BLACK " + blackStep.substring(0, 6));
-                            System.out.println("258 board.toStringToDisplay");
-                            record.get(round).add(board.toStringToDisplay());
-                            System.out.println("260 board.toStringToDisplay over");
-
-                            if(sendMsg(black , round , blackReturnCode) == false){
-                                return;
-                            }
-                            if(sendMsg(white , round , blackReturnCode) == false){
-                                return;
-                            }
-                        }*/
-
                         if (whiteReturnCode.charAt(1) == 'Y') {
                             // valid step
-                            record.get(round).add("VALID_STEP WHITE " + whiteStep.substring(0, 6));
+                            if(whiteReturnCode.charAt(2) != 'N')
+                                record.get(round).add("WHITE: VALID_STEP " + whiteStep.substring(2, 6));
+                            else
+                                record.get(round).add("WHITE: VALID_STEP " + "-1-1");
                         }
                         else{
                             // invalid step
-                            record.get(round).add("INVALID_STEP WHITE " + whiteStep.substring(0, 6)
-                                    + "REAL_STEP WHITE " + whiteReturnCode);
+                            result.invalidSteps[white][round] ++;
+                            if(whiteReturnCode.charAt(2) != 'N')
+                                record.get(round).add("WHITE: INVALID_STEP " + whiteStep.substring(2, 6)
+                                    + " REAL_STEP " + whiteReturnCode.substring(3, 7));
+                            else
+                                record.get(round).add("WHITE: INVALID_STEP " + whiteStep.substring(2, 6)
+                                        + " REAL_STEP " + "-1-1");
                         }
                         record.get(round).add(board.toStringToDisplay());
                         if(sendMsg(black , round , whiteReturnCode) == false)
                             return;
                         if(sendMsg(white , round , whiteReturnCode) == false){
                             return;
+                        }
+                        winCnts = board.isGeneratedWinner();
+                        if (winCnts != -100) { // a player won
+                            result.scores[black][round] = winCnts > 0 ? winCnts : 0;
+                            result.scores[white][round] = winCnts < 0 ? -winCnts : 0;
+                            MainFrame.instance().log("Win more chessman is" + (winCnts>0?" Black":" White"));
+                            break;
                         }
 
                     }
@@ -290,18 +290,18 @@ public class TestServiceRunnable implements Runnable{
 
                     // record result
                     result.stepsNum[round] = num;
-                    if (winner == -1)
-                        winner = board.isGeneratedWinner();
-                    result.scores[black][round] = winner == 0 ? 1 : 0;
-                    result.scores[white][round] = winner == 1 ? 1 : 0;
+                    if (winCnts == -100)
+                        winCnts = board.isGeneratedWinner();
+                    result.scores[black][round] = winCnts > 0 ? winCnts : 0;
+                    result.scores[white][round] = winCnts <0 ? -winCnts : 0;
 
                     String winnerStr = "BLACK AND WHITE";
-                    if(winner == 0){
+                    if(winCnts > 0){
                         winnerStr = "BLACK";
-                    }else if(winner == 1){
+                    }else if(winCnts < 0){
                         winnerStr = "WHITE";
                     }
-                    MainFrame.instance().log(this.info + " round " + round + " end \n Winner is: " + winnerStr);
+                    MainFrame.instance().log(this.info + " round " + round + " end \n Win more chessman is: " + winnerStr);
 
                     record.get(round).add("ROUND_END " + round);
                 }
@@ -383,6 +383,7 @@ public class TestServiceRunnable implements Runnable{
     }
 
     public void saveResult() {
+//        MainFrame.instance().updateContestResultUI(result);
         String RESULT_DIR = ServerProperties.instance().getProperty("current.result.dir");
         PrintWriter out = null;
         try {

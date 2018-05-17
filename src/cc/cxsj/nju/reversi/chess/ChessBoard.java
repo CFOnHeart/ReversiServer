@@ -100,7 +100,7 @@ public class ChessBoard {
 			if(canLazi == false) {
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SYNoStep", stepNum);
 				cancelProhibition();
-				return "RYN";  // 客户端对于无法下棋判断正确
+				return "RYN" + String.valueOf(color);  // 客户端对于无法下棋判断正确
 			}
 			else{
 				// 客户端实际有棋可以下，系统随机找一个可以下棋的位置
@@ -118,7 +118,7 @@ public class ChessBoard {
 			if(canLazi == false){
 				MainFrame.instance().updateStepInfo((color==0?"Black ":"White ")+"SWNoStep", stepNum);
 				cancelProhibition();
-				return "RWN";
+				return "RWN" + String.valueOf(color);
 			}
 			else if((desRow >= ROWS || desRow < 0) ||
 					(desCol >= COLS || desCol < 0) ||
@@ -331,14 +331,17 @@ public class ChessBoard {
 			}
 			
 			if(blackCount > whiteCount){
+				MainFrame.instance().log("This round BLACK CHESSMAN more than WHITE CHESSMAN");
 				System.out.println("This round BLACK CHESSMAN more than WHITE CHESSMAN");
 
 			}
 			else if(blackCount < whiteCount){
+				MainFrame.instance().log("This round WHITE CHESSMAN more than BLACK CHESSMAN");
 				System.out.println("This round WHITE CHESSMAN more than BLACK CHESSMAN");
 
 			}
 			else{
+				MainFrame.instance().log("This round BLACK AND WHITE CHESSMAN EQUAL");
 				System.out.println("This round BLACK AND WHITE CHESSMAN EQUAL");
 
 			}

@@ -17,7 +17,6 @@ using namespace std;
 class Reversi{
 private:
     ClientSocket client_socket;
-    Board board;
     int ownColor;
     int oppositeColor;
     char lastmsg[16];
@@ -25,7 +24,7 @@ public:
     Reversi();
     ~Reversi();
     
-    void authorize(const char *id , const char *pass);
+    int authorize(const char *id , const char *pass);
     
     void gameStart();
     
@@ -42,7 +41,7 @@ public:
     void putDown(int row , int col);
     
     // according to chessman position (row , col) , generate one step message in order to send to server
-    char * generateOneStepMessage(int row , int col);
+    void generateOneStepMessage(int row , int col);
     
     void noStep();
     
@@ -52,7 +51,9 @@ public:
     
     void debug_lastmsg();
     
+    void handleMessage(int row, int col, int color);
     
+    void initChessBoard();
 };
 
 #endif /* Reversi_h */

@@ -214,21 +214,3 @@ void Board::print(){
     }
     printf("%s\n", str.c_str());
 }
-
-void Board::updateProhibition(){
-    for(int i=0 ; i<ROWS ; i++){
-        for(int j=0 ; j<COLS ; j++){
-            if(squares[i][j].getColor() == 2)
-                squares[i][j].setColor(-1);
-        }
-    }
-    //prohibition
-    if(lastStepRow == -1) return;
-    for(int dir = 0; dir < 8; dir += 2){
-        int pos_x = lastStepRow + dx[dir], pos_y = lastStepCol + dy[dir];
-        if(inBoard(pos_x, pos_y) && squares[pos_x][pos_y].getColor() == -1){
-            squares[pos_x][pos_y].setColor(2);
-        }
-    }
-
-}

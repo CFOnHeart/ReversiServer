@@ -36,7 +36,7 @@ public class Square {
 				sb.append("P");
 				break;
 			default:
-				sb.append(" ");
+				sb.append("_");
 				break;
 		}
 		return sb.toString();
@@ -57,7 +57,7 @@ public class Square {
 				sb.append("P");
 				break;
 			default:
-				sb.append(" ");
+				sb.append("_");
 		}
 		sb.append("|");
 		return sb.toString();

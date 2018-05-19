@@ -319,17 +319,17 @@ public class CreateServiceRunnable extends Thread {
 //			    if (PRINT_ERROR)
 //			    MainFrame.instance().log("May Interrupted Current Thread");
 //			    System.exit(0);
-				try{
-					while(true){
-						Thread.sleep(1000);
-						if(matchPlayerList.size()/2 == ContestResults.contestResults.size()){
-						    Players.GenerateNextPlayersNameListFile();
-						    break;
-                        }
-					}
-				}catch (Exception ex){
-					ex.printStackTrace();
-				}
+//				try{
+//					while(true){
+//						Thread.sleep(1000);
+//						if(matchPlayerList.size()/2 == ContestResults.contestResults.size()){
+//						    Players.GenerateNextPlayersNameListFile();
+//						    break;
+//                        }
+//					}
+//				}catch (Exception ex){
+//					ex.printStackTrace();
+//				}
 			}
 			break;
 		}

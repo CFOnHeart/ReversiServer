@@ -16,10 +16,13 @@ using namespace std;
 
 class Reversi{
 private:
+    int air, aic;
+    int hiscolor = 0;
     ClientSocket client_socket;
     int ownColor;
     int oppositeColor;
     char lastmsg[16];
+    Board board;
 public:
     Reversi();
     ~Reversi();

@@ -87,14 +87,15 @@ public class ContestServiceRunnable implements Runnable{
                         return ;
 
                     int synNum = 0;
-                    try {
-                        while (synNum < 5) {
+
+                    while (synNum < 5) {
+                        try {
                             recvBuffer = players[black].receive();
+                            synNum++;
                             String syn = new String(recvBuffer);
                             if (syn.substring(0, 2).equals("BB")) {
                                 break;
                             }
-                            synNum++;
                             if (synNum >= 5) {
                                 // syn fail too much time
                                 System.out.println(syn);
@@ -104,58 +105,70 @@ public class ContestServiceRunnable implements Runnable{
                                 result.winner = white;
                                 return;
                             }
+                        }catch (SocketTimeoutException e) {
+                            // step timeout
+//                            result.errors[black][round]++;
+                            LOG.error(e);
+                            LOG.error(this.info + " ROUND " + round + " TimeoutException when synchronize black round");
+//                            record.get(round).add("SYN_ERROR BLACK " + result.errors[black][round]);
+//                            result.winner = white;
+                            continue;
+                        } catch (Exception e) {
+                            // other exception
+                            LOG.error(e);
+                            LOG.error(this.info + " ROUND " + round + " Unkown Exception when synchronize black round!");
+                            record.get(round).add("UNKOWN_EXCEPTION BLACK");
+                            result.errors[black][round]++;
+                            result.winner = white;
+                            return;
                         }
-                    } catch (SocketTimeoutException e) {
-                        // step timeout
+                    }
+                    if (synNum >= 5) {
+                        // syn fail too much time
                         result.errors[black][round]++;
-                        LOG.error(e);
-                        LOG.error(this.info + " ROUND " + round + " TimeoutException when synchronize black round");
-                        record.get(round).add("SYN_ERROR BLACK " + result.errors[black][round]);
+                        LOG.error(this.info + " ROUND " + round + " Sync. Failed too much(5) times");
+                        record.get(round).add("SYNTIME_EXCEED WHITE " + result.errors[black][round]);
                         result.winner = white;
                         return;
-                    } catch (Exception e) {
-                        // other exception
-                        LOG.error(e);
-                        LOG.error(this.info + " ROUND " + round + " Unkown Exception when synchronize black round!");
-                        record.get(round).add("UNKOWN_EXCEPTION BLACK");
-                        result.errors[black][round]++;
-                        result.winner = white;
-                        return;
+
                     }
                     synNum = 0;
-                    try {
-                        while (synNum < 5) {
+
+                    while (synNum < 5) {
+                        try {
+                            synNum++;
                             recvBuffer = players[white].receive();
                             String syn = new String(recvBuffer);
                             if (syn.substring(0, 2).equals("BW")) {
                                 break;
                             }
-                            synNum++;
-                        }
-                        if (synNum >= 5) {
-                            // syn fail too much time
+
+                        }catch (SocketTimeoutException e) {
+                            // step timeout
+//                            result.errors[white][round]++;
+                            LOG.error(e);
+                            LOG.error(this.info + " ROUND " + round + " TimeoutException when synchronize white round ");
+//                            record.get(round).add("SYN_ERROR WHITE " + result.errors[white][round]);
+//                            result.winner = black;
+                            continue;
+                        } catch (Exception e) {
+                            // other exception
+                            LOG.error(e);
+                            LOG.error(this.info + " ROUND " + round + " Unkown Exception when synchronize white round!");
+                            record.get(round).add("UNKOWN_EXCEPTION WHITE");
                             result.errors[white][round]++;
-                            LOG.error(this.info + " ROUND " + round + " Sync. Failed too much(5) times");
-                            record.get(round).add("SYNTIME_EXCEED WHITE " + result.errors[white][round]);
                             result.winner = black;
                             return;
                         }
-                    } catch (SocketTimeoutException e) {
-                        // step timeout
+                    }
+                    if (synNum >= 5) {
+                        // syn fail too much time
                         result.errors[white][round]++;
-                        LOG.error(e);
-                        LOG.error(this.info + " ROUND " + round + " TimeoutException when synchronize white round ");
-                        record.get(round).add("SYN_ERROR WHITE " + result.errors[white][round]);
+                        LOG.error(this.info + " ROUND " + round + " Sync. Failed too much(5) times");
+                        record.get(round).add("SYNTIME_EXCEED WHITE " + result.errors[white][round]);
                         result.winner = black;
                         return;
-                    } catch (Exception e) {
-                        // other exception
-                        LOG.error(e);
-                        LOG.error(this.info + " ROUND " + round + " Unkown Exception when synchronize white round!");
-                        record.get(round).add("UNKOWN_EXCEPTION WHITE");
-                        result.errors[white][round]++;
-                        result.winner = black;
-                        return;
+
                     }
 
                     // begin palying chess

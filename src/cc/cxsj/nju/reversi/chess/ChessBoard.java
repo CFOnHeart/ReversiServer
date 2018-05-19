@@ -88,8 +88,12 @@ public class ChessBoard {
 				(color==0?"Black":"White")+" Step " + " with message: " + step);
 
 		// pos lazi of client
-		int desRow = Integer.valueOf(step.substring(2, 4));
-		int desCol = Integer.valueOf(step.substring(4, 6));
+		int desRow = -1, desCol = -1;
+		if( ((step.charAt(2) == '0' || step.charAt(2) == '-' ) && step.charAt(3) >= '0' && step.charAt(3) < '9') &&
+				((step.charAt(4) == '0' || step.charAt(4) == '-' ) && step.charAt(5) >= '0' && step.charAt(5) < '9')){
+			desRow = Integer.valueOf(step.substring(2, 4));
+			desCol = Integer.valueOf(step.substring(4, 6));
+		}
 		boolean canLazi = existLazi(color);
 		// 客户端判断无棋可下
 		if(desRow < 0 || desCol < 0){

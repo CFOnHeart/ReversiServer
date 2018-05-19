@@ -44,7 +44,7 @@ int Reversi::authorize(const char *id , const char *pass)
 void Reversi::gameStart()
 {
     char id[12] = {0}, passwd[10] = {0};
-    //char id[12] = "111111110", passwd[10] = "123456";
+//    char id[12] = "111111112", passwd[10] = "123456";
     printf("ID: %s\n" , id);
     scanf("%s" , id);
     printf("PASSWD: %s\n", passwd);
@@ -303,7 +303,7 @@ pair<int,int> Reversi::step()
     int r = rand()%8;
     int c = rand()%(8);
     
-    return make_pair(r,c);
+    return board.step(ownColor);
 }
 
 
@@ -315,9 +315,11 @@ void Reversi::saveChessBoard()
 void Reversi::handleMessage(int row, int col, int color){
     cout<<"********************************************"<<endl;
     cout<<"in hadnleMessage: color: "<<color<<" " << "pos: "<<"("<<row<<","<<col<<")"<<endl;
+    board.excuteStep(row, col, color);
+    board.print();
 }
 
 //init your chess board here
 void Reversi::initChessBoard(){
-    
+    board.initBoard();
 }

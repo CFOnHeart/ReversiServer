@@ -1,216 +1,204 @@
 //
 //  Board.cpp
-//  ReversiClient
+//  ReversiClient-mac
 //
-//  Created by ganjun on 2018/3/6.
+//  Created by ganjun on 2018/5/17.
 //  Copyright © 2018年 ganjun. All rights reserved.
 //
 
 #include "Board.h"
-//up, up_right, right, down_right, down, down_left, left, up_left,
-int dx[DIR] = {0, 1, 1, 1, 0 , -1, -1, -1};
-int dy[DIR] = {1, 1, 0, -1, -1, -1, 0, 1};
-Board::Board(void)
-{
-    
-    resetBoard();
+
+Board::Board(){
+    memset(square, -1, sizeof(square));
 }
 
+Board::~Board(){}
 
-Board::~Board(void)
-{
+void Board::initBoard(){
+    memset(square, -1, sizeof(square));
+    square[3][3] = square[4][4] = 0;
+    square[3][4] = square[4][3] = 1;
 }
 
-//you should rewrite this function to get a better strategy
-void Board::step(int& row, int& col, int color){
-    
-    
-    //find a position can lazi. return
-    for(int x = 0; x < ROWS; x ++){
-        for(int y = 0; y < COLS; y ++){
-            if(canLazi(x, y, color)) {
-                row = x;
-                col = y;
+bool Board::inBoard(int row, int col){
+    return row>=0 && row<8 && col>=0 && col<8;
+}
+
+bool Board::canPlace(int row, int col, int color){
+    for(int i=0 ; i<8 ; i++){
+        int x = row + dir[i][0];
+        int y = col + dir[i][1];
+        if(inBoard(x, y) && square[x][y] == 1-color){
+            while(inBoard(x, y) && square[x][y] == 1-color){
+                x = x + dir[i][0];
+                y = y + dir[i][1];
             }
-        }
-    }
-}
-
-bool Board::lazi(int x, int y, int color){
-    
-    std::string str;
-    //cancel prohibion
-    for(int i = 0; i < ROWS; i ++){
-        for(int j = 0; j < COLS; j ++){
-            squares[i][j].cancelProhibition();
-            squares[i][j].print(str);
-        }
-        str += "\r\n";
-    }
-    
-    printf("%s\r\n", str.c_str());
-    
-    //travel all direction of position (x,y) to find the chessman confirms to reversi rules
-    for(int dir = 0; dir < DIR; dir ++){
-        if(countReversiInDirection(x, y , color, dir) > 0){
-            //move a distance in the direction dir
-            int pos_x = x + dx[dir];
-            int pos_y = y + dy[dir];
-            
-            //if the color is opposite to the chessman in the position(pos_x, pos_y)
-            while(inBoard(pos_x,pos_y) &&  squares[pos_x][pos_y].compareColor(color)){
-                squares[pos_x][pos_y].reversi();
-                pos_x += dx[dir];
-                pos_y += dy[dir];
-            }
-            
-        }
-    }
-    
-    //set prohibition
-    for(int dir = 0; dir < DIR; dir ++){
-        int pos_x = x + dx[dir];
-        int pos_y = y + dy[dir];
-        squares[pos_x][pos_y].setProhibition();
-        
-    }
-    
-    return squares[x][y].lazi(color);
-}
-
-// update pos (x,y) color
-void Board::updateColor(int x, int y, int color)
-{
-    squares[x][y].setColor(color);
-}
-
-//can player put down a chessman on position (x,y)
-bool Board::canLazi(int x, int y, int color){
-    //this square is not empty
-    if(!squares[x][y].isEmpty() ){
-        return false;
-    }
-    
-    bool lazi = false;
-    //travel all directions of the position (x, y)
-    for(int dir = 0; dir < DIR; dir ++){
-        if(countReversiInDirection(x, y, color, dir) > 0){
-            lazi = true;
-            break;
-        }
-    }
-    
-    return lazi;
-}
-
-
-/*player put down a chessman on position (x,y)
- can reversi some chessman in direction dir
- */
-int Board::countReversiInDirection(int x, int y, int color, int dir){
-    int ret = 0;
-    //the position move 1 distance unit in the direction dir
-    int pos_x = x + dx[dir], pos_y = y + dy[dir];
-    
-    bool reversi = false;
-    
-    //is there a chessman that has opposite color
-    bool opposite = false;
-    //is there a violation in the direction dir
-    bool violation = false;
-    
-    //travel neighbor in the direction dir
-    while(inBoard(pos_x, pos_y) && (!violation) && (!reversi) ){
-        switch(squares[pos_x][pos_y].compareColor(color)){
-                //colors are the same
-            case 0:
-                //there is some opposite color chessman between this position and target position then reversi is true
-                //there is no opposite color chessman between this position and target position then cannot reversi
-                (opposite)?reversi = true: violation = true;
-                break;
-                //colors are opposite
-            case 1:
-                opposite = true;
-                ret ++;
-                break;
-            default:
-                ret = 0;
-                violation = true;
-                break;
-        }
-        //move a distance in the direction dir
-        pos_x += dx[dir];
-        pos_y += dy[dir];
-    }
-    if(violation || !reversi){
-        ret = 0;
-    }
-    return ret;
-}
-
-/*set prohibition in the board
- *    in the position (x, y) a distance in direction up, right, down, left
- */
-void Board::setProhibition(int x, int y)
-{    //travel in the direction up, right, down, left
-    for(int dir = 0; dir < DIR; dir += 2){
-        //move a distance in the direction dir
-        int pos_x = x + dx[dir], pos_y = y + dy[dir];
-        if(inBoard(pos_x, pos_y) ){
-            squares[pos_x][pos_y].setProhibition();
-        }
-    }
-}
-
-//cencel prohibition in the board
-void Board::cancelProhibition(){
-    for(int x = 0; x < ROWS; x ++){
-        for(int y = 0; y < COLS; y ++){
-            squares[x][y].cancelProhibition();
-        }
-    }
-}
-
-//reset the board
-void Board::resetBoard(){
-    for(int x = 0; x < ROWS; x ++){
-        for(int y = 0; y < COLS; y ++){
-            //put black chessman on the position (3,3) (4,4)
-            if( (x == 3 && y == 3) || (x == 4 && y == 4) ){
-                squares[x][y].setColor(0);
-            }
-            //put white chessman on the position (3,4) (4,3)
-            else if( (x == 3 && y == 4) || (x == 4 && y == 3) ){
-                squares[x][y].setColor(1);
-            }
-            else{
-                squares[x][y].clear();
-            }
-        }
-    }
-}
-
-
-//exist a position that a chessman can lazi
-bool Board::existLazi(int color){
-    for(int i = 0; i < ROWS; i ++){
-        for(int j = 0; j < COLS; j ++){
-            if(canLazi(i,j,color)){
-                return true;
-            }
+            if(inBoard(x, y) && square[x][y] == color) return true;
         }
     }
     return false;
 }
 
-//print the total board
-void Board::print(){
-    std::string str;
-    for(int r = 0; r < ROWS; r ++){
-        for(int c = 0; c < COLS; c ++){
-            squares[r][c].print(str);
+
+vector<pii> Board::validSteps(int color){
+    vector<pii> valid_steps = vector<pii>();
+    for(int i=0 ; i<8 ; i++){
+        for(int j=0 ; j<8 ; j++){
+            if(square[i][j] == -1 && canPlace(i, j, color))
+                valid_steps.push_back(make_pair(i, j));
         }
-        str += "\n";
     }
-    printf("%s\n", str.c_str());
+    return valid_steps;
 }
+
+pii Board::step(int color){
+// random
+//    vector<pii> valid_steps = validSteps(color);
+//    if(valid_steps.size() == 0) return make_pair(-1, -1);
+//    int index = rand() % valid_steps.size();
+//    return valid_steps[index];
+    // max-min dfs
+    int row = -1 , col = -1;
+    dfs(4, true, color, row , col);
+    return make_pair(row, col);
+}
+
+void Board::excuteStep(int row, int col, int color){
+    if(row >= 0 && col >= 0){
+        for(int i=0 ; i<8 ; i++){
+            int x = row + dir[i][0];
+            int y = col + dir[i][1];
+            if(inBoard(x, y) && square[x][y] == 1-color){
+                while(inBoard(x, y) && square[x][y] == 1-color){
+                    x = x + dir[i][0];
+                    y = y + dir[i][1];
+                }
+                if(inBoard(x, y) && square[x][y] == color){
+                    while(true){
+                        x -= dir[i][0];
+                        y -= dir[i][1];
+                        square[x][y] = color;
+                        if(x == row && y == col) break;
+                    }
+                }
+            }
+        }
+    }
+    cancelProhibition();
+    setProhibition(row, col);
+}
+
+void Board::setProhibition(int row, int col){
+    for(int i=0 ; i<4 ; i++){
+        int x = row+dir[i][0];
+        int y = col+dir[i][1];
+        if(inBoard(x, y) && square[x][y]<0) square[x][y] = 2;
+    }
+}
+
+void Board::cancelProhibition(){
+    for(int i=0 ; i<8 ; i++){
+        for(int j=0 ; j<8 ; j++){
+            if(square[i][j] == 2) square[i][j] = -1;
+        }
+    }
+}
+
+void Board::print(){
+    for(int i=0 ; i<8 ; i++){
+        for(int j=0 ; j<8 ; j++){
+            if(square[i][j] == -1) cout<<" ";
+            else if(square[i][j] == 0) cout<<"b";
+            else if(square[i][j] == 1) cout<<"w";
+            else cout<<"x";
+        }
+        cout<<endl;
+    }
+}
+
+int Board::evaluate(int color){
+    int value = 0;
+    for(int i=0 ; i<8 ; i++){
+        for(int j=0 ; j<8 ; j++){
+            if(square[i][j] == color) value++;
+            else if(square[i][j] == 1-color) value--;
+        }
+    }
+    return value;
+}
+
+int Board::dfs(int depth, bool flag, int color, int &row, int &col) // flag: true -> maximum false -> minimum
+{
+    if(depth == 0) return evaluate(color);
+    vector<pii> valid_steps = validSteps(flag?color:1-color);
+    int temp[8][8] ;
+    for(int i=0 ; i<8 ; i++)
+        for(int j=0 ; j<8 ; j++)
+            temp[i][j] = square[i][j];
+        
+    int ret = INF;
+    if(flag) ret = -INF;
+    if(valid_steps.size() == 0){
+        int val = dfs(depth-1 , flag^1 , color , row , col);
+        if(flag){
+            if(ret < val){
+                ret = val;
+                if(depth == 4) row = -1 , col = -1;
+            }
+        }
+        else ret = min(ret , val);
+    }
+    else{
+        for(int i=0 ; i<valid_steps.size() ; i++){
+            excuteStep(valid_steps[i].first, valid_steps[i].second, flag?color:1-color);
+            int val = dfs(depth-1, flag^1, color, row, col);
+            if(flag){
+                if(ret < val){
+                    ret = val;
+                    if(depth == 4) row = valid_steps[i].first , col = valid_steps[i].second;
+                }
+            }
+            else ret = min(ret , val);
+            //reset
+            for(int i=0 ; i<8 ; i++)
+                for(int j=0 ; j<8 ; j++) square[i][j] = temp[i][j];
+        }
+    }
+    return ret;
+}
+
+bool Board::isEnd(){
+    for (int row=0 ; row<8 ; row++){
+        for (int col=0 ; col<8 ; col++){
+            if(square[row][col] == 0 || square[row][col] == 1) continue;
+            for(int color=0 ; color<2 ; color++){
+                for(int i=0 ; i<8 ; i++){
+                    int x = row + dir[i][0];
+                    int y = col + dir[i][1];
+                    if(inBoard(x, y) && square[x][y] == 1-color){
+                        while(inBoard(x, y) && square[x][y] == 1-color){
+                            x = x + dir[i][0];
+                            y = y + dir[i][1];
+                        }
+                        if(inBoard(x, y) && square[x][y] == color) return false;
+                    }
+                }
+            }
+        }
+    }
+    
+    return true;
+}
+
+uint64_t Board::encode(){
+    uint64_t code= 0;
+    for(int i=0 ; i<8 ; i++){
+        for(int j=0 ; j<8 ; j++){
+            int t = square[i][j];
+            if(t<0) t = 3;
+            code = code * 7 + t;
+        }
+    }
+    return code;
+}
+

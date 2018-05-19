@@ -1,79 +1,53 @@
 //
 //  Board.h
-//  ReversiClient
+//  ReversiClient-mac
 //
-//  Created by ganjun on 2018/3/6.
+//  Created by ganjun on 2018/5/17.
 //  Copyright © 2018年 ganjun. All rights reserved.
 //
 
 #ifndef Board_h
 #define Board_h
-
-#pragma once
-
-#include "Square.h"
-
-#define ROWS 8
-#define COLS 8
-#define DIR     8
-
-/* the class represent the chess board
- * board[ROWS}[COLS} represent the board
- * dx, dy represent vectors in DIR(8) directions
- */
-
-
-
-class Board
-{
-private:
-    Square squares[ROWS][COLS];
-    
+#include "stdio.h"
+#include "string.h"
+#include <vector>
+#include <iostream>
+using namespace std;
+#define pii pair<int,int>
+#define INF 0x7fffffff
+class Board{
 public:
-    Board(void);
-    ~Board(void);
+    int square[8][8]; //0 as black, 1 as white, -1 as null, 2 as prohibit
+    const int dir[8][2] = {{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
+    Board();
     
-    inline Square getSquare(int x, int y){
-        return squares[x][y];
-    }
+    ~Board();
     
-    void step(int& row, int& col, int color);
+    void initBoard();
     
-    //is position(x,y) in the board
-    inline bool inBoard(int x, int y){
-        return ( x >= 0 && x < ROWS && y >= 0 && y < COLS);
-    }
+    bool inBoard(int row , int col);
     
-    //put down a chessman on position (x,y)
-    bool lazi(int x, int y, int color);
+    bool canPlace(int row , int col , int color); // judge can put the color of chessman at (row, col)
     
-    // update pos (x,y) color
-    void updateColor(int x, int y, int color);
+    vector<pii> validSteps(int color);
     
-    //reset the board
-    void resetBoard();
+    pii step(int color);
     
-    //cencel prohibition in the board
+    void excuteStep(int row , int col , int color);
+    
     void cancelProhibition();
     
-    /*set prohibition in the board
-     *    in the position (x, y) a distance in direction up, right, down, left
-     */
-    void setProhibition(int x, int y);
+    void setProhibition(int row, int col);
     
-    //can player put down a chessman on position (x,y)
-    bool canLazi(int x, int y, int color);
-    //exist a position that a chessman can lazi
-    bool existLazi(int color);
-    
-    /*player put down a chessman on position (x,y)
-     can reversi some chessman in direction dir
-     return reversi chessman's count
-     */
-    int countReversiInDirection(int x, int y, int color, int dir);
-    
-    /*print the total board
-     */
     void print();
+    
+    int evaluate(int color);
+    
+    int dfs(int depth, bool flag, int color, int &row, int &col);
+    
+    bool isEnd(); // judge the round whether end
+    
+    uint64_t encode();
 };
+
 #endif /* Board_h */
